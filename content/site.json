@@ -1,0 +1,11 @@
+{
+    "name": "Цифра банк",
+    "baseUrl": "https://cifra-bank.ru",
+    "phones": {
+        "russia": "8 800 302 92 29",
+        "russiaHref": "tel:88003029229",
+        "moscow": "+7 495 249 11 62",
+        "moscowHref": "tel:+74952491162"
+    },
+    "email": "help@cifra-bank.ru"
+}

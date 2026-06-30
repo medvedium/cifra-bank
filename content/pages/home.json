@@ -1,0 +1,70 @@
+{
+  "slug": "/",
+  "seo": {
+    "title": "«Цифра банк» — официальный сайт: банковские продукты для физических и юридических лиц",
+    "description": "Официальный сайт «Цифра банк» — банковские услуги для физических и юридических лиц: дебетовые и кредитные карты, вклады, кредиты, расчетный счет для бизнеса, депозиты, зарплатные и корпоративные карты, валютный контроль, овердрафт."
+  },
+  "hero": {
+    "items": [
+      {
+        "mark": "СБЕРЕГАТЕЛЬНЫЙ ПРОДУКТ",
+        "title": "Вклад «Ключевой»",
+        "description": "Откройте вклад, привязанный к ключевой ставке ЦБ и получайте выгоду уже сегодня",
+        "cta": {
+          "href": "/deposits/#key",
+          "label": "Подробнее"
+        },
+        "imageHref": "",
+        "imageAlt": "",
+        "imageWidth": 0,
+        "imageHeight": 0,
+        "imageUrl": ""
+      }
+    ]
+  },
+  "products": {
+    "title": "Популярные продукты",
+    "items": [
+      {
+        "title": "Дебетовые карты\nс обслуживанием\nот 0₽ в месяц",
+        "href": "/service-packages",
+        "linkLabel": "Подробнее",
+        "imageHref": "",
+        "imageAlt": "",
+        "imageWidth": 0,
+        "imageHeight": 0,
+        "imageUrl": ""
+      },
+      {
+        "title": "Уникальная карта инвестора только в «Цифра банк»",
+        "href": "/card-invest",
+        "linkLabel":  "Подробнее",
+        "imageHref": "",
+        "imageAlt": "",
+        "imageWidth": 0,
+        "imageHeight": 0,
+        "imageUrl": ""
+      },
+      {
+        "title": "Вклады со ставкой до 13,25%",
+        "href": "/deposits",
+        "linkLabel":  "Подробнее",
+        "imageHref": "",
+        "imageAlt": "",
+        "imageWidth": 0,
+        "imageHeight": 0,
+        "imageUrl": ""
+      },
+      {
+        "title": "Ценности под надежной защитой в сейфовых ячейках",
+        "href": "/safe-boxes",
+        "linkLabel":  "Подробнее",
+        "imageHref": "",
+        "imageAlt": "",
+        "imageWidth": 0,
+        "imageHeight": 0,
+        "imageUrl": ""
+      }
+    ]
+  }
+}
