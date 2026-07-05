@@ -14,8 +14,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Цифра банк — учебный проект",
-  description: "Прототип сайта банка на Next.js",
+  metadataBase: new URL("https://cifra-bank.ru"),
+  title: {
+    default: "Цифра банк",
+    template: "%s",
+  },
 };
 
 export default function RootLayout({

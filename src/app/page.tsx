@@ -1,5 +1,12 @@
 import styles from "./page.module.scss";
 import {getHomePage, getSiteInfo} from "@/lib/content/loader";
+import {Metadata} from "next";
+import {buildPageMetadata} from "@/lib/seo/metadata";
+
+export async function generateMetadata(): Promise<Metadata> {
+    const page = await getHomePage();
+    return buildPageMetadata(page.seo, page.slug)
+}
 
 export default async function Home() {
     const [site, page] = await Promise.all([
