@@ -7,11 +7,46 @@ export default async function Home() {
         getHomePage()
     ]);
 
-    const slide = page.hero.items[0]
+    const slides = page.hero.items
+
     return (
         <main className={styles.main}>
-            <h1 className={styles.title}>{slide?.title}</h1>
-            <p className={styles.subtitle}>{site.email}</p>
+            <h1 className="visually-hidden">{site.name}</h1>
+            <section className={`${styles.hero} section`}>
+                <div className="container">
+                    {slides?.map((item, index) => (
+                        <div className={styles.heroItem} key={index}>
+                            <mark className={styles.heroMark}>{item.mark}</mark>
+                            <h2 className={styles.heroTitle}>{item.title}</h2>
+                            <p className={styles.heroText}>{item.description}                            </p>
+                            <div className={styles.heroAction}>
+                                {item.cta.href ? (
+                                    <a href={item.cta.href}
+                                       rel="noopener noreferrer">{item.cta.label}</a>
+                                ) : (
+                                    <button>{item.cta.label}</button>
+                                )}
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </section>
+
+            <section className={`${styles.products} section`}>
+                <div className="container">
+                    <h2 className="section__title">{page.products.title}</h2>
+                    <div className={styles.productsGrid}>
+                        {page.products.items?.map((item, index) => (
+                            <a href={item.href} rel="noopener noreferrer" key={index}>
+                                <h3 className={styles.productsItemTitle}>
+                                    {item.title}
+                                </h3>
+                                <span className={styles.productsItemLink}>{item.linkLabel}</span>
+                            </a>
+                        ))}
+                    </div>
+                </div>
+            </section>
         </main>
     );
 }
