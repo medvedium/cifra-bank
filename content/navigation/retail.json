@@ -1,0 +1,33 @@
+{
+    "audienceLabel": "Частным лицам",
+    "alternateAudience": {
+        "label": "Юридическим лицам",
+        "href": "/corporate"
+    },
+    "topLinks": [
+        {
+            "label": "Инвестиции",
+            "href": "https://cifra-broker.ru"
+        },
+        {
+            "label": "Private Banking",
+            "href": "/private-banking"
+        }
+    ],
+    "mainMenu": [
+        {
+            "label": "Карты",
+            "href": "/cards"
+        },
+        {
+            "label": "Сбережения",
+            "href": "/deposits"
+        }
+    ],
+    "footerSections": [
+        {
+            "title": "Продукты",
+            "links": [{ "label": "Карты", "href": "/cards" }]
+        }
+    ]
+}
