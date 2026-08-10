@@ -5,12 +5,17 @@
 .wrapper {
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
+	//justify-content: space-between;
 	min-height: 64px;
+	gap: 16px;
 }
 
 .logo {
 	display: inline-flex;
+}
+
+.topMenu {
+	flex-grow: 1;
 }
 
 .menu {

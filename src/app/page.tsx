@@ -3,7 +3,7 @@ import { getHomePage, getSiteInfo } from '@/lib/content/loader'
 import { Metadata } from 'next'
 import { buildPageMetadata } from '@/lib/seo/metadata'
 import SiteShell from '@/components/layout/SiteShell'
-import Hero from '@/components/features/Hero/Hero'
+import Hero from '@/components/features/Hero'
 
 export async function generateMetadata(): Promise<Metadata> {
     const page = await getHomePage()

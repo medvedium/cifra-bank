@@ -2,7 +2,7 @@
     "audienceLabel": "Частным лицам",
     "alternateAudience": {
         "label": "Юридическим лицам",
-        "href": "/corporate"
+        "href": "/service-packages"
     },
     "topLinks": [
         {
@@ -11,23 +11,23 @@
         },
         {
             "label": "Private Banking",
-            "href": "/private-banking"
+            "href": "/service-packages"
         }
     ],
     "mainMenu": [
         {
             "label": "Карты",
-            "href": "/cards"
+            "href": "/service-packages"
         },
         {
             "label": "Сбережения",
-            "href": "/deposits"
+            "href": "/service-packages"
         }
     ],
     "footerSections": [
         {
             "title": "Продукты",
-            "links": [{ "label": "Карты", "href": "/cards" }]
+            "links": [{ "label": "Карты", "href": "/service-packages" }]
         }
     ]
 }

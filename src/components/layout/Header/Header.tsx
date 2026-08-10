@@ -16,21 +16,23 @@ export default function Header({ navigation, site }: HeaderProps) {
                     <Link href="/">
                         <Image src={'/logo.svg'} alt={site.name} width={145} height={20} />
                     </Link>
-                    <nav>
+                    <nav className={styles.topMenu}>
                         {navigation.topLinks.map((link) =>
                             link.href.startsWith('http') ? (
                                 <a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer">
                                     {link.label}
                                 </a>
                             ) : (
-                                <Link key={link.href} href={link.href}></Link>
+                                <Link key={link.label} href={link.href}>
+                                    {link.label}
+                                </Link>
                             )
                         )}
                     </nav>
                     <Link href={site.phones.russiaHref}>{site.phones.russia}</Link>
                 </div>
                 <div className={styles.wrapper}>
-                    <nav>
+                    <nav className={styles.userType}>
                         <span>{navigation.audienceLabel}</span>
                         <Link href={navigation.alternateAudience.href}>{navigation.alternateAudience.label}</Link>
                     </nav>
@@ -41,7 +43,7 @@ export default function Header({ navigation, site }: HeaderProps) {
                                     {item.label}
                                 </a>
                             ) : (
-                                <Link className={styles.menuLink} href={item.href} key={item.href}>
+                                <Link className={styles.menuLink} href={item.href} key={item.label}>
                                     {item.label}
                                 </Link>
                             )

@@ -79,3 +79,39 @@ export interface MenuItem {
     label: string
     href: string
 }
+
+export interface ServicePackagesPage {
+    slug: string
+    seo: Seo
+    hero: {
+        items: HeroItem[]
+    }
+    cards: {
+        tabs: TabItem[]
+        items: ServicePackagesCard[]
+    }
+}
+
+export interface ServicePackagesCard {
+    type: string
+    title: string
+    description: string
+    features: ServicePackagesCardFeatures[]
+    cta: Button[]
+}
+
+export interface Button {
+    href: string
+    label: string
+    classList: string
+}
+
+export interface ServicePackagesCardFeatures {
+    value: string
+    description: string
+}
+
+export interface TabItem {
+    id: string
+    label: string
+}
