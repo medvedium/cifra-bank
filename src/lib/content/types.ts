@@ -66,6 +66,7 @@ export interface Navigation {
         href: string
     }
     topLinks: MenuItem[]
+    topSideLinks: MenuItem[]
     mainMenu: MenuItem[]
     footerSections: FooterSection[]
 }
@@ -86,8 +87,9 @@ export interface ServicePackagesPage {
     hero: {
         items: HeroItem[]
     }
+    tabs: TabItem[]
+    tabContent: Record<string, { blocks: TabBlock[] }>
     cards: {
-        tabs: TabItem[]
         items: ServicePackagesCard[]
     }
 }
@@ -115,3 +117,28 @@ export interface TabItem {
     id: string
     label: string
 }
+
+export interface AdvantagesBlock {
+    type: 'advantages'
+    title: string
+    featured: Array<{
+        title: string
+        description: string
+        imageUrl: string
+        imageAlt: string
+    }>
+    items: Array<{
+        title: string
+        description: string
+    }>
+}
+export interface ComboBannerBlock {
+    type: 'comboBanner'
+    title: string
+    description: string
+    href: string
+    linkLabel: string
+    imageUrl: string
+    imageAlt: string
+}
+export type TabBlock = AdvantagesBlock | ComboBannerBlock

@@ -1,0 +1,3 @@
+import ServicePackagesTabsSection from './ServicePackagesTabsSection'
+
+export default ServicePackagesTabsSection

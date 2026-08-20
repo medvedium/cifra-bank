@@ -22,11 +22,62 @@
             }
         ]
     },
+    "tabs": [
+        { "id": "digital", "label": "Цифровая карта" },
+        { "id": "physical", "label": "Дебетовые карты" }
+    ],
+    "tabContent": {
+        "digital": {
+            "blocks": [
+                {
+                    "type": "advantages",
+                    "title": "Преимущества",
+                    "featured": [
+                        {
+                            "title": "Выпуск и обслуживание бесплатно",
+                            "description": "Выпуск в течение 15 минут",
+                            "imageUrl": "/service-packages/assets/img-1-advantages-banner.png",
+                            "imageAlt": "Выпуск и обслуживание бесплатно"
+                        },
+                        {
+                            "title": "Все привилегии МИР",
+                            "description": "Доступны все бонусы и кешбэки МИР",
+                            "imageUrl": "/service-packages/assets/img-2-advantages-banner.png",
+                            "imageAlt": "Все привилегии МИР"
+                        }
+                    ],
+                    "items": [
+                        {
+                            "title": "Переводы без комиссии",
+                            "description": "Бесплатно до 100 000 ₽ в месяц по СБП на свои счета"
+                        },
+                        {
+                            "title": "Оплачивайте покупки",
+                            "description": "Карту можно привязать к МИР Pay"
+                        },
+                        {
+                            "title": "Лимит 100 000 ₽",
+                            "description": "На операции по карте"
+                        }
+                    ]
+                }
+            ]
+        },
+        "physical": {
+            "blocks": [
+                {
+                    "type": "comboBanner",
+                    "title": "Подключайте Комбо Цифра счёт к карте",
+                    "description": "Кредитный лимит к вашей карте с беспроцентным периодом до 55 дней",
+                    "href": "/combo/",
+                    "linkLabel": "Подробнее",
+                    "imageUrl": "/service-packages/assets/img-55days-banner.png",
+                    "imageAlt": "Комбо Цифра счёт"
+                }
+            ]
+        }
+    },
     "cards": {
-        "tabs": [
-            { "id": "digital", "label": "Цифровая карта" },
-            { "id": "physical", "label": "Дебетовые карты" }
-        ],
         "items": [
             {
                 "type": "digital",

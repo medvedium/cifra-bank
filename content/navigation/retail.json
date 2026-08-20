@@ -10,8 +10,18 @@
             "href": "https://cifra-broker.ru"
         },
         {
+            "label": "Банк",
+            "href": "/"
+        },
+        {
             "label": "Private Banking",
             "href": "/service-packages"
+        }
+    ],
+    "topSideLinks": [
+        {
+            "label": "Интернет-банк",
+            "href": "https://client.cifra-bank.ru/auth/welcome"
         }
     ],
     "mainMenu": [

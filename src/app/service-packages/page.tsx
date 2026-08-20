@@ -3,7 +3,7 @@ import { getServicePackagesPage, getSiteInfo } from '@/lib/content/loader'
 import { buildPageMetadata } from '@/lib/seo/metadata'
 import Hero from '@/components/features/Hero'
 import SiteShell from '@/components/layout/SiteShell'
-import CardTabsSection from '@/components/features/CardTabsSection'
+import ServicePackagesTabsSection from '@/components/features/ServicePackages/ServicePackagesTabsSection'
 
 export async function generateMetadata(): Promise<Metadata> {
     const page = await getServicePackagesPage()
@@ -12,7 +12,6 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function ServicePackagesPage() {
     const [site, page] = await Promise.all([getSiteInfo(), getServicePackagesPage()])
-    console.log('Generated page', page)
 
     return (
         <SiteShell audience="retail">
@@ -22,7 +21,7 @@ export default async function ServicePackagesPage() {
 
             <section className="section">
                 <div className="container">
-                    <CardTabsSection tabs={page.cards.tabs} cards={page.cards.items} defaultId={'digital'} />
+                    <ServicePackagesTabsSection tabs={page.tabs} cards={page.cards.items} defaultId={'digital'} tabContent={page.tabContent} />
                 </div>
             </section>
         </SiteShell>

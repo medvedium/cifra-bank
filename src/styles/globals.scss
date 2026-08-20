@@ -2,6 +2,7 @@
   --color-background: #ffffff;
   --color-foreground: #171717;
   --color-muted: #64748b;
+  --color-primary: #0ae15f;
   --font-sans: var(--font-geist-sans), system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), monospace;
 }
@@ -59,7 +60,8 @@ body {
 }
 
 .container {
-  max-width: 1240px;
+  max-width: 1200px;
+  width: 100%;
   padding-inline: 40px;
   margin-inline: auto;
 }
