@@ -60,15 +60,17 @@ export interface HomeProduct {
 }
 
 export interface Navigation {
-    audienceLabel: string
-    alternateAudience: {
-        label: string
-        href: string
-    }
+    audience: AudienceItem[]
     topLinks: MenuItem[]
     topSideLinks: MenuItem[]
     mainMenu: MenuItem[]
     footerSections: FooterSection[]
+}
+
+export interface AudienceItem {
+    id: string
+    label: string
+    href: string
 }
 
 export interface FooterSection {
@@ -79,6 +81,7 @@ export interface FooterSection {
 export interface MenuItem {
     label: string
     href: string
+    children?: MenuItem[]
 }
 
 export interface ServicePackagesPage {

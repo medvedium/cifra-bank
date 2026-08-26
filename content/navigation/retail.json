@@ -1,9 +1,16 @@
 {
-    "audienceLabel": "Частным лицам",
-    "alternateAudience": {
-        "label": "Юридическим лицам",
-        "href": "/service-packages"
-    },
+    "audience": [
+        {
+            "id": "retail",
+            "label": "Частным лицам",
+            "href": "/"
+        },
+        {
+            "id": "business",
+            "label": "Юридическим лицам",
+            "href": "/service-packages"
+        }
+    ],
     "topLinks": [
         {
             "label": "Инвестиции",

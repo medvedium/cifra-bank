@@ -1,3 +1,5 @@
+@use '@/styles/breakpoints' as *;
+
 .root {
 	display: flex;
 	flex-wrap: nowrap;
@@ -13,11 +15,11 @@
 	background: #000;
 	border-radius: 16px;
 
-	@media (min-width: 768px) {
+	@include from(md) {
 		padding: 48px 48px 0;
 	}
 
-	@media (min-width: 1280px) {
+	@include from(xl) {
 		padding-top: 0;
 	}
 }
@@ -25,7 +27,7 @@
 .content {
 	padding-top: 0;
 
-	@media (min-width: 1280px) {
+	@include from(xl) {
 		padding-top: 48px;
 	}
 }
@@ -37,7 +39,7 @@
 
 	color: #fff;
 
-	font-family: Stolzl, sans-serif;
+	font-family: var(--font-heading);
 	font-size: 26px;
 	font-weight: 500;
 	line-height: 32px;
@@ -53,7 +55,7 @@
 	font-size: 16px;
 	line-height: normal;
 
-	@media (min-width: 768px) {
+	@include from(md) {
 		font-size: 18px;
 		line-height: 24px;
 	}

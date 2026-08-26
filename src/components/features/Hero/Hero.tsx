@@ -1,6 +1,6 @@
 import styles from './Hero.module.scss'
 import { HeroItem } from '@/lib/content/types'
-import Link from 'next/link'
+import Button from '@/components/ui/Button'
 
 interface HeroProps {
     slides: HeroItem[]
@@ -16,17 +16,9 @@ export default function Hero({ slides }: HeroProps) {
                         <h2 className={styles.heroTitle}>{item.title}</h2>
                         <p className={styles.heroText}>{item.description} </p>
                         <div className={styles.heroAction}>
-                            {item.cta.href ? (
-                                item.cta.href.startsWith('http') ? (
-                                    <a href={item.cta.href} rel="noopener noreferrer">
-                                        {item.cta.label}
-                                    </a>
-                                ) : (
-                                    <Link href={item.cta.href}>{item.cta.label}</Link>
-                                )
-                            ) : (
-                                <button>{item.cta.label}</button>
-                            )}
+                            <Button color={'primary'} href={item.cta.href}>
+                                {item.cta.label}
+                            </Button>
                         </div>
                     </div>
                 ))}

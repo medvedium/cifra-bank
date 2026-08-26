@@ -17,7 +17,7 @@ export async function getSiteInfo(): Promise<SiteInfo> {
 }
 
 // Получение JSON навигации
-export async function getNavigation(audience: 'retail'): Promise<Navigation> {
+export async function getNavigation(audience: string): Promise<Navigation> {
     return readJson(`navigation/${audience}.json`)
 }
 

@@ -5,7 +5,7 @@ import { getNavigation, getSiteInfo } from '@/lib/content/loader'
 
 interface SiteShellProps {
     children: ReactNode
-    audience: "retail"
+    audience: string
 }
 
 export default async function SiteShell ({ audience, children }: SiteShellProps) {
@@ -15,7 +15,7 @@ export default async function SiteShell ({ audience, children }: SiteShellProps)
     ])
     return (
         <>
-            <Header navigation={navigation} site={site} />
+            <Header navigation={navigation} site={site} audience={audience} />
             <main className={"main"}>
                 {children}
             </main>

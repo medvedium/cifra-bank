@@ -1,0 +1,189 @@
+@forward 'breakpoints';
+@use 'breakpoints' as *;
+
+:root {
+	// Text
+	--text-main: #212a34;
+	--text-dark: #212a34;
+	--text-secondary: #6b7782;
+	--text-third: #9798a0;
+	--text-light: #fafbfc;
+	--text-green: #0ae15f;
+	--text-red: #e97070;
+	--text-disabled: #b2b7ba;
+	--text-link: #01a642;
+
+	// Icons
+	--icons-main: #212a34;
+	--icons-secondary: #6b7782;
+	--icons-light: #fafbfc;
+	--icons-green: #33e771;
+	--icons-dark-green: #01a642;
+	--icons-red: #e97070;
+	--icons-disabled: #b2b7ba;
+
+	// Background
+	--background-main: #ffffff;
+	--background-secondary: #f5f5f8;
+	--background-third: #f3f3f5;
+	--background-control-main: #292c33;
+	--background-disabled: #f6f7f8;
+	--background-primary: #0ae15f;
+	--background-light-green: #e7f8ee;
+	--background-blue: #f8faff;
+	--background-hint: #f1f1f5;
+	--background-light-red: #fcebeb;
+	--background-overlay: rgb(0 0 0 / 50%);
+
+	// Lines
+	--lines-light-grey: #f5f5f8;
+	--lines-grey: #e9e9ef;
+	--lines-dark-grey: #d3d5d9;
+	--lines-controls: #c1c4c8;
+	--lines-primary: #33e771;
+	--lines-red: #e97070;
+
+	// Aliases
+	--color-background: var(--background-main);
+	--color-foreground: var(--text-main);
+	--color-gray-border: var(--lines-grey);
+	--color-primary: var(--text-green);
+	--color-muted: var(--text-secondary);
+	--button-focus-outline: var(--text-link);
+
+	// Button
+	--button-radius: 8px;
+	--button-hover-overlay: rgba(33, 42, 52, 0.05);
+	--button-disabled-opacity: 0.4;
+
+	// Layout
+	--spacing-section: 64px;
+	--container-max-width: 1200px;
+
+	// Fonts
+	--font-heading: var(--font-stolzl), system-ui, sans-serif;
+	--font-main: var(--font-gt-america), system-ui, sans-serif;
+
+	// Headers — Stolzl Medium (Mobile)
+	--h1-size: 28px;
+	--h1-line-height: 32px;
+	--h1-weight: 500;
+
+	--h2-size: 24px;
+	--h2-line-height: 28px;
+	--h2-weight: 500;
+
+	--h3-size: 20px;
+	--h3-line-height: 24px;
+	--h3-weight: 500;
+
+	--h4-size: 16px;
+	--h4-line-height: 20px;
+	--h4-weight: 500;
+
+	--h5-size: 14px;
+	--h5-line-height: 18px;
+	--h5-weight: 500;
+
+	--h6-size: 12px;
+	--h6-line-height: 16px;
+	--h6-weight: 500;
+
+	// Text — GT America (Mobile)
+	--t1-size: 16px;
+	--t1-line-height: 20px;
+	--t1-weight: 400;
+
+	--t2-size: 14px;
+	--t2-line-height: 20px;
+	--t2-weight: 400;
+
+	--t3-size: 12px;
+	--t3-line-height: 16px;
+	--t3-weight: 400;
+
+	--caption-size: 12px;
+	--caption-line-height: 16px;
+	--caption-weight: 500;
+	--caption-letter-spacing: 0.06em;
+
+	// Buttons — GT America Medium (Mobile)
+	--button-large-size: 16px;
+	--button-large-line-height: 20px;
+	--button-small-size: 14px;
+	--button-small-line-height: 16px;
+	--button-weight: 500;
+}
+
+@include from(md) {
+	:root {
+		--h1-size: 48px;
+		--h1-line-height: 58px;
+
+		--h2-size: 40px;
+		--h2-line-height: 44px;
+
+		--h3-size: 32px;
+		--h3-line-height: 36px;
+
+		--h4-size: 24px;
+		--h4-line-height: 28px;
+
+		--h5-size: 18px;
+		--h5-line-height: 24px;
+
+		--h6-size: 16px;
+		--h6-line-height: 20px;
+
+		--t1-size: 18px;
+		--t1-line-height: 24px;
+
+		--button-large-size: 18px;
+		--button-large-line-height: 24px;
+
+		--button-small-size: 14px;
+		--button-small-line-height: 18px;
+	}
+}
+
+[data-theme='dark'] {
+	// Text
+	--text-main: #f0f6f9;
+	--text-secondary: #9daab4;
+	--text-third: #4e5d6a;
+	--text-light: #f0f6f9;
+	--text-green: #33e771;
+	--text-red: #a44848;
+	--text-disabled: #5f676d;
+	--text-link: #01923a;
+
+	// Icons
+	--icons-main: #f0f6f9;
+	--icons-secondary: #9daab4;
+	--icons-light: #f0f6f9;
+	--icons-green: #33e771;
+	--icons-dark-green: #01923a;
+	--icons-red: #a44848;
+	--icons-disabled: #5f676d;
+
+	// Background
+	--background-main: #131a20;
+	--background-secondary: #1c2731;
+	--background-third: #2c2d31;
+	--background-control-main: #525761;
+	--background-disabled: #282a2e;
+	--background-primary: #33e771;
+	--background-light-green: #1a3128;
+	--background-blue: #24303f;
+	--background-hint: #1a242d;
+	--background-light-red: #412528;
+	--background-overlay: rgb(9 89 42 / 60%);
+
+	// Lines
+	--lines-light-grey: #212a34;
+	--lines-grey: #2c3c4a;
+	--lines-dark-grey: #737577;
+	--lines-controls: #c1c4c8;
+	--lines-primary: #33e771;
+	--lines-red: #a44848;
+}
