@@ -1,20 +1,19 @@
 import styles from './page.module.scss'
-import { getHomePage, getSiteInfo } from '@/lib/content/loader'
+import { getCorporateHomePage, getSiteInfo } from '@/lib/content/loader'
 import { Metadata } from 'next'
 import { buildPageMetadata } from '@/lib/seo/metadata'
-import SiteShell from '@/components/layout/SiteShell'
 import Hero from '@/components/features/Hero'
 
 export async function generateMetadata(): Promise<Metadata> {
-    const page = await getHomePage()
+    const page = await getCorporateHomePage()
     return buildPageMetadata(page.seo, page.slug)
 }
 
 export default async function Home() {
-    const [site, page] = await Promise.all([getSiteInfo(), getHomePage()])
+    const [site, page] = await Promise.all([getSiteInfo(), getCorporateHomePage()])
 
     return (
-        <SiteShell audience="retail">
+        <>
             <h1 className="visually-hidden">{site.name}</h1>
 
             <Hero slides={page.hero.items} />
@@ -32,6 +31,6 @@ export default async function Home() {
                     </div>
                 </div>
             </section>
-        </SiteShell>
+        </>
     )
 }

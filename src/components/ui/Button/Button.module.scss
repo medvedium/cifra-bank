@@ -32,6 +32,13 @@
     line-height: var(--button-small-line-height);
 }
 
+.xs {
+    height: 40px;
+    padding: 10px 16px;
+    font-size: var(--button-small-size);
+    line-height: var(--button-small-line-height);
+}
+
 // Colors × Variant
 .contained.primary {
     background: var(--background-primary);
