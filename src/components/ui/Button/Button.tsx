@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 type ButtonColor = 'primary' | 'secondary' | 'white'
 type ButtonVariant = 'contained' | 'text'
-type ButtonSize = 'large' | 'small'
+type ButtonSize = 'large' | 'small' | 'xs'
 
 interface ButtonProps {
     children: React.ReactNode

@@ -1,0 +1,70 @@
+{
+    "slug": "/corporate",
+    "seo": {
+        "title": "Открыть счет для юридического лица в банке",
+        "description": "Официальный сайт «Цифра банк» — банковские услуги для физических и юридических лиц: дебетовые и кредитные карты, вклады, кредиты, расчетный счет для бизнеса, депозиты, зарплатные и корпоративные карты, валютный контроль, овердрафт."
+    },
+    "hero": {
+        "items": [
+            {
+                "mark": "Банк без границ",
+                "title": "Стать партнёром",
+                "description": "Рекомендуйте РКО нашего банка, отправляйте заявку через личный кабинет агента и получайте вознаграждение без ограничений",
+                "cta": {
+                    "href": "/rko",
+                    "label": "Отправить заявку"
+                },
+                "imageHref": "",
+                "imageAlt": "",
+                "imageWidth": 0,
+                "imageHeight": 0,
+                "imageUrl": ""
+            }
+        ]
+    },
+    "products": {
+        "title": "Популярные продукты",
+        "items": [
+            {
+                "title": "Дебетовые карты с обслуживанием от 0₽ в месяц",
+                "href": "/service-packages",
+                "linkLabel": "Подробнее",
+                "imageHref": "",
+                "imageAlt": "",
+                "imageWidth": 0,
+                "imageHeight": 0,
+                "imageUrl": ""
+            },
+            {
+                "title": "Уникальная карта инвестора только в «Цифра банк»",
+                "href": "/card-invest",
+                "linkLabel": "Подробнее",
+                "imageHref": "",
+                "imageAlt": "",
+                "imageWidth": 0,
+                "imageHeight": 0,
+                "imageUrl": ""
+            },
+            {
+                "title": "Вклады со ставкой до 13,25%",
+                "href": "/deposits",
+                "linkLabel": "Подробнее",
+                "imageHref": "",
+                "imageAlt": "",
+                "imageWidth": 0,
+                "imageHeight": 0,
+                "imageUrl": ""
+            },
+            {
+                "title": "Ценности под надежной защитой в сейфовых ячейках",
+                "href": "/safe-boxes",
+                "linkLabel": "Подробнее",
+                "imageHref": "",
+                "imageAlt": "",
+                "imageWidth": 0,
+                "imageHeight": 0,
+                "imageUrl": ""
+            }
+        ]
+    }
+}

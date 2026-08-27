@@ -33,11 +33,15 @@
     ],
     "mainMenu": [
         {
-            "label": "Карты",
+            "label": "Расчетный счет",
+            "href": "/corporate/rko"
+        },
+        {
+            "label": "Валютный контроль",
             "href": "/service-packages"
         },
         {
-            "label": "Сбережения",
+            "label": "Карты",
             "href": "/service-packages"
         }
     ],

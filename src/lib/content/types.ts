@@ -26,6 +26,15 @@ export interface HomePage {
     products: Products
 }
 
+export interface CorporateHomePage {
+    slug: string
+    seo: Seo
+    hero: {
+        items: HeroItem[]
+    }
+    products: Products
+}
+
 export interface Products {
     title: string
     items: HomeProduct[]

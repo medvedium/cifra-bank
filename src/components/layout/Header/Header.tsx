@@ -11,11 +11,13 @@ interface HeaderProps {
 }
 
 export default function Header({ navigation, site, audience }: HeaderProps) {
+    const homeHref = navigation.audience.find((item) => item.id === audience)?.href ?? '/'
+
     return (
         <header className={styles.header}>
             <div className="container">
                 <div className={styles.wrapper}>
-                    <Link href="/" className={styles.logo} aria-label={site.name}>
+                    <Link href={homeHref} className={styles.logo} aria-label={site.name}>
                         <Logo />
                     </Link>
                     <nav className={styles.topMenu}>
@@ -33,13 +35,13 @@ export default function Header({ navigation, site, audience }: HeaderProps) {
                     </nav>
 
                     <div className={styles.links}>
-                        <Button size="small" color="white" href="/offices-and-atms">
+                        <Button size="xs" color="white" href="/offices-and-atms">
                             Офисы и банкоматы
                         </Button>
-                        <Button size="small" color="secondary" href="https://client.cifra-bank.ru">
+                        <Button size="xs" color="secondary" href="https://client.cifra-bank.ru">
                             Интернет-банк
                         </Button>
-                        <Button size="small" color={'primary'}>
+                        <Button size="xs" color={'primary'}>
                             Открыть счёт
                         </Button>
                     </div>
