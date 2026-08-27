@@ -1,4 +1,4 @@
-import { HomePage, Navigation, SiteInfo } from '@/lib/content/types'
+import { CorporateHomePage, HomePage, Navigation, ServicePackagesPage, SiteInfo } from '@/lib/content/types'
 import { readFile } from 'node:fs/promises'
 import path from 'node:path'
 
@@ -17,11 +17,22 @@ export async function getSiteInfo(): Promise<SiteInfo> {
 }
 
 // Получение JSON навигации
-export async function getNavigation(audience: 'retail'): Promise<Navigation> {
+export async function getNavigation(audience: string): Promise<Navigation> {
     return readJson(`navigation/${audience}.json`)
 }
 
 // Получение данных для страниц сайта
+
+// 1. Retail
 export async function getHomePage(): Promise<HomePage> {
     return readJson<HomePage>('pages/home.json')
+}
+
+export async function getServicePackagesPage(): Promise<ServicePackagesPage> {
+    return readJson<ServicePackagesPage>('pages/service-packages.json')
+}
+
+// 2. Corporate
+export async function getCorporateHomePage(): Promise<HomePage> {
+    return readJson<CorporateHomePage>('pages/corporate/mainpage.json')
 }

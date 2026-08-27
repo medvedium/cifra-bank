@@ -1,13 +1,10 @@
-import type {Seo} from "@/lib/content/types";
-import {Metadata} from "next";
-import {getSiteInfo} from "@/lib/content/loader";
+import type { Seo } from '@/lib/content/types'
+import { Metadata } from 'next'
+import { getSiteInfo } from '@/lib/content/loader'
 
-export async function buildPageMetadata(
-    seo: Seo,
-    slug: string
-): Promise<Metadata> {
-    const site = await getSiteInfo();
-    const url = `${site.baseUrl}${slug}`;
+export async function buildPageMetadata(seo: Seo, slug: string): Promise<Metadata> {
+    const site = await getSiteInfo()
+    const url = `${site.baseUrl}${slug}`
 
     return {
         title: seo.title,
@@ -20,8 +17,8 @@ export async function buildPageMetadata(
             description: seo.description,
             url,
             siteName: site.name,
-            locale: "ru_RU",
-            type: 'website',
+            locale: 'ru_RU',
+            type: 'website'
         }
     }
 }

@@ -26,6 +26,15 @@ export interface HomePage {
     products: Products
 }
 
+export interface CorporateHomePage {
+    slug: string
+    seo: Seo
+    hero: {
+        items: HeroItem[]
+    }
+    products: Products
+}
+
 export interface Products {
     title: string
     items: HomeProduct[]
@@ -60,14 +69,17 @@ export interface HomeProduct {
 }
 
 export interface Navigation {
-    audienceLabel: string
-    alternateAudience: {
-        label: string
-        href: string
-    }
+    audience: AudienceItem[]
     topLinks: MenuItem[]
+    topSideLinks: MenuItem[]
     mainMenu: MenuItem[]
     footerSections: FooterSection[]
+}
+
+export interface AudienceItem {
+    id: string
+    label: string
+    href: string
 }
 
 export interface FooterSection {
@@ -78,4 +90,67 @@ export interface FooterSection {
 export interface MenuItem {
     label: string
     href: string
+    children?: MenuItem[]
 }
+
+export interface ServicePackagesPage {
+    slug: string
+    seo: Seo
+    hero: {
+        items: HeroItem[]
+    }
+    tabs: TabItem[]
+    tabContent: Record<string, { blocks: TabBlock[] }>
+    cards: {
+        items: ServicePackagesCard[]
+    }
+}
+
+export interface ServicePackagesCard {
+    type: string
+    title: string
+    description: string
+    features: ServicePackagesCardFeatures[]
+    cta: Button[]
+}
+
+export interface Button {
+    href: string
+    label: string
+    classList: string
+}
+
+export interface ServicePackagesCardFeatures {
+    value: string
+    description: string
+}
+
+export interface TabItem {
+    id: string
+    label: string
+}
+
+export interface AdvantagesBlock {
+    type: 'advantages'
+    title: string
+    featured: Array<{
+        title: string
+        description: string
+        imageUrl: string
+        imageAlt: string
+    }>
+    items: Array<{
+        title: string
+        description: string
+    }>
+}
+export interface ComboBannerBlock {
+    type: 'comboBanner'
+    title: string
+    description: string
+    href: string
+    linkLabel: string
+    imageUrl: string
+    imageAlt: string
+}
+export type TabBlock = AdvantagesBlock | ComboBannerBlock

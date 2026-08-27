@@ -1,0 +1,224 @@
+{
+    "slug": "/service-packages",
+    "seo": {
+        "title": "Дебетовые карты: оформить онлайн | «Цифра банк»",
+        "description": "Дебетовые карты с бесплатным обслуживанием для физических лиц заказать банковскую карту в «Цифра банк» онлайн оформление, быстрое решение по заявке."
+    },
+    "hero": {
+        "items": [
+            {
+                "mark": "ЦИФРА КАРТЫ",
+                "title": "Цифра карта: удобство, скорость и безопасность в каждом платеже",
+                "description": "Конвертация валют внутри одной карты\nОбслуживание от 0 ₽",
+                "cta": {
+                    "href": "#request",
+                    "label": "Оформить карту"
+                },
+                "imageHref": "",
+                "imageAlt": "",
+                "imageWidth": 0,
+                "imageHeight": 0,
+                "imageUrl": ""
+            }
+        ]
+    },
+    "tabs": [
+        { "id": "digital", "label": "Цифровая карта" },
+        { "id": "physical", "label": "Дебетовые карты" }
+    ],
+    "tabContent": {
+        "digital": {
+            "blocks": [
+                {
+                    "type": "advantages",
+                    "title": "Преимущества",
+                    "featured": [
+                        {
+                            "title": "Выпуск и обслуживание бесплатно",
+                            "description": "Выпуск в течение 15 минут",
+                            "imageUrl": "/service-packages/assets/img-1-advantages-banner.png",
+                            "imageAlt": "Выпуск и обслуживание бесплатно"
+                        },
+                        {
+                            "title": "Все привилегии МИР",
+                            "description": "Доступны все бонусы и кешбэки МИР",
+                            "imageUrl": "/service-packages/assets/img-2-advantages-banner.png",
+                            "imageAlt": "Все привилегии МИР"
+                        }
+                    ],
+                    "items": [
+                        {
+                            "title": "Переводы без комиссии",
+                            "description": "Бесплатно до 100 000 ₽ в месяц по СБП на свои счета"
+                        },
+                        {
+                            "title": "Оплачивайте покупки",
+                            "description": "Карту можно привязать к МИР Pay"
+                        },
+                        {
+                            "title": "Лимит 100 000 ₽",
+                            "description": "На операции по карте"
+                        }
+                    ]
+                }
+            ]
+        },
+        "physical": {
+            "blocks": [
+                {
+                    "type": "comboBanner",
+                    "title": "Подключайте Комбо Цифра счёт к карте",
+                    "description": "Кредитный лимит к вашей карте с беспроцентным периодом до 55 дней",
+                    "href": "/combo/",
+                    "linkLabel": "Подробнее",
+                    "imageUrl": "/service-packages/assets/img-55days-banner.png",
+                    "imageAlt": "Комбо Цифра счёт"
+                }
+            ]
+        }
+    },
+    "cards": {
+        "items": [
+            {
+                "type": "digital",
+                "title": "Цифровая карта",
+                "description": "Онлайн без посещения отделения банка",
+                "features": [
+                    {
+                        "value": "0 ₽",
+                        "description": "Обслуживание"
+                    },
+                    {
+                        "value": "15 мин",
+                        "description": "Время на выпуск"
+                    },
+                    {
+                        "value": "550 000 ₽",
+                        "description": "Лимит на остаток"
+                    }
+                ],
+                "cta": [
+                    {
+                        "href": "#request",
+                        "label": "Оформить карту",
+                        "classList": "primary"
+                    },
+                    {
+                        "href": "#request",
+                        "label": "Подробнее",
+                        "classList": "gray"
+                    }
+                ],
+                "imageHref": "",
+                "imageAlt": "",
+                "imageWidth": 0,
+                "imageHeight": 0,
+                "imageUrl": ""
+            },
+            {
+                "type": "physical",
+                "title": "Базовая Цифра",
+                "description": "Тариф с базовыми функциями для начинающих пользователей банка",
+                "features": [
+                    {
+                        "value": "0 ₽",
+                        "description": "Обслуживание"
+                    },
+                    {
+                        "value": "До 150 000 ₽",
+                        "description": "Наличных в день"
+                    }
+                ],
+                "cta": [
+                    {
+                        "href": "#request",
+                        "label": "Оформить карту",
+                        "classList": "primary"
+                    },
+                    {
+                        "href": "#request",
+                        "label": "Подробнее",
+                        "classList": "gray"
+                    }
+                ],
+                "imageHref": "",
+                "imageAlt": "",
+                "imageWidth": 0,
+                "imageHeight": 0,
+                "imageUrl": ""
+            },
+            {
+                "type": "physical",
+                "title": "Премиальная Цифра",
+                "description": "Оптимальные ставки по вкладам, кешбэк акциями и доступ к спецпрограммам",
+                "features": [
+                    {
+                        "value": "От 0 ₽",
+                        "description": "Обслуживание"
+                    },
+                    {
+                        "value": "До 1,25%",
+                        "description": "Кешбэк акциями"
+                    },
+                    {
+                        "value": "До 400 000 ₽",
+                        "description": "Наличных в день"
+                    }
+                ],
+                "cta": [
+                    {
+                        "href": "#request",
+                        "label": "Оформить карту",
+                        "classList": "primary"
+                    },
+                    {
+                        "href": "#request",
+                        "label": "Подробнее",
+                        "classList": "gray"
+                    }
+                ],
+                "imageHref": "",
+                "imageAlt": "",
+                "imageWidth": 0,
+                "imageHeight": 0,
+                "imageUrl": ""
+            },
+            {
+                "type": "physical",
+                "title": "Индивидуальная Цифра",
+                "description": "Программы страхования, кешбэк акциями, поддержка и спецпредложения",
+                "features": [
+                    {
+                        "value": "От 0 ₽",
+                        "description": "Обслуживание"
+                    },
+                    {
+                        "value": "До 1,5%",
+                        "description": "Кешбэк акциями"
+                    },
+                    {
+                        "value": "До 600 000 ₽",
+                        "description": "Наличных в день"
+                    }
+                ],
+                "cta": [
+                    {
+                        "href": "#request",
+                        "label": "Оформить карту",
+                        "classList": "primary"
+                    },
+                    {
+                        "href": "#request",
+                        "label": "Подробнее",
+                        "classList": "gray"
+                    }
+                ],
+                "imageHref": "",
+                "imageAlt": "",
+                "imageWidth": 0,
+                "imageHeight": 0,
+                "imageUrl": ""
+            }
+        ]
+    }
+}

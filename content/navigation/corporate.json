@@ -1,0 +1,54 @@
+{
+    "audience": [
+        {
+            "id": "retail",
+            "label": "Частным лицам",
+            "href": "/"
+        },
+        {
+            "id": "corporate",
+            "label": "Юридическим лицам",
+            "href": "/corporate"
+        }
+    ],
+    "topLinks": [
+        {
+            "label": "Инвестиции",
+            "href": "https://cifra-broker.ru"
+        },
+        {
+            "label": "Банк",
+            "href": "/"
+        },
+        {
+            "label": "Private Banking",
+            "href": "/service-packages"
+        }
+    ],
+    "topSideLinks": [
+        {
+            "label": "Интернет-банк",
+            "href": "https://client.cifra-bank.ru/auth/welcome"
+        }
+    ],
+    "mainMenu": [
+        {
+            "label": "Расчетный счет",
+            "href": "/corporate/rko"
+        },
+        {
+            "label": "Валютный контроль",
+            "href": "/service-packages"
+        },
+        {
+            "label": "Карты",
+            "href": "/service-packages"
+        }
+    ],
+    "footerSections": [
+        {
+            "title": "Продукты",
+            "links": [{ "label": "Карты", "href": "/service-packages" }]
+        }
+    ]
+}

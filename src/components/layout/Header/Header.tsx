@@ -1,38 +1,67 @@
-import Image from 'next/image'
 import { Navigation, SiteInfo } from '@/lib/content/types'
 import Link from 'next/link'
 import styles from './Header.module.scss'
+import Button from '@/components/ui/Button'
+import Logo from '@/components/ui/Logo'
 
 interface HeaderProps {
     navigation: Navigation
     site: SiteInfo
+    audience: string
 }
 
-export default function Header({ navigation, site }: HeaderProps) {
+export default function Header({ navigation, site, audience }: HeaderProps) {
+    const homeHref = navigation.audience.find((item) => item.id === audience)?.href ?? '/'
+
     return (
         <header className={styles.header}>
             <div className="container">
                 <div className={styles.wrapper}>
-                    <Link href="/">
-                        <Image src={'/logo.svg'} alt={site.name} width={145} height={20} />
+                    <Link href={homeHref} className={styles.logo} aria-label={site.name}>
+                        <Logo />
                     </Link>
-                    <nav>
+                    <nav className={styles.topMenu}>
                         {navigation.topLinks.map((link) =>
                             link.href.startsWith('http') ? (
-                                <a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer">
+                                <a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer" className={styles.topMenuLink}>
                                     {link.label}
                                 </a>
                             ) : (
-                                <Link key={link.href} href={link.href}></Link>
+                                <Link key={link.label} href={link.href} className={`${styles.topMenuLink} ${link.href === '/' ? styles.active : ''}`}>
+                                    {link.label}
+                                </Link>
                             )
                         )}
                     </nav>
-                    <Link href={site.phones.russiaHref}>{site.phones.russia}</Link>
+
+                    <div className={styles.links}>
+                        <Button size="xs" color="white" href="/offices-and-atms">
+                            Офисы и банкоматы
+                        </Button>
+                        <Button size="xs" color="secondary" href="https://client.cifra-bank.ru">
+                            Интернет-банк
+                        </Button>
+                        <Button size="xs" color={'primary'}>
+                            Открыть счёт
+                        </Button>
+                    </div>
                 </div>
+
                 <div className={styles.wrapper}>
-                    <nav>
-                        <span>{navigation.audienceLabel}</span>
-                        <Link href={navigation.alternateAudience.href}>{navigation.alternateAudience.label}</Link>
+                    <nav className={styles.userType}>
+                        {navigation.audience.map((item) =>
+                            item.id === audience ? (
+                                <span key={item.id}>{item.label}</span>
+                            ) : item.href.startsWith('http') ? (
+                                <a key={item.id} href={item.href} target="_blank" rel="noopener noreferrer">
+                                    {item.label}
+                                </a>
+                            ) : (
+                                <Link key={item.id} href={item.href}>
+                                    {item.label}
+                                </Link>
+                            )
+                        )}
                     </nav>
                     <nav className={styles.menu}>
                         {navigation.mainMenu.map((item) =>
@@ -41,7 +70,7 @@ export default function Header({ navigation, site }: HeaderProps) {
                                     {item.label}
                                 </a>
                             ) : (
-                                <Link className={styles.menuLink} href={item.href} key={item.href}>
+                                <Link className={styles.menuLink} href={item.href} key={item.label}>
                                     {item.label}
                                 </Link>
                             )
