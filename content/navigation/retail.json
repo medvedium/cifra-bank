@@ -27,24 +27,134 @@
     ],
     "topSideLinks": [
         {
+            "label": "Офисы и банкоматы",
+            "href": "/offices-and-atms",
+            "color": "white"
+        },
+        {
             "label": "Интернет-банк",
-            "href": "https://client.cifra-bank.ru/auth/welcome"
+            "href": "https://client.cifra-bank.ru",
+            "color": "secondary"
+        },
+        {
+            "label": "Открыть счёт",
+            "href": "",
+            "color": "primary"
         }
     ],
     "mainMenu": [
         {
             "label": "Карты",
-            "href": "/service-packages"
+            "dropdown": {
+                "columns": [
+                    [
+                        { "label": "Дебетовые карты", "href": "/service-packages" },
+                        { "label": "Карты инвестора", "href": "/card-invest" },
+                        { "label": "Комбо Цифра карта", "href": "/combo" },
+                        { "label": "Тариф «Индивидуальный»", "href": "/service-packages/individual", "mark": "Выгодно" },
+                        { "label": "Карта по биометрии", "href": "/ebs" }
+                    ]
+                ],
+                "aside": {
+                    "title": "Полезное",
+                    "links": [
+                        { "label": "Кешбэк акциями", "href": "/cashback" },
+                        { "label": "Бизнес-залы", "href": "/onpass" },
+                        { "label": "Сейфовые ячейки", "href": "/safe-boxes" }
+                    ]
+                }
+            }
         },
         {
             "label": "Сбережения",
-            "href": "/service-packages"
-        }
-    ],
-    "footerSections": [
+            "href": "/deposits"
+        },
         {
-            "title": "Продукты",
-            "links": [{ "label": "Карты", "href": "/service-packages" }]
+            "label": "Кредиты",
+            "dropdown": {
+                "columns": [
+                    [
+                        { "label": "Кредит на товар", "href": "/pos" },
+                        { "label": "Автокредит", "href": "/autocredit" },
+                        { "label": "Потребительский кредит", "href": "/loan" }
+                    ]
+                ],
+                "aside": {
+                    "title": "Полезное",
+                    "links": [
+                        { "label": "Кешбэк акциями", "href": "/cashback" },
+                        { "label": "Сейфовые ячейки", "href": "/safe-boxes" },
+                        { "label": "Информационная безопасность", "href": "/information-security" }
+                    ]
+                }
+            }
+        },
+        {
+            "label": "MIR Pay",
+            "href": "/mir"
+        },
+        {
+            "label": "Переводы и платежи",
+            "dropdown": {
+                "columns": [
+                    [
+                        { "label": "Переводы", "href": "/transfers" },
+                        { "label": "Платежи", "href": "/payments" }
+                    ]
+                ]
+            }
+        },
+        {
+            "label": "Сервисы и услуги",
+            "dropdown": {
+                "columns": [
+                    [
+                        { "label": "Кешбэк акциями", "href": "/cashback" },
+                        { "label": "Сейфовые ячейки", "href": "/safe-boxes" }
+                    ]
+                ],
+                "aside": {
+                    "title": "Полезное",
+                    "links": [
+                        { "label": "Дебетовые карты", "href": "/service-packages" },
+                        { "label": "Карты инвестора", "href": "/card-invest" },
+                        { "label": "Сбережения", "href": "/deposits" }
+                    ]
+                }
+            }
+        },
+        {
+            "label": "Курсы валют",
+            "href": "/#rates"
+        },
+        {
+            "label": "О банке",
+            "dropdown": {
+                "columns": [
+                    [
+                        { "label": "Общая информация", "href": "/information" },
+                        { "label": "Новости банка", "href": "/news" },
+                        { "label": "Пресс-центр", "href": "/press-center" },
+                        { "label": "Раскрытие информации", "href": "/information-disclosure" },
+                        { "label": "Реквизиты банка", "href": "/requisites" }
+                    ],
+                    [
+                        { "label": "Контакты", "href": "/contacts" },
+                        { "label": "Карьера", "href": "https://job.cifra-bank.ru" },
+                        { "label": "Информационная безопасность", "href": "/information-security" },
+                        { "label": "Сертификаты Минцифры РФ", "href": "/certificates" },
+                        { "label": "Справочный центр", "href": "/help-center" }
+                    ]
+                ],
+                "aside": {
+                    "title": "Полезное",
+                    "links": [
+                        { "label": "Сбережения", "href": "/deposits" },
+                        { "label": "Сейфовые ячейки", "href": "/safe-boxes" },
+                        { "label": "Новости банка", "href": "/news" }
+                    ]
+                }
+            }
         }
     ]
 }

@@ -27,28 +27,83 @@
     ],
     "topSideLinks": [
         {
+            "label": "Офисы и банкоматы",
+            "href": "/offices-and-atms",
+            "color": "white"
+        },
+        {
             "label": "Интернет-банк",
-            "href": "https://client.cifra-bank.ru/auth/welcome"
+            "href": "https://client.cifra-bank.ru",
+            "color": "secondary"
+        },
+        {
+            "label": "Открыть счёт",
+            "href": "",
+            "color": "primary"
         }
     ],
     "mainMenu": [
         {
             "label": "Расчетный счет",
-            "href": "/corporate/rko"
+            "href": "/corporate"
         },
         {
-            "label": "Валютный контроль",
-            "href": "/service-packages"
+            "label": "Валютные платежи",
+            "dropdown": {
+                "columns": [
+                    [
+                        { "label": "Валютный контроль", "href": "/corporate/currency-control" },
+                        { "label": "Таможенный консалтинг", "href": "/corporate/customs-consulting" }
+                    ]
+                ]
+            }
         },
         {
-            "label": "Карты",
-            "href": "/service-packages"
-        }
-    ],
-    "footerSections": [
+            "label": "Депозиты",
+            "href": "/corporate/deposits"
+        },
         {
-            "title": "Продукты",
-            "links": [{ "label": "Карты", "href": "/service-packages" }]
+            "label": "Платежные сервисы",
+            "dropdown": {
+                "columns": [
+                    [
+                        { "label": "Интернет-эквайринг", "href": "/corporate/acquiring" },
+                        { "label": "Система быстрых платежей", "href": "/corporate/sbp" },
+                        { "label": "Облачная онлайн-касса", "href": "/corporate/oblachnaya-kassa" }
+                    ]
+                ]
+            }
+        },
+        {
+            "label": "Овердрафт",
+            "href": "/corporate/overdraft"
+        },
+        {
+            "label": "О банке",
+            "dropdown": {
+                "columns": [
+                    [
+                        { "label": "Общая информация", "href": "/information/" },
+                        { "label": "Новости банка", "href": "/news/" },
+                        { "label": "Пресс-центр", "href": "/press-center/" },
+                        { "label": "Раскрытие информации", "href": "/information-disclosure/" },
+                        { "label": "Реквизиты банка", "href": "/requisites/" }
+                    ],
+                    [
+                        { "label": "Контакты", "href": "/corporate/contacts/" },
+                        { "label": "Карьера", "href": "https://job.cifra-bank.ru/" },
+                        { "label": "Информационная безопасность", "href": "/information-security/" },
+                        { "label": "Сертификаты Минцифры РФ", "href": "/certificates/" },
+                        { "label": "Справочный центр", "href": "/help-center/" }
+                    ]
+                ],
+                "aside": {
+                    "title": "Полезное",
+                    "links": [
+                        { "label": "Зарплатные карты", "href": "/corporate/payroll-cards/" }
+                    ]
+                }
+            }
         }
     ]
 }

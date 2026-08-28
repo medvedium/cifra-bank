@@ -1,4 +1,4 @@
-import { CorporateHomePage, HomePage, Navigation, ServicePackagesPage, SiteInfo } from '@/lib/content/types'
+import { CorporateHomePage, FooterContent, HomePage, Navigation, ServicePackagesPage, SiteInfo } from '@/lib/content/types'
 import { readFile } from 'node:fs/promises'
 import path from 'node:path'
 
@@ -16,9 +16,12 @@ export async function getSiteInfo(): Promise<SiteInfo> {
     return readJson<SiteInfo>('site.json')
 }
 
-// Получение JSON навигации
 export async function getNavigation(audience: string): Promise<Navigation> {
     return readJson(`navigation/${audience}.json`)
+}
+
+export async function getFooter(): Promise<FooterContent> {
+    return readJson<FooterContent>('footer.json')
 }
 
 // Получение данных для страниц сайта

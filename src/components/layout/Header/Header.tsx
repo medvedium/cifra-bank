@@ -1,8 +1,9 @@
 import { Navigation, SiteInfo } from '@/lib/content/types'
-import Link from 'next/link'
 import styles from './Header.module.scss'
 import Button from '@/components/ui/Button'
 import Logo from '@/components/ui/Logo'
+import TextLink from '@/components/ui/TextLink'
+import MainMenu from './MainMenu'
 
 interface HeaderProps {
     navigation: Navigation
@@ -15,35 +16,29 @@ export default function Header({ navigation, site, audience }: HeaderProps) {
 
     return (
         <header className={styles.header}>
-            <div className="container">
+            <div className="container container--wide">
                 <div className={styles.wrapper}>
-                    <Link href={homeHref} className={styles.logo} aria-label={site.name}>
+                    <TextLink href={homeHref} className={styles.logo} aria-label={site.name}>
                         <Logo />
-                    </Link>
+                    </TextLink>
                     <nav className={styles.topMenu}>
-                        {navigation.topLinks.map((link) =>
-                            link.href.startsWith('http') ? (
-                                <a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer" className={styles.topMenuLink}>
-                                    {link.label}
-                                </a>
-                            ) : (
-                                <Link key={link.label} href={link.href} className={`${styles.topMenuLink} ${link.href === '/' ? styles.active : ''}`}>
-                                    {link.label}
-                                </Link>
-                            )
-                        )}
+                        {navigation.topLinks.map((link) => (
+                            <TextLink
+                                key={link.href}
+                                href={link.href}
+                                className={`${styles.topMenuLink} ${link.href === '/' ? styles.active : ''}`}
+                            >
+                                {link.label}
+                            </TextLink>
+                        ))}
                     </nav>
 
                     <div className={styles.links}>
-                        <Button size="xs" color="white" href="/offices-and-atms">
-                            Офисы и банкоматы
-                        </Button>
-                        <Button size="xs" color="secondary" href="https://client.cifra-bank.ru">
-                            Интернет-банк
-                        </Button>
-                        <Button size="xs" color={'primary'}>
-                            Открыть счёт
-                        </Button>
+                        {navigation.topSideLinks.map((link) => (
+                            <Button href={link.href} key={link.label} color={link.color} size="xs">
+                                {link.label}
+                            </Button>
+                        ))}
                     </div>
                 </div>
 
@@ -52,29 +47,15 @@ export default function Header({ navigation, site, audience }: HeaderProps) {
                         {navigation.audience.map((item) =>
                             item.id === audience ? (
                                 <span key={item.id}>{item.label}</span>
-                            ) : item.href.startsWith('http') ? (
-                                <a key={item.id} href={item.href} target="_blank" rel="noopener noreferrer">
-                                    {item.label}
-                                </a>
                             ) : (
-                                <Link key={item.id} href={item.href}>
+                                <TextLink key={item.id} href={item.href}>
                                     {item.label}
-                                </Link>
+                                </TextLink>
                             )
                         )}
                     </nav>
-                    <nav className={styles.menu}>
-                        {navigation.mainMenu.map((item) =>
-                            item.href.startsWith('http') ? (
-                                <a target={'_blank'} rel={'noopener noreferrer'} className={styles.menuLink} href={item.href} key={item.href}>
-                                    {item.label}
-                                </a>
-                            ) : (
-                                <Link className={styles.menuLink} href={item.href} key={item.label}>
-                                    {item.label}
-                                </Link>
-                            )
-                        )}
+                    <nav className={styles.menu} aria-label="Разделы сайта">
+                        <MainMenu items={navigation.mainMenu} />
                     </nav>
                 </div>
             </div>

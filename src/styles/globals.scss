@@ -6,6 +6,11 @@
 	box-sizing: border-box;
 }
 
+::selection {
+	color: var(--text-dark);
+	background-color: var(--background-primary);
+}
+
 html,
 body {
 	height: 100%;
@@ -50,7 +55,7 @@ body {
 	margin-bottom: var(--spacing-section);
 
 	&__title {
-		font-family: var(--font-heading);
+		font-family: var(--font-heading), sans-serif;
 		font-size: var(--h2-size);
 		font-weight: var(--h2-weight);
 		line-height: var(--h2-line-height);
@@ -63,7 +68,7 @@ body {
 .text-h4,
 .text-h5,
 .text-h6 {
-	font-family: var(--font-heading);
+	font-family: var(--font-heading), sans-serif;
 	margin: 0;
 }
 
@@ -107,7 +112,7 @@ body {
 .text-t2,
 .text-t3,
 .text-caption {
-	font-family: var(--font-main);
+	font-family: var(--font-main), sans-serif;
 }
 
 .text-t1 {
@@ -141,4 +146,8 @@ body {
 	width: 100%;
 	padding-inline: 40px;
 	margin-inline: auto;
+
+	&--wide {
+		max-width: var(--container-wide-width);
+	}
 }

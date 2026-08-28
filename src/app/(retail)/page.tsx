@@ -3,6 +3,7 @@ import { getHomePage, getSiteInfo } from '@/lib/content/loader'
 import { Metadata } from 'next'
 import { buildPageMetadata } from '@/lib/seo/metadata'
 import Hero from '@/components/features/Hero'
+import TextLink from '@/components/ui/TextLink'
 
 export async function generateMetadata(): Promise<Metadata> {
     const page = await getHomePage()
@@ -23,10 +24,10 @@ export default async function Home() {
                     <h2 className="section__title">{page.products.title}</h2>
                     <div className={styles.productsGrid}>
                         {page.products.items?.map((item, index) => (
-                            <a href={item.href} rel="noopener noreferrer" key={index}>
+                            <TextLink href={item.href} key={index}>
                                 <h3 className={styles.productsItemTitle}>{item.title}</h3>
                                 <span className={styles.productsItemLink}>{item.linkLabel}</span>
-                            </a>
+                            </TextLink>
                         ))}
                     </div>
                 </div>

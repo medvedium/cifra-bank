@@ -14,28 +14,27 @@ interface ButtonProps {
     disabled?: boolean
     loading?: boolean // бонус, если успеешь
     href?: string
-    external?: boolean
     type?: 'button' | 'submit'
     className?: string
     onClick?: () => void
 }
 
 export default function Button(props: ButtonProps) {
-    const { children, color = 'primary', variant = 'contained', size = 'large', disabled = false, loading = false, href, external = false, type = 'button', className = '', onClick } = props
+    const { children, color = 'primary', variant = 'contained', size = 'large', disabled = false, loading = false, href, type = 'button', className = '', onClick } = props
 
     const buttonClassNames = [styles.button, styles[size], styles[variant], styles[color], disabled && styles.disabled, className].filter(Boolean).join(' ')
 
     return (!href || disabled) ? (
         <button className={buttonClassNames} disabled={disabled} onClick={onClick} type={type} aria-disabled={disabled}>
-            {children}
+            {loading ? '...' : children}
         </button>
     ) : href.startsWith('http') ? (
         <a className={buttonClassNames} href={href} target="_blank" rel="noopener noreferrer">
-            {children}
+            {loading ? '...' : children}
         </a>
     ) : (
         <Link className={buttonClassNames} href={href}>
-            {children}
+            {loading ? '...' : children}
         </Link>
     )
 }

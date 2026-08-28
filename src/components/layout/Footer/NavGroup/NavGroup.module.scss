@@ -1,0 +1,60 @@
+.navGroup {
+	margin-bottom: 48px;
+}
+
+.navTitle {
+	display: block;
+	margin-bottom: 16px;
+	font-family: var(--font-heading), sans-serif;
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 1.25;
+}
+
+.navColumns {
+	display: grid;
+	align-items: start;
+	grid-template-columns: 1fr 1fr;
+	gap: 20px 10px;
+}
+
+.navColumnsSingle {
+	grid-template-columns: 1fr;
+}
+
+.navMenu {
+	display: grid;
+	gap: 12px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.navLink {
+	color: #9798a0;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1.29;
+	text-decoration: none;
+	transition: color 0.25s;
+
+	&:hover {
+		color: #fff;
+	}
+}
+
+@media (min-width: 1200px) {
+	.navGroup {
+		margin-bottom: 0;
+	}
+
+	.navTitle {
+		margin-bottom: 20px;
+		font-size: 18px;
+	}
+
+	.navLink {
+		font-size: 16px;
+		line-height: 1.25;
+	}
+}

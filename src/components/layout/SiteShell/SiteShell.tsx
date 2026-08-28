@@ -19,7 +19,7 @@ export default async function SiteShell ({ audience, children }: SiteShellProps)
             <main className={"main"}>
                 {children}
             </main>
-            <Footer navigation={navigation} site={site} />
+            <Footer navigation={navigation} site={site} audience={audience} />
         </>
 
     )
