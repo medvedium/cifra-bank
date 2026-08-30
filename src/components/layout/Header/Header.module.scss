@@ -1,109 +1,338 @@
 .header {
-	border-bottom: 1px solid #e2e8f0;
+	position: relative;
+	z-index: 1000;
+	padding-top: 48px;
 }
 
-.wrapper {
+.topbar,
+.subbar {
+	background: var(--background-main);
+}
+
+.topbar {
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	z-index: 1000;
+	height: 48px;
+	border-bottom: 1px solid var(--lines-grey);
+}
+
+.subbar {
+	height: 42px;
+}
+
+.barInner {
 	display: flex;
 	align-items: center;
-	//justify-content: space-between;
-	min-height: 64px;
-	gap: 16px;
+	height: 100%;
 }
 
 .logo {
 	display: inline-flex;
+	margin-right: auto;
 	color: var(--text-main);
+
+	svg {
+		display: block;
+		width: 131px;
+		height: auto;
+	}
 }
 
 .topMenu {
-	flex-grow: 1;
 	display: flex;
-	gap: 16px;
-	margin-left: 86px;
+	flex: 1 1 auto;
+	align-items: center;
+	min-width: 0;
+	overflow: auto hidden;
+	scrollbar-width: none;
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
+}
+
+.topMenuDesktop {
+	display: none;
+}
+
+.topMenuCompact {
+	margin: 0 -16px;
+	padding: 0 16px;
 }
 
 .topMenuLink {
-	text-decoration: none;
 	position: relative;
-
+	display: flex;
+	align-items: center;
+	height: 42px;
+	margin-right: 16px;
 	color: var(--text-main);
-	font-family: var(--font-main), sans-serif;
-	font-size: 12px;
-	font-style: normal;
+	font-size: 11px;
 	font-weight: 400;
-	line-height: 16px;
-	letter-spacing: 0.48px;
+	letter-spacing: 0.06em;
+	line-height: 1.33;
+	text-decoration: none;
 	text-transform: uppercase;
+	white-space: nowrap;
+
+	&:last-child {
+		margin-right: 0;
+	}
 
 	&::after {
 		content: '';
 		position: absolute;
-		bottom: -4px;
-		left: 0;
 		right: 0;
+		bottom: 0;
+		left: 0;
 		height: 2px;
-		background-color: var(--color-primary);
-		transform: scaleX(0);
-		transition: transform 0.2s ease-in-out;
+		border-radius: 20px;
+		background: var(--background-primary);
+		opacity: 0;
+		transition: opacity 0.2s;
 	}
 
-	&:hover {
-		&::after {
-			transform: scaleX(1);
+	&:hover::after,
+	&.active::after {
+		opacity: 1;
+	}
+}
+
+.location,
+.auth {
+	display: none;
+}
+
+.online {
+	display: none;
+}
+
+.userType,
+.menu {
+	display: none;
+}
+
+@media (min-width: 640px) {
+	.topMenuCompact {
+		margin: 0 -32px;
+		padding: 0 32px;
+	}
+
+	.online {
+		display: flex;
+		align-items: center;
+		margin-left: 16px;
+
+		:global(a) {
+			width: 24px;
+			height: 24px;
+			padding: 0;
+			overflow: hidden;
+			border: 0;
+			background: transparent !important;
+			color: var(--text-main);
+			gap: 0;
+
+			svg {
+				display: block;
+				width: 24px;
+				height: 24px;
+			}
+
+			&:hover {
+				background: transparent !important;
+				color: var(--text-link);
+				filter: none;
+			}
 		}
-	}
 
-	&.active {
-		&::after {
-			transform: scaleX(1);
+		.onlineLabel {
+			position: absolute;
+			width: 1px;
+			height: 1px;
+			padding: 0;
+			margin: -1px;
+			overflow: hidden;
+			clip: rect(0, 0, 0, 0);
+			white-space: nowrap;
+			border: 0;
 		}
 	}
 }
 
-.links {
-	display: flex;
-	 gap: 12px;
-	align-items: center;
+@media (min-width: 992px) {
+	.topMenuCompact {
+		margin: 0 -40px;
+		padding: 0 40px;
+	}
 }
 
-.userType {
-	display: flex;
-	padding: 2px;
-	background-color: var(--background-secondary);
-	border: 1px solid var(--background-secondary);
-	border-radius: 8px;
+@media (min-width: 1200px) {
+	.header {
+		padding-top: 0;
+		border-bottom: 1px solid var(--lines-grey);
+	}
 
-	a,span {
-		padding: 8px 12px;
+	.topbar {
+		position: relative;
+		height: 64px;
+		border-bottom: 0;
+	}
+
+	.subbar {
+		height: 56px;
+		background: var(--background-secondary);
+	}
+
+	.logo {
+		margin-right: 86px;
+	}
+
+	.topMenuDesktop {
+		display: flex;
+		flex: 1 1 auto;
+		overflow: visible;
+	}
+
+	.topMenuCompact {
+		display: none;
+	}
+
+	.topMenuLink {
+		height: 64px;
+		margin-right: 24px;
+		font-size: 12px;
+		letter-spacing: 0.04em;
+
+		&::after {
+			bottom: 4px;
+		}
+	}
+
+	.location {
+		display: flex;
+		align-items: center;
+		margin-right: 32px;
+		color: var(--text-main);
+		font-size: 14px;
+		line-height: 1.25;
 		text-decoration: none;
-		font-size: var(--button-small-size);
-		line-height: var(--button-small-line-height);
-		font-weight: var(--button-weight);
-		border-radius: 8px;
-	}
+		white-space: nowrap;
+		transition: color 0.2s;
 
-	a {
-		background-color: var(--background-secondary);
-		color: var(--text-secondary);
-		transition: color 0.2s ease-in-out;
+		svg {
+			display: block;
+			width: 24px;
+			height: 24px;
+			margin-right: 8px;
+		}
 
 		&:hover {
+			color: var(--text-link);
+		}
+	}
+
+	.online {
+		display: block;
+		margin: 0 12px 0 0;
+
+		:global(a) {
+			width: auto;
+			height: 40px;
+			padding: 10px 16px;
+			overflow: visible;
+			background: var(--background-secondary);
+			color: var(--text-main);
+			gap: 8px;
+
+			svg {
+				width: 24px;
+				height: 24px;
+			}
+
+			&:hover {
+				filter: brightness(0.97);
+			}
+		}
+
+		.onlineLabel {
+			position: static;
+			width: auto;
+			height: auto;
+			margin: 0;
+			overflow: visible;
+			clip: auto;
+			white-space: nowrap;
+			font-size: var(--button-small-size);
+			line-height: var(--button-small-line-height);
+		}
+	}
+
+	.auth {
+		display: block;
+	}
+
+	.userType {
+		display: flex;
+		flex: 0 0 auto;
+		align-items: center;
+		height: 40px;
+		margin-right: 24px;
+		padding: 2px;
+		border: 2px solid var(--background-secondary);
+		border-radius: 8px;
+		background: var(--background-secondary);
+		gap: 2px;
+
+		a,
+		span {
+			display: flex;
+			align-items: center;
+			min-height: 36px;
+			padding: 0 8px;
+			border-radius: 6px;
+			font-size: 14px;
+			font-weight: 500;
+			line-height: 1.2;
+			text-decoration: none;
+			white-space: nowrap;
+		}
+
+		a {
+			color: var(--text-secondary);
+			transition: color 0.2s;
+
+			&:hover {
+				color: var(--text-main);
+			}
+		}
+
+		span {
+			background: var(--background-main);
 			color: var(--text-main);
 		}
 	}
 
-	span {
-		background-color: var(--background-main);
-		color: var(--text-main);
+	.menu {
+		display: flex;
+		flex-grow: 1;
+		align-self: stretch;
+		min-width: 0;
 	}
 }
 
-.menu {
-	display: flex;
-	gap: 24px;
+@media (min-width: 1242px) {
+	.userType a,
+	.userType span {
+		padding: 0 16px;
+	}
 }
 
-.menuLink {
-	color: inherit;
-	text-decoration: none;
+@media (min-width: 1264px) {
+	.userType {
+		margin-right: 48px;
+	}
 }

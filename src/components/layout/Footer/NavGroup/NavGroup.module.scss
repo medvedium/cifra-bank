@@ -1,0 +1,98 @@
+.navGroup {
+	margin-bottom: 48px;
+}
+
+.navTitle {
+	display: block;
+	margin-bottom: 16px;
+	font-family: var(--font-heading), sans-serif;
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 1.25;
+}
+
+.navColumns {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: start;
+	column-gap: 10px;
+	row-gap: 10px;
+}
+
+.navMenu {
+	display: grid;
+	gap: 12px;
+	min-width: 0;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.navColumnsSingle .navMenu {
+	flex: 0 0 100%;
+}
+
+.navColumnsPrimary .navMenu {
+	flex: 0 0 calc(50% - 5px);
+}
+
+.navColumnsSecondary .navMenu {
+	flex: 0 0 100%;
+}
+
+.navLink {
+	color: #9798a0;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1.29;
+	text-decoration: none;
+	transition: color 0.25s;
+
+	&:hover {
+		color: #fff;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+	.navColumnsPrimary .navMenu:first-child {
+		flex-basis: calc(41.6667% - 5px);
+	}
+
+	.navColumnsPrimary .navMenu:last-child {
+		flex-basis: calc(58.3333% - 5px);
+	}
+}
+
+@media (min-width: 768px) {
+	.navColumnsSecondary .navMenu:first-child {
+		flex-basis: calc(41.6667% - 5px);
+	}
+
+	.navColumnsSecondary .navMenu:last-child {
+		flex-basis: calc(58.3333% - 5px);
+	}
+}
+
+@media (min-width: 992px) {
+	.navColumnsPrimary .navMenu {
+		flex: 0 0 auto;
+		width: auto;
+		max-width: 100%;
+	}
+}
+
+@media (min-width: 1200px) {
+	.navGroup {
+		margin-bottom: 0;
+	}
+
+	.navTitle {
+		margin-bottom: 20px;
+		font-size: 18px;
+	}
+
+	.navLink {
+		font-size: 16px;
+		line-height: 1.25;
+	}
+}

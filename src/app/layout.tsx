@@ -1,9 +1,9 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import localFont from 'next/font/local'
 
 import '@/styles/globals.scss'
 import ThemeToggler from '@/components/features/ThemeToggler'
-import { THEME_INIT_SCRIPT } from '@/lib/theme'
+import ThemeInitScript from '@/components/features/ThemeToggler/ThemeInitScript'
 
 const gtAmerica = localFont({
     src: [
@@ -54,6 +54,11 @@ const stolzl = localFont({
     display: 'swap'
 })
 
+export const viewport: Viewport = {
+    width: 'device-width',
+    initialScale: 1
+}
+
 export const metadata: Metadata = {
     metadataBase: new URL('https://cifra-bank.ru'),
     title: {
@@ -101,7 +106,7 @@ export default function RootLayout({
     return (
         <html lang="ru" className={`${gtAmerica.variable} ${stolzl.variable}`} suppressHydrationWarning>
             <body>
-                <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
+                <ThemeInitScript />
                 {children}
                 <ThemeToggler />
             </body>

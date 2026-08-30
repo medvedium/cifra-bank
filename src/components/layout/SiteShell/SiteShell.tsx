@@ -9,17 +9,19 @@ interface SiteShellProps {
 }
 
 export default async function SiteShell ({ audience, children }: SiteShellProps) {
-    const [site, navigation] = await Promise.all([
+    const altAudience = audience === 'retail' ? 'corporate' : 'retail'
+    const [site, navigation, altNavigation] = await Promise.all([
         getSiteInfo(),
-        getNavigation(audience)
+        getNavigation(audience),
+        getNavigation(altAudience)
     ])
     return (
         <>
-            <Header navigation={navigation} site={site} audience={audience} />
+            <Header navigation={navigation} altNavigation={altNavigation} site={site} audience={audience} />
             <main className={"main"}>
                 {children}
             </main>
-            <Footer navigation={navigation} site={site} />
+            <Footer navigation={navigation} site={site} audience={audience} />
         </>
 
     )

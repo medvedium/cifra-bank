@@ -1,0 +1,209 @@
+{
+    "phones": [
+        {
+            "label": "+7 495 249 11 62",
+            "href": "tel:+74952491162",
+            "caption": "Звонки из-за рубежа"
+        },
+        {
+            "label": "8 800 302 92 29",
+            "href": "tel:88003029229"
+        },
+        {
+            "label": "8 800 333 92 29",
+            "href": "tel:88003339229",
+            "caption": "Звонки по России"
+        }
+    ],
+    "app": {
+        "title": "Скачать мобильное\nприложение",
+        "mobileTitle": "Цифра банк",
+        "qrImage": "/footer/qr-code.png",
+        "qrAlt": "QR-код приложения Цифра банк",
+        "stores": [
+            {
+                "id": "appstore",
+                "label": "App Store",
+                "href": "https://client.cifra-bank.ru/"
+            },
+            {
+                "id": "appgallery",
+                "label": "AppGallery",
+                "href": "https://appgallery.huawei.com/app/C107590811"
+            },
+            {
+                "id": "rustore",
+                "label": "RuStore",
+                "href": "https://www.rustore.ru/catalog/app/com.bankffin.portfolio"
+            },
+            {
+                "id": "googleplay",
+                "label": "Google Play",
+                "href": "https://play.google.com/store/apps/details?id=com.bankffin.portfolio"
+            }
+        ]
+    },
+    "contacts": [
+        {
+            "label": "Адрес: 123112, Россия, г. Москва, 1-й Красногвардейский проезд, д. 15, помещение 1/17",
+            "href": "https://yandex.ru/maps/213/moscow/house/1_y_krasnogvardeyskiy_proyezd_15/Z04YcwRpTEcAQFtvfXt0cXhrYA==/?ll=37.539527%2C55.750485&z=16"
+        },
+        {
+            "label": "Служба поддержки: help@cifra-bank.ru",
+            "href": "mailto:help@cifra-bank.ru"
+        },
+        {
+            "label": "Пресс-служба: pr@cifra-bank.ru",
+            "href": "mailto:pr@cifra-bank.ru"
+        }
+    ],
+    "additional": [
+        {
+            "label": "Интернет-банк для юридических лиц",
+            "href": "https://ibank.cifra-bank.ru"
+        },
+        {
+            "label": "Посмотреть вакансии",
+            "href": "https://job.cifra-bank.ru/"
+        }
+    ],
+    "social": [
+        {
+            "id": "vk",
+            "label": "Вконтакте",
+            "href": "https://vk.com/cifra.bank"
+        },
+        {
+            "id": "telegram",
+            "label": "Телеграм",
+            "href": "https://t.me/+Kj1YRYJoI0tlYWFi"
+        }
+    ],
+    "feedback": {
+        "label": "Обращение в Банк",
+        "href": "/feedback"
+    },
+    "onlineCall": {
+        "label": "Звонок онлайн"
+    },
+    "bio": {
+        "label": "Биометрия",
+        "href": "/bio",
+        "alt": "Страница биометрии"
+    },
+    "accessibility": {
+        "label": "Доступность",
+        "offLabel": "Версия для слабовидящих",
+        "onLabel": "Обычная версия"
+    },
+    "nav": {
+        "primary": [
+            {
+                "title": "Физические лица",
+                "columns": [
+                    [
+                        { "label": "Дебетовые карты", "href": "/service-packages" },
+                        { "label": "Карты инвестора", "href": "/card-invest" },
+                        { "label": "Комбо Цифра карта", "href": "/combo" },
+                        { "label": "Кредит на товар", "href": "/pos" },
+                        { "label": "Кешбэк акциями", "href": "/cashback" },
+                        { "label": "Сбережения", "href": "/deposits" }
+                    ],
+                    [
+                        { "label": "Сейфовые ячейки", "href": "/safe-boxes" },
+                        { "label": "Private Banking", "href": "/private-banking" },
+                        {
+                            "label": "Информация о процентных ставках по договорам банковского вклада с физическими лицами",
+                            "href": "/information-disclosure/disclosure-reg#discl_anchor01"
+                        }
+                    ]
+                ]
+            },
+            {
+                "title": "Юридические лица",
+                "columns": [
+                    [
+                        { "label": "Депозиты", "href": "/corporate/deposits" },
+                        { "label": "Зарплатные карты", "href": "/corporate/payroll-cards" },
+                        { "label": "Корпоративные карты", "href": "/corporate/corporate-cards" }
+                    ],
+                    [
+                        { "label": "Валютный контроль", "href": "/corporate/currency-control" },
+                        { "label": "Расчетный счет", "href": "/corporate" },
+                        { "label": "Овердрафт", "href": "/corporate/overdraft" },
+                        { "label": "Интернет-эквайринг", "href": "/corporate/acquiring" }
+                    ]
+                ]
+            }
+        ],
+        "secondary": [
+            {
+                "title": "О банке",
+                "columns": [
+                    [
+                        { "label": "Общая информация", "href": "/information" },
+                        { "label": "Новости банка", "href": "/news" },
+                        { "label": "Пресс-центр", "href": "/press-center" },
+                        { "label": "Карьера", "href": "https://job.cifra-bank.ru/" }
+                    ],
+                    [
+                        { "label": "Раскрытие информации", "href": "/information-disclosure" },
+                        { "label": "Депозитарное обслуживание", "href": "/depository-service" },
+                        { "label": "Реквизиты банка", "href": "/requisites" },
+                        { "label": "Контакты", "href": "/contacts" },
+                        { "label": "Информационная безопасность", "href": "/information-security" },
+                        { "label": "Политика обработки персональных данных", "href": "/personal-data-policy" },
+                        { "label": "Сертификаты Минцифры РФ", "href": "/certificates" }
+                    ]
+                ]
+            }
+        ]
+    },
+    "city": {
+        "current": "Москва",
+        "searchPlaceholder": "Название города",
+        "items": [
+            "Москва",
+            "Санкт-Петербург",
+            "Архангельск",
+            "Барнаул",
+            "Белгород",
+            "Братск",
+            "Владивосток",
+            "Владимир",
+            "Волгоград",
+            "Воронеж",
+            "Екатеринбург",
+            "Ижевск",
+            "Иркутск",
+            "Казань",
+            "Калининград",
+            "Кемерово",
+            "Краснодар",
+            "Красноярск",
+            "Липецк",
+            "Минеральные Воды",
+            "Набережные Челны",
+            "Нижний Новгород",
+            "Новосибирск",
+            "Омск",
+            "Оренбург",
+            "Пермь",
+            "Ростов-на-Дону",
+            "Рязань",
+            "Самара",
+            "Саратов",
+            "Сочи",
+            "Ставрополь",
+            "Тверь",
+            "Тольятти",
+            "Тула",
+            "Тюмень",
+            "Уфа",
+            "Челябинск",
+            "Череповец",
+            "Ярославль"
+        ]
+    },
+    "copyright": "2026 Цифра банк (ООО «Цифра банк»)"
+}

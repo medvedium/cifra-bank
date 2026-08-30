@@ -71,9 +71,14 @@ export interface HomeProduct {
 export interface Navigation {
     audience: AudienceItem[]
     topLinks: MenuItem[]
-    topSideLinks: MenuItem[]
-    mainMenu: MenuItem[]
-    footerSections: FooterSection[]
+    topSideLinks: HeaderButton[]
+    mainMenu: MainMenuItem[]
+}
+
+export interface HeaderButton {
+    color: 'primary' | 'secondary' | 'white' | undefined
+    label: string
+    href: string
 }
 
 export interface AudienceItem {
@@ -82,15 +87,87 @@ export interface AudienceItem {
     href: string
 }
 
-export interface FooterSection {
+export interface FooterPhone {
+    label: string
+    href: string
+    caption?: string
+}
+
+export interface FooterStoreLink {
+    id: 'appstore' | 'appgallery' | 'rustore' | 'googleplay'
+    label: string
+    href: string
+}
+
+export interface FooterSocialLink {
+    id: 'vk' | 'telegram'
+    label: string
+    href: string
+}
+
+export interface FooterNavGroup {
     title: string
-    links: MenuItem[]
+    columns: MenuItem[][]
+}
+
+export interface FooterContent {
+    phones: FooterPhone[]
+    app: {
+        title: string
+        mobileTitle: string
+        qrImage: string
+        qrAlt: string
+        stores: FooterStoreLink[]
+    }
+    contacts: MenuItem[]
+    additional: MenuItem[]
+    social: FooterSocialLink[]
+    feedback: MenuItem
+    onlineCall: {
+        label: string
+    }
+    bio: {
+        label: string
+        href: string
+        alt: string
+    }
+    accessibility: {
+        label: string
+        offLabel: string
+        onLabel: string
+    }
+    nav: {
+        primary: FooterNavGroup[]
+        secondary: FooterNavGroup[]
+    }
+    city: {
+        current: string
+        searchPlaceholder: string
+        items: string[]
+    }
+    copyright: string
 }
 
 export interface MenuItem {
     label: string
     href: string
-    children?: MenuItem[]
+    mark?: string
+}
+
+export interface MainMenuItem {
+    label: string
+    href?: string
+    dropdown?: MainMenuDropdown
+}
+
+export interface MainMenuDropdown {
+    columns: MenuItem[][]
+    aside?: MainMenuAside
+}
+
+export interface MainMenuAside {
+    title: string
+    links: MenuItem[]
 }
 
 export interface ServicePackagesPage {

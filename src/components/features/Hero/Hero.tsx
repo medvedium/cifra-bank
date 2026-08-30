@@ -9,7 +9,7 @@ interface HeroProps {
 export default function Hero({ slides }: HeroProps) {
     return (
         <section className={`${styles.hero} section`}>
-            <div className="container">
+            <div className="container container--wide">
                 {slides?.map((item, index) => (
                     <div className={styles.heroItem} key={index}>
                         <mark className={styles.heroMark}>{item.mark}</mark>
