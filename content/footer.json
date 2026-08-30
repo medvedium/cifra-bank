@@ -125,7 +125,9 @@
                     [
                         { "label": "Депозиты", "href": "/corporate/deposits" },
                         { "label": "Зарплатные карты", "href": "/corporate/payroll-cards" },
-                        { "label": "Корпоративные карты", "href": "/corporate/corporate-cards" },
+                        { "label": "Корпоративные карты", "href": "/corporate/corporate-cards" }
+                    ],
+                    [
                         { "label": "Валютный контроль", "href": "/corporate/currency-control" },
                         { "label": "Расчетный счет", "href": "/corporate" },
                         { "label": "Овердрафт", "href": "/corporate/overdraft" },

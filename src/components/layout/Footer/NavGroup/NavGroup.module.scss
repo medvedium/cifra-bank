@@ -12,22 +12,32 @@
 }
 
 .navColumns {
-	display: grid;
+	display: flex;
+	flex-wrap: wrap;
 	align-items: start;
-	grid-template-columns: 1fr 1fr;
-	gap: 20px 10px;
-}
-
-.navColumnsSingle {
-	grid-template-columns: 1fr;
+	column-gap: 10px;
+	row-gap: 10px;
 }
 
 .navMenu {
 	display: grid;
 	gap: 12px;
+	min-width: 0;
 	margin: 0;
 	padding: 0;
 	list-style: none;
+}
+
+.navColumnsSingle .navMenu {
+	flex: 0 0 100%;
+}
+
+.navColumnsPrimary .navMenu {
+	flex: 0 0 calc(50% - 5px);
+}
+
+.navColumnsSecondary .navMenu {
+	flex: 0 0 100%;
 }
 
 .navLink {
@@ -40,6 +50,34 @@
 
 	&:hover {
 		color: #fff;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+	.navColumnsPrimary .navMenu:first-child {
+		flex-basis: calc(41.6667% - 5px);
+	}
+
+	.navColumnsPrimary .navMenu:last-child {
+		flex-basis: calc(58.3333% - 5px);
+	}
+}
+
+@media (min-width: 768px) {
+	.navColumnsSecondary .navMenu:first-child {
+		flex-basis: calc(41.6667% - 5px);
+	}
+
+	.navColumnsSecondary .navMenu:last-child {
+		flex-basis: calc(58.3333% - 5px);
+	}
+}
+
+@media (min-width: 992px) {
+	.navColumnsPrimary .navMenu {
+		flex: 0 0 auto;
+		width: auto;
+		max-width: 100%;
 	}
 }
 

@@ -11,6 +11,8 @@ export {
     OnlineCallIcon,
     VisuallyImpairedIcon,
     ChevronIcon,
+    PinIcon,
+    InternetBankIcon,
     SearchIcon,
     storeIcons,
     socialIcons

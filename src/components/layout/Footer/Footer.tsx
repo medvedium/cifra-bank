@@ -144,12 +144,12 @@ export default async function Footer({ navigation, site, audience }: FooterProps
                 <nav className={styles.nav} aria-label="Навигация по сайту">
                     <div className={styles.navPrimary}>
                         {footer.nav.primary.map((group) => (
-                            <NavGroup key={group.title} group={group} />
+                            <NavGroup key={group.title} group={group} variant="primary" />
                         ))}
                     </div>
                     <div className={styles.navSecondary}>
                         {footer.nav.secondary.map((group) => (
-                            <NavGroup key={group.title} group={group} />
+                            <NavGroup key={group.title} group={group} variant="secondary" />
                         ))}
                     </div>
                 </nav>
