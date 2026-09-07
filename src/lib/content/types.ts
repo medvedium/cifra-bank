@@ -45,16 +45,25 @@ export interface HeroCta {
     label: string
 }
 
-export interface HeroItem {
-    mark: string
+export interface HeroInformCard {
     title: string
-    description: string
+    text: string
+}
+
+export interface HeroItem {
+    mark?: string
+    title: string
+    description?: string
+    features?: string[]
     cta: HeroCta
-    imageHref: string
-    imageAlt: string
-    imageWidth: number
-    imageHeight: number
-    imageUrl: string
+    theme?: 'light' | 'dark'
+    background?: string
+    imageHref?: string
+    imageAlt?: string
+    imageWidth?: number
+    imageHeight?: number
+    imageUrl?: string
+    inform?: HeroInformCard[]
 }
 
 export interface HomeProduct {

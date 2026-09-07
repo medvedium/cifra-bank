@@ -101,13 +101,17 @@
 	}
 }
 
-.location,
-.auth {
+.headerButtons {
 	display: none;
-}
 
-.online {
-	display: none;
+	.location,
+	.auth {
+		display: none;
+	}
+
+	.online {
+		display: none;
+	}
 }
 
 .userType,
@@ -121,19 +125,23 @@
 		padding: 0 32px;
 	}
 
-	.online {
+	.headerButtons {
 		display: flex;
 		align-items: center;
+		gap: 12px;
 		margin-left: 16px;
 
-		:global(a) {
+		.location,
+		.auth {
+			display: none;
+		}
+
+		.online {
+			display: inline-flex;
 			width: 24px;
 			height: 24px;
 			padding: 0;
 			overflow: hidden;
-			border: 0;
-			background: transparent !important;
-			color: var(--text-main);
 			gap: 0;
 
 			svg {
@@ -141,25 +149,25 @@
 				width: 24px;
 				height: 24px;
 			}
-
-			&:hover {
-				background: transparent !important;
-				color: var(--text-link);
-				filter: none;
-			}
 		}
+	}
 
-		.onlineLabel {
-			position: absolute;
-			width: 1px;
-			height: 1px;
-			padding: 0;
-			margin: -1px;
-			overflow: hidden;
-			clip: rect(0, 0, 0, 0);
-			white-space: nowrap;
-			border: 0;
-		}
+	.onlineLabel {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		padding: 0;
+		margin: -1px;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		white-space: nowrap;
+		border: 0;
+	}
+}
+
+@media (640px <= width < 1200px) {
+	.headerButtons .online {
+		background: transparent !important;
 	}
 }
 
@@ -212,67 +220,52 @@
 		}
 	}
 
-	.location {
-		display: flex;
-		align-items: center;
-		margin-right: 32px;
-		color: var(--text-main);
-		font-size: 14px;
-		line-height: 1.25;
-		text-decoration: none;
-		white-space: nowrap;
-		transition: color 0.2s;
+	.headerButtons {
+		gap: 12px;
+		margin-left: 0;
 
-		svg {
-			display: block;
-			width: 24px;
-			height: 24px;
-			margin-right: 8px;
+		.location,
+		.auth {
+			display: inline-flex;
 		}
 
-		&:hover {
-			color: var(--text-link);
+		.location {
+			gap: 8px;
+
+			svg {
+				display: block;
+				width: 24px;
+				height: 24px;
+			}
 		}
-	}
 
-	.online {
-		display: block;
-		margin: 0 12px 0 0;
-
-		:global(a) {
+		.online {
 			width: auto;
 			height: 40px;
 			padding: 10px 16px;
 			overflow: visible;
-			background: var(--background-secondary);
-			color: var(--text-main);
 			gap: 8px;
+			background: var(--background-secondary);
 
 			svg {
 				width: 24px;
 				height: 24px;
 			}
-
-			&:hover {
-				filter: brightness(0.97);
-			}
 		}
 
-		.onlineLabel {
-			position: static;
-			width: auto;
-			height: auto;
-			margin: 0;
-			overflow: visible;
-			clip: auto;
-			white-space: nowrap;
-			font-size: var(--button-small-size);
-			line-height: var(--button-small-line-height);
+		.auth {
+			display: inline-flex;
 		}
 	}
 
-	.auth {
-		display: block;
+	.onlineLabel {
+		position: static;
+		width: auto;
+		height: auto;
+		margin: 0;
+		overflow: visible;
+		clip: auto;
+		white-space: nowrap;
 	}
 
 	.userType {
@@ -282,9 +275,9 @@
 		height: 40px;
 		margin-right: 24px;
 		padding: 2px;
-		border: 2px solid var(--background-secondary);
+		border: 2px solid var(--user-type-background);
 		border-radius: 8px;
-		background: var(--background-secondary);
+		background: var(--user-type-background);
 		gap: 2px;
 
 		a,
