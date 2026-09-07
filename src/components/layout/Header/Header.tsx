@@ -3,7 +3,6 @@ import styles from './Header.module.scss'
 import Button from '@/components/ui/Button'
 import Logo from '@/components/ui/Logo'
 import TextLink from '@/components/ui/TextLink'
-import { InternetBankIcon, PinIcon } from '@/components/ui/Icons'
 import MainMenu from './MainMenu'
 import MobileMenu from './MobileMenu'
 
@@ -35,60 +34,42 @@ export default function Header({ navigation, altNavigation, site, audience }: He
 
                     <nav className={`${styles.topMenu} ${styles.topMenuDesktop}`} aria-label="Продукты группы">
                         {navigation.topLinks.map((link) => (
-                            <TextLink
-                                key={link.href}
-                                href={link.href}
-                                className={`${styles.topMenuLink} ${link.href === '/' ? styles.active : ''}`}
-                            >
+                            <TextLink key={link.href} href={link.href} className={`${styles.topMenuLink} ${link.href === '/' ? styles.active : ''}`}>
                                 {link.label}
                             </TextLink>
                         ))}
                     </nav>
 
-                    {offices ? (
-                        <TextLink className={styles.location} href={offices.href}>
-                            <PinIcon />
-                            {offices.label}
-                        </TextLink>
-                    ) : null}
+                    <div className={styles.headerButtons}>
+                        {offices ? (
+                            <Button className={styles.location} href={offices.href} color={offices.color} size="xs">
+                                {offices.label}
+                            </Button>
+                        ) : null}
 
-                    {internet ? (
-                        <div className={styles.online}>
-                            <Button href={internet.href} color="secondary" size="xs" aria-label={internet.label}>
-                                <InternetBankIcon />
+                        {internet ? (
+                            <Button className={styles.online} href={internet.href} color={internet.color} size="xs" aria-label={internet.label}>
                                 <span className={styles.onlineLabel}>{internet.label}</span>
                             </Button>
-                        </div>
-                    ) : null}
+                        ) : null}
 
-                    {openAccount ? (
-                        <div className={styles.auth}>
-                            <Button href={openAccount.href || undefined} color="primary" size="xs">
+                        {openAccount ? (
+                            <Button className={styles.auth} href={openAccount.href || undefined} color={openAccount.color} size="xs">
                                 {openAccount.label}
                             </Button>
-                        </div>
-                    ) : null}
+                        ) : null}
+                    </div>
 
-                    <MobileMenu
-                        audience={audience}
-                        audienceItems={navigation.audience}
-                        menus={menus}
-                        offices={offices}
-                        internet={internet}
-                        openAccount={openAccount}
-                    />
+                    <MobileMenu audience={audience} audienceItems={navigation.audience} menus={menus} offices={offices} internet={internet} openAccount={openAccount} />
                 </div>
             </div>
 
             <div className={styles.subbar}>
                 <div className={`container container--wide ${styles.barInner}`}>
+
                     <nav className={`${styles.topMenu} ${styles.topMenuCompact}`} aria-label="Продукты группы">
                         {navigation.topLinks.map((link) => (
-                            <TextLink
-                                key={link.href}
-                                href={link.href}
-                                className={`${styles.topMenuLink} ${link.href === '/' ? styles.active : ''}`}
-                            >
+                            <TextLink key={link.href} href={link.href} className={`${styles.topMenuLink} ${link.href === '/' ? styles.active : ''}`}>
                                 {link.label}
                             </TextLink>
                         ))}
@@ -109,6 +90,7 @@ export default function Header({ navigation, altNavigation, site, audience }: He
                     <nav className={styles.menu} aria-label="Разделы сайта">
                         <MainMenu items={navigation.mainMenu} />
                     </nav>
+
                 </div>
             </div>
         </header>

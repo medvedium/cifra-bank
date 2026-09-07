@@ -34,6 +34,8 @@
 	--background-hint: #f1f1f5;
 	--background-light-red: #fcebeb;
 	--background-overlay: rgb(0 0 0 / 50%);
+	--background-banner: #f5f5f8;
+	--background-user-type: #ebebf2;
 
 	// Lines
 	--lines-light-grey: #f5f5f8;
@@ -50,6 +52,8 @@
 	--color-primary: var(--text-green);
 	--color-muted: var(--text-secondary);
 	--button-focus-outline: var(--text-link);
+	--banner-background: var(--background-banner);
+	--user-type-background: var(--background-user-type);
 
 	// Button
 	--button-radius: 8px;
@@ -180,6 +184,8 @@
 	--background-hint: #1a242d;
 	--background-light-red: #412528;
 	--background-overlay: rgb(82 87 97 / 60%);
+	--background-banner: #2C3C4A;
+	--background-user-type: #2C3C4A;
 
 	// Lines
 	--lines-light-grey: #212a34;
