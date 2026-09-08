@@ -14,6 +14,7 @@ export {
     PinIcon,
     InternetBankIcon,
     SearchIcon,
+    CloseIcon,
     storeIcons,
     socialIcons
 } from './Icons'
