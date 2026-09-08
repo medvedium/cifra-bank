@@ -2,10 +2,10 @@
 
 import { useEffect, useId, useRef, useState } from 'react'
 import { usePathname } from 'next/navigation'
-import type { AudienceItem, MainMenuItem, MenuItem } from '@/lib/content/types'
+import type { AudienceItem, MainMenuItem, MenuItem, SiteSearch } from '@/lib/content/types'
 import TextLink from '@/components/ui/TextLink'
 import Button from '@/components/ui/Button'
-import { ChevronIcon, InternetBankIcon, PinIcon } from '@/components/ui/Icons'
+import { ChevronIcon, CloseIcon, SearchIcon } from '@/components/ui/Icons'
 import styles from './MobileMenu.module.scss'
 
 interface MobileMenuProps {
@@ -15,13 +15,14 @@ interface MobileMenuProps {
     offices?: MenuItem
     internet?: MenuItem
     openAccount?: MenuItem
+    search: SiteSearch
 }
 
 function flattenColumns(item: MainMenuItem) {
     return item.dropdown?.columns.flat() ?? []
 }
 
-export default function MobileMenu({ audience, audienceItems, menus, offices, internet, openAccount }: MobileMenuProps) {
+export default function MobileMenu({ audience, audienceItems, menus, offices, internet, openAccount, search }: MobileMenuProps) {
     const panelId = useId()
     const pathname = usePathname()
     const panelRef = useRef<HTMLDivElement>(null)
@@ -29,12 +30,16 @@ export default function MobileMenu({ audience, audienceItems, menus, offices, in
     const [open, setOpen] = useState(false)
     const [tab, setTab] = useState(audience)
     const [openIndex, setOpenIndex] = useState<number | null>(null)
+    const [query, setQuery] = useState('')
+
+    console.log(pathname)
 
     if (pathname !== menuPathname) {
         setMenuPathname(pathname)
         setOpen(false)
         setOpenIndex(null)
         setTab(audience)
+        setQuery('')
     }
 
     useEffect(() => {
@@ -86,6 +91,31 @@ export default function MobileMenu({ audience, audienceItems, menus, offices, in
             </button>
 
             <div className={styles.panel} id={panelId} ref={panelRef} hidden={!open}>
+                <form className={`${styles.search} ${query ? styles.searchFilled : ''}`} action={search.action} method="get">
+                    <input
+                        className={styles.searchInput}
+                        type="search"
+                        name="q"
+                        value={query}
+                        placeholder={search.mobilePlaceholder}
+                        aria-label={search.toggleLabel}
+                        autoComplete="off"
+                        onChange={(event) => setQuery(event.target.value)}
+                    />
+                    <button type="submit" className={styles.searchSubmit} aria-label={search.submitLabel}>
+                        <SearchIcon />
+                    </button>
+                    <button
+                        type="button"
+                        className={styles.searchCancel}
+                        aria-label={search.clearLabel}
+                        tabIndex={query ? undefined : -1}
+                        onClick={() => setQuery('')}
+                    >
+                        <CloseIcon />
+                    </button>
+                </form>
+
                 <div className={styles.switch} role="tablist" aria-label="Тип клиента">
                     {audienceItems.map((item) => (
                         <button
@@ -151,25 +181,23 @@ export default function MobileMenu({ audience, audienceItems, menus, offices, in
 
                 {offices ? (
                     <TextLink className={styles.location} href={offices.href}>
-                        <PinIcon />
                         {offices.label}
                     </TextLink>
                 ) : null}
 
                 <div className={styles.additional}>
-                    {openAccount ? (
-                        <div className={styles.action}>
-                            <Button href={openAccount.href || undefined} color="primary" size="xs">
-                                {openAccount.label}
+                    {internet ? (
+                        <div className={styles.online}>
+                            <Button href={internet.href} color="secondary" size="xs">
+                                {internet.label}
                             </Button>
                         </div>
                     ) : null}
 
-                    {internet ? (
-                        <div className={styles.online}>
-                            <Button href={internet.href} color="secondary" size="xs">
-                                <InternetBankIcon />
-                                {internet.label}
+                    {openAccount ? (
+                        <div className={styles.action}>
+                            <Button href={openAccount.href || undefined} color="primary" size="xs">
+                                {openAccount.label}
                             </Button>
                         </div>
                     ) : null}

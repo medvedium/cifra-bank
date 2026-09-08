@@ -1,8 +1,18 @@
+export interface SiteSearch {
+    action: string
+    placeholder: string
+    mobilePlaceholder: string
+    toggleLabel: string
+    submitLabel: string
+    clearLabel: string
+}
+
 export interface SiteInfo {
     name: string
     baseUrl: string
     phones: Phones
     email: string
+    search: SiteSearch
 }
 
 export interface Phones {
@@ -177,6 +187,29 @@ export interface MainMenuDropdown {
 export interface MainMenuAside {
     title: string
     links: MenuItem[]
+}
+
+export interface SearchPage {
+    slug: string
+    seo: Seo
+    heading: string
+    submitLabel: string
+    empty: string
+    loadMore: string
+    countPrefix: string
+    variants: {
+        one: string
+        few: string
+        many: string
+    }
+    prevPageLabel: string
+    nextPageLabel: string
+}
+
+export interface SearchHit {
+    title: string
+    category: string
+    href: string
 }
 
 export interface ServicePackagesPage {

@@ -161,6 +161,8 @@ body {
 }
 
 html.is-mobile-open,
-html.is-mobile-open body {
+html.is-mobile-open body,
+html.is-search-open,
+html.is-search-open body {
 	overflow: hidden;
 }

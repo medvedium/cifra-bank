@@ -7,5 +7,13 @@
         "moscow": "+7 495 249 11 62",
         "moscowHref": "tel:+74952491162"
     },
-    "email": "help@cifra-bank.ru"
+    "email": "help@cifra-bank.ru",
+    "search": {
+        "action": "/search",
+        "placeholder": "Поиск по продуктам, услугам и информации о банке",
+        "mobilePlaceholder": "Поиск",
+        "toggleLabel": "Поиск",
+        "submitLabel": "Найти",
+        "clearLabel": "Очистить"
+    }
 }

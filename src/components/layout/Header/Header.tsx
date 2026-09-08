@@ -3,6 +3,7 @@ import styles from './Header.module.scss'
 import Button from '@/components/ui/Button'
 import Logo from '@/components/ui/Logo'
 import TextLink from '@/components/ui/TextLink'
+import HeaderSearch from './HeaderSearch'
 import MainMenu from './MainMenu'
 import MobileMenu from './MobileMenu'
 
@@ -60,7 +61,15 @@ export default function Header({ navigation, altNavigation, site, audience }: He
                         ) : null}
                     </div>
 
-                    <MobileMenu audience={audience} audienceItems={navigation.audience} menus={menus} offices={offices} internet={internet} openAccount={openAccount} />
+                    <MobileMenu
+                        audience={audience}
+                        audienceItems={navigation.audience}
+                        menus={menus}
+                        offices={offices}
+                        internet={internet}
+                        openAccount={openAccount}
+                        search={site.search}
+                    />
                 </div>
             </div>
 
@@ -90,6 +99,8 @@ export default function Header({ navigation, altNavigation, site, audience }: He
                     <nav className={styles.menu} aria-label="Разделы сайта">
                         <MainMenu items={navigation.mainMenu} />
                     </nav>
+
+                    <HeaderSearch search={site.search} />
 
                 </div>
             </div>
