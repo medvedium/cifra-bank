@@ -1,3 +1,5 @@
+@use '@/styles/breakpoints' as *;
+
 .menuList {
 	display: flex;
 	flex-wrap: nowrap;
@@ -171,14 +173,7 @@
 	text-transform: uppercase;
 }
 
-@media (min-width: 1300px) {
-	.menuLink,
-	.menuTrigger {
-		padding: 0 8px;
-	}
-}
-
-@media (min-width: 1340px) {
+@include from(xl) {
 	.menuList {
 		margin-left: -12px;
 	}

@@ -2,7 +2,8 @@
 
 $breakpoints: (
 	md: 768px,
-	xl: 1280px,
+	lg: 992px,
+	xl: 1200px,
 );
 
 @function breakpoint($name) {
@@ -17,6 +18,18 @@ $breakpoints: (
 
 @mixin from($name) {
 	@media (min-width: breakpoint($name)) {
+		@content;
+	}
+}
+
+@mixin until($name) {
+	@media (max-width: #{breakpoint($name) - 0.02px}) {
+		@content;
+	}
+}
+
+@mixin between($from, $until) {
+	@media (min-width: breakpoint($from)) and (max-width: #{breakpoint($until) - 0.02px}) {
 		@content;
 	}
 }

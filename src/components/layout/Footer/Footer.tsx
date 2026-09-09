@@ -53,7 +53,7 @@ export default async function Footer({ navigation, site, audience }: FooterProps
                             <div className={styles.qrStores}>
                                 {footer.app.stores.map((store) => {
                                     const Icon = storeIcons[store.id]
-                                    return <Icon key={store.id} />
+                                    return <Icon key={store.id} className={styles.qrStoreIcon} aria-hidden />
                                 })}
                             </div>
                         </div>

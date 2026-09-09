@@ -40,7 +40,7 @@
 }
 
 .slideDark {
-	background: #2c3c4a;
+	background: var(--footer-surface);
 	color: var(--text-light);
 
 	.mark {
@@ -354,7 +354,7 @@
 	}
 }
 
-@media (min-width: 1200px) {
+@include from(xl) {
 	.slide {
 		padding: 64px 80px;
 	}
