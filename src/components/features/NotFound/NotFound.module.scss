@@ -1,0 +1,54 @@
+@use '@/styles/breakpoints' as *;
+
+.section {
+	flex: 1;
+	text-align: center;
+	padding-top: 8px;
+	padding-bottom: 64px;
+
+	@include from(md) {
+		padding-top: 32px;
+		padding-bottom: 128px;
+	}
+}
+
+.number {
+	display: block;
+	margin: 0 0 16px;
+	color: var(--background-secondary);
+	font-family: var(--font-heading), sans-serif;
+	font-size: 100px;
+	font-weight: 300;
+	line-height: 1.08;
+
+	@include from(md) {
+		margin-bottom: 20px;
+		font-size: 140px;
+		line-height: 1.5;
+	}
+}
+
+.title {
+	display: block;
+	margin: 0 0 8px;
+	color: var(--text-main);
+	font-family: var(--font-heading), sans-serif;
+	font-size: 24px;
+	font-weight: 500;
+	line-height: 1.17;
+}
+
+.text {
+	display: block;
+	margin: 0 auto 24px;
+	max-width: 36em;
+	color: var(--text-main);
+	font-size: var(--t1-size);
+	font-weight: var(--t1-weight);
+	line-height: var(--t1-line-height);
+}
+
+.action {
+	display: flex;
+	justify-content: center;
+}

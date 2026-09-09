@@ -212,6 +212,18 @@ export interface SearchHit {
     href: string
 }
 
+export interface NotFoundPage {
+    slug: string
+    seo: Seo
+    code: string
+    heading: string
+    text: string
+    cta: {
+        label: string
+        href: string
+    }
+}
+
 export interface ServicePackagesPage {
     slug: string
     seo: Seo

@@ -1,4 +1,4 @@
-import { CorporateHomePage, FooterContent, HomePage, Navigation, SearchPage, ServicePackagesPage, SiteInfo } from '@/lib/content/types'
+import { CorporateHomePage, FooterContent, HomePage, Navigation, NotFoundPage, SearchPage, ServicePackagesPage, SiteInfo } from '@/lib/content/types'
 import { readFile } from 'node:fs/promises'
 import path from 'node:path'
 
@@ -37,6 +37,10 @@ export async function getServicePackagesPage(): Promise<ServicePackagesPage> {
 
 export async function getSearchPage(): Promise<SearchPage> {
     return readJson<SearchPage>('pages/search.json')
+}
+
+export async function getNotFoundPage(): Promise<NotFoundPage> {
+    return readJson<NotFoundPage>('pages/not-found.json')
 }
 
 // 2. Corporate
