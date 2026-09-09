@@ -1,3 +1,5 @@
+@use '@/styles/breakpoints' as *;
+
 .page {
 	padding-bottom: 32px;
 }
@@ -294,7 +296,7 @@
 	pointer-events: none;
 }
 
-@media (min-width: 640px) {
+@include from(md) {
 	.empty {
 		padding: 16px 24px;
 	}
@@ -304,7 +306,7 @@
 	}
 }
 
-@media (min-width: 1200px) {
+@include from(xl) {
 	.page {
 		padding-top: 32px;
 		padding-bottom: 48px;

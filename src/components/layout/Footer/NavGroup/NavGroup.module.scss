@@ -1,3 +1,5 @@
+@use '@/styles/breakpoints' as *;
+
 .navGroup {
 	margin-bottom: 48px;
 }
@@ -41,7 +43,7 @@
 }
 
 .navLink {
-	color: #9798a0;
+	color: var(--footer-text-muted);
 	font-size: 14px;
 	font-weight: 400;
 	line-height: 1.29;
@@ -49,11 +51,11 @@
 	transition: color 0.25s;
 
 	&:hover {
-		color: #fff;
+		color: var(--footer-text);
 	}
 }
 
-@media (min-width: 768px) and (max-width: 991.98px) {
+@include between(md, xl) {
 	.navColumnsPrimary .navMenu:first-child {
 		flex-basis: calc(41.6667% - 5px);
 	}
@@ -63,7 +65,7 @@
 	}
 }
 
-@media (min-width: 768px) {
+@include from(md) {
 	.navColumnsSecondary .navMenu:first-child {
 		flex-basis: calc(41.6667% - 5px);
 	}
@@ -73,15 +75,13 @@
 	}
 }
 
-@media (min-width: 992px) {
+@include from(xl) {
 	.navColumnsPrimary .navMenu {
 		flex: 0 0 auto;
 		width: auto;
 		max-width: 100%;
 	}
-}
 
-@media (min-width: 1200px) {
 	.navGroup {
 		margin-bottom: 0;
 	}

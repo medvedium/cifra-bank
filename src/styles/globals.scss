@@ -1,4 +1,5 @@
 @use 'variables' as *;
+@use '@/styles/breakpoints' as *;
 
 *,
 *::before,
@@ -24,9 +25,6 @@ body {
 	background: var(--color-background);
 	color: var(--color-foreground);
 	font-family: var(--font-main), sans-serif;
-	//font-size: var(--t1-size);
-	//font-weight: var(--t1-weight);
-	//line-height: var(--t1-line-height);
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
@@ -151,11 +149,11 @@ body {
 		max-width: var(--container-wide-width);
 	}
 
-	@media (min-width: 640px) {
+	@include from(md) {
 		padding-inline: 32px;
 	}
 
-	@media (min-width: 992px) {
+	@include from(xl) {
 		padding-inline: 40px;
 	}
 }

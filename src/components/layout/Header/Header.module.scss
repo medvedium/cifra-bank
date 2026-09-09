@@ -168,20 +168,18 @@
 	}
 }
 
-@media (640px <= width < 1200px) {
+@include between(md, xl) {
 	.headerButtons .online {
 		background: transparent !important;
 	}
-}
 
-@media (min-width: 992px) {
 	.topMenuCompact {
 		margin: 0 -40px;
 		padding: 0 40px;
 	}
 }
 
-@media (min-width: 1200px) {
+@include from(xl) {
 	.header {
 		padding-top: 0;
 		border-bottom: 1px solid var(--lines-grey);

@@ -60,6 +60,25 @@
 	--button-hover-overlay: rgba(33, 42, 52, 0.05);
 	--button-disabled-opacity: 0.4;
 
+	// Footer
+	--footer-bg: #24303b;
+	--footer-text: #ffffff;
+	--footer-text-muted: var(--text-third);
+	--footer-surface: #2c3c4a;
+	--footer-divider: var(--text-secondary);
+	--footer-icon-hover-bg: var(--background-primary);
+	--footer-icon-hover-text: var(--text-dark);
+	--footer-cta-bg: #ffffff;
+	--footer-cta-hover-bg: var(--background-hint);
+	--footer-cta-text: var(--text-dark);
+	--footer-accent: #01c850;
+	--footer-qr-image-bg: #ffffff;
+	--footer-panel-bg: var(--background-main);
+	--footer-panel-border: #dfe0e3;
+	--footer-panel-text: var(--text-dark);
+	--footer-panel-hover-bg: var(--background-secondary);
+	--overlay-scrim: rgb(0 0 0 / 40%);
+
 	// Layout
 	--spacing-section: 64px;
 	--container-max-width: 1200px;

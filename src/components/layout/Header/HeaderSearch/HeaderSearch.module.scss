@@ -1,3 +1,5 @@
+@use '@/styles/breakpoints' as *;
+
 .search {
 	display: none;
 }
@@ -38,7 +40,7 @@
 	left: 0;
 	z-index: 500;
 	height: 100vh;
-	background: rgb(0 0 0 / 40%);
+	background: var(--overlay-scrim);
 	pointer-events: none;
 }
 
@@ -147,7 +149,7 @@
 	}
 }
 
-@media (min-width: 1200px) {
+@include from(xl) {
 	.search {
 		display: block;
 		flex: 0 0 auto;

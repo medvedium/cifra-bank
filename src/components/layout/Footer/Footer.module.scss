@@ -1,8 +1,10 @@
+@use '@/styles/breakpoints' as *;
+
 .footer {
 	margin-top: auto;
 	padding: 32px 0 24px;
-	background: #24303b;
-	color: #fff;
+	background: var(--footer-bg);
+	color: var(--footer-text);
 }
 
 .inner {
@@ -13,7 +15,7 @@
 .logo {
 	display: inline-flex;
 	margin-bottom: 48px;
-	color: #fff;
+	color: var(--footer-text);
 
 	svg {
 		display: block;
@@ -42,14 +44,14 @@
 }
 
 .phoneLink {
-	color: #fff;
+	color: var(--footer-text);
 	text-decoration: none;
 }
 
 .phoneCaption {
 	display: block;
 	margin-top: 8px;
-	color: #9798a0;
+	color: var(--footer-text-muted);
 	font-family: var(--font-main), sans-serif;
 	font-size: 14px;
 	font-weight: 400;
@@ -63,7 +65,7 @@
 	min-width: 365px;
 	padding: 24px;
 	border-radius: 16px;
-	background: #2c3c4a;
+	background: var(--footer-surface);
 }
 
 .qrImage {
@@ -72,7 +74,7 @@
 	height: 100px;
 	padding: 6px;
 	border-radius: 8px;
-	background: #fff;
+	background: var(--footer-qr-image-bg);
 
 	img {
 		display: block;
@@ -89,7 +91,7 @@
 
 .qrText {
 	margin: 0;
-	color: #fff;
+	color: var(--footer-text);
 	font-family: var(--font-heading), sans-serif;
 	font-size: 18px;
 	font-weight: 500;
@@ -99,14 +101,8 @@
 
 .qrStores {
 	display: flex;
-	gap: 16px;
-	color: #fff;
-
-	svg {
-		display: block;
-		width: 24px;
-		height: 24px;
-	}
+	flex-wrap: wrap;
+	gap: 12px;
 }
 
 .info {
@@ -114,7 +110,7 @@
 	flex-direction: column;
 	margin-bottom: 48px;
 	padding-bottom: 28px;
-	border-bottom: 1px solid #6b7782;
+	border-bottom: 1px solid var(--footer-divider);
 }
 
 .contacts,
@@ -139,7 +135,7 @@
 .additionalLink {
 	display: inline-flex;
 	align-items: center;
-	color: #fff;
+	color: var(--footer-text);
 	text-decoration: none;
 
 	&:hover {
@@ -161,7 +157,7 @@
 .blockTitle {
 	display: block;
 	margin-bottom: 12px;
-	color: #9798a0;
+	color: var(--footer-text-muted);
 	font-size: 14px;
 	line-height: 1.29;
 }
@@ -186,8 +182,8 @@
 	padding: 0;
 	border: 0;
 	border-radius: 8px;
-	background: #2c3c4a;
-	color: #fff;
+	background: var(--footer-surface);
+	color: var(--footer-text);
 	text-decoration: none;
 	cursor: pointer;
 	transition: background 0.25s, color 0.25s;
@@ -200,8 +196,8 @@
 	}
 
 	&:hover {
-		background: #0ae15f;
-		color: #212a34;
+		background: var(--footer-icon-hover-bg);
+		color: var(--footer-icon-hover-text);
 		text-decoration: none;
 	}
 }
@@ -220,12 +216,12 @@
 }
 
 .onlineCall {
-	background: #fff;
-	color: #212a34;
+	background: var(--footer-cta-bg);
+	color: var(--footer-cta-text);
 
 	&:hover {
-		background: #f1f1f5;
-		color: #212a34;
+		background: var(--footer-cta-hover-bg);
+		color: var(--footer-cta-text);
 	}
 }
 
@@ -253,8 +249,8 @@
 	padding: 0 12px;
 	border: 0;
 	border-radius: 8px;
-	background: #2c3c4a;
-	color: #fff;
+	background: var(--footer-surface);
+	color: var(--footer-text);
 	font-size: 14px;
 	line-height: 16px;
 	cursor: pointer;
@@ -271,15 +267,15 @@
 	}
 
 	&:hover {
-		background: #0ae15f;
-		color: #212a34;
+		background: var(--footer-icon-hover-bg);
+		color: var(--footer-icon-hover-text);
 	}
 }
 
 .nav {
 	margin-bottom: 20px;
 	padding-bottom: 0;
-	border-bottom: 1px solid #6b7782;
+	border-bottom: 1px solid var(--footer-divider);
 }
 
 .navPrimary,
@@ -295,13 +291,13 @@
 
 .copyright {
 	margin: 0 0 12px;
-	color: #9798a0;
+	color: var(--footer-text-muted);
 	font-size: 12px;
 	font-weight: 400;
 	line-height: 1.25;
 }
 
-@media (min-width: 992px) {
+@include from(md) {
 	.call {
 		display: grid;
 		grid-template-columns: 55.3% 1fr;
@@ -354,7 +350,7 @@
 	}
 }
 
-@media (min-width: 1200px) {
+@include from(xl) {
 	.footer {
 		padding: 64px 0 24px;
 	}
