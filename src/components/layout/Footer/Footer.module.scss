@@ -101,8 +101,17 @@
 
 .qrStores {
 	display: flex;
-	flex-wrap: wrap;
-	gap: 12px;
+	flex-wrap: nowrap;
+	gap: 16px;
+	width: fit-content;
+	color: var(--footer-text);
+}
+
+.qrStoreIcon {
+	display: block;
+	flex: 0 0 24px;
+	width: 24px;
+	height: 24px;
 }
 
 .info {
@@ -297,7 +306,7 @@
 	line-height: 1.25;
 }
 
-@include from(md) {
+@include from(lg) {
 	.call {
 		display: grid;
 		grid-template-columns: 55.3% 1fr;

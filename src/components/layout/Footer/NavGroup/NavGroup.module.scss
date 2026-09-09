@@ -75,13 +75,15 @@
 	}
 }
 
-@include from(xl) {
+@include from(lg) {
 	.navColumnsPrimary .navMenu {
 		flex: 0 0 auto;
 		width: auto;
 		max-width: 100%;
 	}
+}
 
+@include from(xl) {
 	.navGroup {
 		margin-bottom: 0;
 	}
