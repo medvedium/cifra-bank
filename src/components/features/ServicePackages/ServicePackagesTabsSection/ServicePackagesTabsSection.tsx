@@ -1,10 +1,9 @@
 'use client'
 
-import Tabs from '@/components/features/Tabs'
+import Tabs from '@/components/ui/Tabs'
 import CardList from '@/components/features/CardList'
+import ServicePackagesTabBlocks from '@/components/features/ServicePackages/ServicePackagesTabBlocks/ServicePackagesTabBlocks'
 import type { ServicePackagesCard, TabItem, TabBlock } from '@/lib/content/types'
-import ServicePackagesTabBlocks
-    from '@/components/features/ServicePackages/ServicePackagesTabBlocks/ServicePackagesTabBlocks'
 
 interface ServicePackagesTabsSectionProps {
     tabs: TabItem[]
@@ -13,19 +12,34 @@ interface ServicePackagesTabsSectionProps {
     defaultId?: string
 }
 
-export default function ServicePackagesTabsSection({ tabs, cards, tabContent, defaultId = 'digital' }: ServicePackagesTabsSectionProps) {
+export default function ServicePackagesTabsSection({
+    tabs,
+    cards,
+    tabContent,
+    defaultId = 'digital'
+}: ServicePackagesTabsSectionProps) {
     return (
-        <Tabs items={tabs} defaultId={defaultId}>
-            {(activeId) => {
-                const content = tabContent[activeId]
+        <Tabs.Root defaultValue={defaultId} variant={'segment'}>
+            <Tabs.List aria-label={'Тип карты'}>
+                {tabs.map((tab) => (
+                    <Tabs.Trigger
+                        value={tab.id}
+                        key={tab.id}
+                    >
+                        {tab.label}
+                    </Tabs.Trigger>
+                ))}
+            </Tabs.List>
 
-                return (
-                    <>
-                        <CardList cards={cards.filter((card) => card.type === activeId)} />
-                        {content?.blocks && <ServicePackagesTabBlocks blocks={content.blocks} />}
-                    </>
-                )
-            }}
-        </Tabs>
+            {tabs.map((tab) => (
+                <Tabs.Panel
+                    key={tab.id}
+                    value={tab.id}
+                >
+                    <CardList cards={cards.filter((card) => card.type === tab.id)} />
+                    {tabContent[tab.id]?.blocks && <ServicePackagesTabBlocks blocks={tabContent[tab.id].blocks} />}
+                </Tabs.Panel>
+            ))}
+        </Tabs.Root>
     )
 }
