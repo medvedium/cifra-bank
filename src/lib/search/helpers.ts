@@ -3,7 +3,14 @@ export const SEARCH_PAGE_SIZE = 10
 export function formatSearchCount(count: number, prefix: string, variants: { one: string; few: string; many: string }) {
     const abs = Math.abs(count) % 100
     const last = abs % 10
-    const variant = abs > 10 && abs < 20 ? variants.many : last > 1 && last < 5 ? variants.few : last === 1 ? variants.one : variants.many
+    const variant =
+        abs > 10 && abs < 20
+            ? variants.many
+            : last > 1 && last < 5
+              ? variants.few
+              : last === 1
+                ? variants.one
+                : variants.many
 
     return `${prefix} ${count} ${variant}`
 }

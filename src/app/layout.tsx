@@ -101,10 +101,13 @@ export default function RootLayout({
 }: Readonly<{
     children: React.ReactNode
 }>) {
-
     // TODO Переписать theme-toggler
     return (
-        <html lang="ru" className={`${gtAmerica.variable} ${stolzl.variable}`} suppressHydrationWarning>
+        <html
+            lang="ru"
+            className={`${gtAmerica.variable} ${stolzl.variable}`}
+            suppressHydrationWarning
+        >
             <body>
                 <ThemeInitScript />
                 {children}

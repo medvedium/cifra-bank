@@ -69,7 +69,10 @@ export default function HeaderSearch({ search }: HeaderSearchProps) {
 
     return (
         <div className={`${styles.search} ${open ? styles.searchOpen : ''}`}>
-            <form action={search.action} method="get">
+            <form
+                action={search.action}
+                method="get"
+            >
                 <button
                     type="button"
                     className={styles.toggle}
@@ -82,11 +85,21 @@ export default function HeaderSearch({ search }: HeaderSearchProps) {
                     <SearchIcon />
                 </button>
 
-                <div className={styles.overlay} onClick={close} />
+                <div
+                    className={styles.overlay}
+                    onClick={close}
+                />
 
-                <div className={styles.offcanvas} id={panelId}>
+                <div
+                    className={styles.offcanvas}
+                    id={panelId}
+                >
                     <div className={`container container--wide ${styles.offcanvasInner}`}>
-                        <button type="submit" className={styles.submit} aria-label={search.submitLabel}>
+                        <button
+                            type="submit"
+                            className={styles.submit}
+                            aria-label={search.submitLabel}
+                        >
                             <SearchIcon />
                         </button>
                         <input

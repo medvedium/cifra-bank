@@ -12,9 +12,19 @@ export default function ServicePackagesTabBlocks({ blocks }: TabBlocksProps) {
             {blocks.map((block, index) => {
                 switch (block.type) {
                     case 'advantages':
-                        return <ServicePackagesAdvantagesBlock key={`advantages-${index}`} {...block} />
+                        return (
+                            <ServicePackagesAdvantagesBlock
+                                key={`advantages-${index}`}
+                                {...block}
+                            />
+                        )
                     case 'comboBanner':
-                        return <ServicePackagesComboBanner key={`combo-${index}`} {...block} />
+                        return (
+                            <ServicePackagesComboBanner
+                                key={`combo-${index}`}
+                                {...block}
+                            />
+                        )
                     default:
                         return null
                 }

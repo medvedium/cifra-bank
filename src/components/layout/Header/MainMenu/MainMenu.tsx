@@ -87,7 +87,10 @@ export default function MainMenu({ items }: MainMenuProps) {
     }, [openIndex])
 
     return (
-        <ul className={styles.menuList} ref={rootRef}>
+        <ul
+            className={styles.menuList}
+            ref={rootRef}
+        >
             {items.map((item, index) => {
                 const isOpen = openIndex === index
                 const triggerId = `${baseId}-trigger-${index}`
@@ -144,19 +147,31 @@ export default function MainMenu({ items }: MainMenuProps) {
                                 >
                                     {item.label}
                                 </button>
-                                <div className={styles.dropdown} id={panelId} hidden={!isOpen}>
+                                <div
+                                    className={styles.dropdown}
+                                    id={panelId}
+                                    hidden={!isOpen}
+                                >
                                     <div className={`container ${styles.dropdownInner}`}>
                                         <div className={styles.dropdownMain}>
                                             <span className={styles.dropdownTitle}>{item.label}</span>
                                             <div className={styles.dropdownColumns}>
                                                 {item.dropdown.columns.map((column, columnIndex) => (
-                                                    <ul className={styles.dropdownColumn} key={columnIndex}>
+                                                    <ul
+                                                        className={styles.dropdownColumn}
+                                                        key={columnIndex}
+                                                    >
                                                         {column.map((link) => (
                                                             <li key={link.href}>
-                                                                <TextLink className={styles.dropdownLink} href={link.href}>
+                                                                <TextLink
+                                                                    className={styles.dropdownLink}
+                                                                    href={link.href}
+                                                                >
                                                                     {link.label}
                                                                 </TextLink>
-                                                                {link.mark ? <span className={styles.menuMark}>{link.mark}</span> : null}
+                                                                {link.mark ? (
+                                                                    <span className={styles.menuMark}>{link.mark}</span>
+                                                                ) : null}
                                                             </li>
                                                         ))}
                                                     </ul>
@@ -165,11 +180,16 @@ export default function MainMenu({ items }: MainMenuProps) {
                                         </div>
                                         {item.dropdown.aside ? (
                                             <div className={styles.dropdownAside}>
-                                                <span className={styles.dropdownTitle}>{item.dropdown.aside.title}</span>
+                                                <span className={styles.dropdownTitle}>
+                                                    {item.dropdown.aside.title}
+                                                </span>
                                                 <ul className={styles.dropdownColumn}>
                                                     {item.dropdown.aside.links.map((link) => (
                                                         <li key={link.href}>
-                                                            <TextLink className={styles.dropdownLink} href={link.href}>
+                                                            <TextLink
+                                                                className={styles.dropdownLink}
+                                                                href={link.href}
+                                                            >
                                                                 {link.label}
                                                             </TextLink>
                                                         </li>
@@ -181,7 +201,10 @@ export default function MainMenu({ items }: MainMenuProps) {
                                 </div>
                             </>
                         ) : item.href ? (
-                            <TextLink className={styles.menuLink} href={item.href}>
+                            <TextLink
+                                className={styles.menuLink}
+                                href={item.href}
+                            >
                                 {item.label}
                             </TextLink>
                         ) : (

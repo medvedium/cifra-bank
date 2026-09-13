@@ -20,7 +20,12 @@ export default async function ServicePackagesPage() {
 
             <section className="section">
                 <div className="container">
-                    <ServicePackagesTabsSection tabs={page.tabs} cards={page.cards.items} defaultId={'digital'} tabContent={page.tabContent} />
+                    <ServicePackagesTabsSection
+                        tabs={page.tabs}
+                        cards={page.cards.items}
+                        defaultId={'digital'}
+                        tabContent={page.tabContent}
+                    />
                 </div>
             </section>
         </>

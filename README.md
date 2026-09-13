@@ -44,11 +44,11 @@ src/fonts/        локальные шрифты (next/font/local)
 @use '@/styles/breakpoints' as *;
 
 .block {
-	padding: 16px;
+    padding: 16px;
 
-	@include from(md) {
-		padding: 32px;
-	}
+    @include from(md) {
+        padding: 32px;
+    }
 }
 ```
 

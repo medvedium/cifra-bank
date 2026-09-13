@@ -1,319 +1,319 @@
 @use '@/styles/breakpoints' as *;
 
 .header {
-	position: relative;
-	z-index: 1000;
-	padding-top: 48px;
+    position: relative;
+    z-index: 1000;
+    padding-top: 48px;
 }
 
 .topbar,
 .subbar {
-	background: var(--background-main);
+    background: var(--background-main);
 }
 
 .topbar {
-	position: fixed;
-	top: 0;
-	right: 0;
-	left: 0;
-	z-index: 1000;
-	height: 48px;
-	border-bottom: 1px solid var(--lines-grey);
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1000;
+    height: 48px;
+    border-bottom: 1px solid var(--lines-grey);
 }
 
 .subbar {
-	position: relative;
-	height: 42px;
+    position: relative;
+    height: 42px;
 }
 
 .barInner {
-	display: flex;
-	align-items: center;
-	height: 100%;
+    display: flex;
+    align-items: center;
+    height: 100%;
 }
 
 .logo {
-	display: inline-flex;
-	margin-right: auto;
-	color: var(--text-main);
+    display: inline-flex;
+    margin-right: auto;
+    color: var(--text-main);
 
-	svg {
-		display: block;
-		width: 131px;
-		height: auto;
-	}
+    svg {
+        display: block;
+        width: 131px;
+        height: auto;
+    }
 }
 
 .topMenu {
-	display: flex;
-	flex: 1 1 auto;
-	align-items: center;
-	min-width: 0;
-	overflow: auto hidden;
-	scrollbar-width: none;
+    display: flex;
+    flex: 1 1 auto;
+    align-items: center;
+    min-width: 0;
+    overflow: auto hidden;
+    scrollbar-width: none;
 
-	&::-webkit-scrollbar {
-		display: none;
-	}
+    &::-webkit-scrollbar {
+        display: none;
+    }
 }
 
 .topMenuDesktop {
-	display: none;
+    display: none;
 }
 
 .topMenuCompact {
-	margin: 0 -16px;
-	padding: 0 16px;
+    margin: 0 -16px;
+    padding: 0 16px;
 }
 
 .topMenuLink {
-	position: relative;
-	display: flex;
-	align-items: center;
-	height: 42px;
-	margin-right: 16px;
-	color: var(--text-main);
-	font-size: 11px;
-	font-weight: 400;
-	letter-spacing: 0.06em;
-	line-height: 1.33;
-	text-decoration: none;
-	text-transform: uppercase;
-	white-space: nowrap;
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 42px;
+    margin-right: 16px;
+    color: var(--text-main);
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    line-height: 1.33;
+    text-decoration: none;
+    text-transform: uppercase;
+    white-space: nowrap;
 
-	&:last-child {
-		margin-right: 0;
-	}
+    &:last-child {
+        margin-right: 0;
+    }
 
-	&::after {
-		content: '';
-		position: absolute;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		height: 2px;
-		border-radius: 20px;
-		background: var(--background-primary);
-		opacity: 0;
-		transition: opacity 0.2s;
-	}
+    &::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        height: 2px;
+        border-radius: 20px;
+        background: var(--background-primary);
+        opacity: 0;
+        transition: opacity 0.2s;
+    }
 
-	&:hover::after,
-	&.active::after {
-		opacity: 1;
-	}
+    &:hover::after,
+    &.active::after {
+        opacity: 1;
+    }
 }
 
 .headerButtons {
-	display: none;
+    display: none;
 
-	.location,
-	.auth {
-		display: none;
-	}
+    .location,
+    .auth {
+        display: none;
+    }
 
-	.online {
-		display: none;
-	}
+    .online {
+        display: none;
+    }
 }
 
 .userType,
 .menu {
-	display: none;
+    display: none;
 }
 
 @include from(md) {
-	.topMenuCompact {
-		margin: 0 -32px;
-		padding: 0 32px;
-	}
+    .topMenuCompact {
+        margin: 0 -32px;
+        padding: 0 32px;
+    }
 
-	.headerButtons {
-		display: flex;
-		align-items: center;
-		gap: 12px;
-		margin-left: 16px;
+    .headerButtons {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-left: 16px;
 
-		.location,
-		.auth {
-			display: none;
-		}
+        .location,
+        .auth {
+            display: none;
+        }
 
-		.online {
-			display: inline-flex;
-			width: 24px;
-			height: 24px;
-			padding: 0;
-			overflow: hidden;
-			gap: 0;
+        .online {
+            display: inline-flex;
+            width: 24px;
+            height: 24px;
+            padding: 0;
+            overflow: hidden;
+            gap: 0;
 
-			svg {
-				display: block;
-				width: 24px;
-				height: 24px;
-			}
-		}
-	}
+            svg {
+                display: block;
+                width: 24px;
+                height: 24px;
+            }
+        }
+    }
 
-	.onlineLabel {
-		position: absolute;
-		width: 1px;
-		height: 1px;
-		padding: 0;
-		margin: -1px;
-		overflow: hidden;
-		clip: rect(0, 0, 0, 0);
-		white-space: nowrap;
-		border: 0;
-	}
+    .onlineLabel {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+    }
 }
 
 @include between(md, xl) {
-	.headerButtons .online {
-		background: transparent !important;
-	}
+    .headerButtons .online {
+        background: transparent !important;
+    }
 
-	.topMenuCompact {
-		margin: 0 -40px;
-		padding: 0 40px;
-	}
+    .topMenuCompact {
+        margin: 0 -40px;
+        padding: 0 40px;
+    }
 }
 
 @include from(xl) {
-	.header {
-		padding-top: 0;
-		border-bottom: 1px solid var(--lines-grey);
-	}
+    .header {
+        padding-top: 0;
+        border-bottom: 1px solid var(--lines-grey);
+    }
 
-	.topbar {
-		position: relative;
-		height: 64px;
-		border-bottom: 0;
-	}
+    .topbar {
+        position: relative;
+        height: 64px;
+        border-bottom: 0;
+    }
 
-	.subbar {
-		height: 56px;
-		background: var(--background-secondary);
-	}
+    .subbar {
+        height: 56px;
+        background: var(--background-secondary);
+    }
 
-	.logo {
-		margin-right: 86px;
-	}
+    .logo {
+        margin-right: 86px;
+    }
 
-	.topMenuDesktop {
-		display: flex;
-		flex: 1 1 auto;
-		overflow: visible;
-	}
+    .topMenuDesktop {
+        display: flex;
+        flex: 1 1 auto;
+        overflow: visible;
+    }
 
-	.topMenuCompact {
-		display: none;
-	}
+    .topMenuCompact {
+        display: none;
+    }
 
-	.topMenuLink {
-		height: 64px;
-		margin-right: 24px;
-		font-size: 12px;
-		letter-spacing: 0.04em;
+    .topMenuLink {
+        height: 64px;
+        margin-right: 24px;
+        font-size: 12px;
+        letter-spacing: 0.04em;
 
-		&::after {
-			bottom: 4px;
-		}
-	}
+        &::after {
+            bottom: 4px;
+        }
+    }
 
-	.headerButtons {
-		gap: 12px;
-		margin-left: 0;
+    .headerButtons {
+        gap: 12px;
+        margin-left: 0;
 
-		.location,
-		.auth {
-			display: inline-flex;
-		}
+        .location,
+        .auth {
+            display: inline-flex;
+        }
 
-		.location {
-			gap: 8px;
+        .location {
+            gap: 8px;
 
-			svg {
-				display: block;
-				width: 24px;
-				height: 24px;
-			}
-		}
+            svg {
+                display: block;
+                width: 24px;
+                height: 24px;
+            }
+        }
 
-		.online {
-			width: auto;
-			height: 40px;
-			padding: 10px 16px;
-			overflow: visible;
-			gap: 8px;
-			background: var(--background-secondary);
+        .online {
+            width: auto;
+            height: 40px;
+            padding: 10px 16px;
+            overflow: visible;
+            gap: 8px;
+            background: var(--background-secondary);
 
-			svg {
-				width: 24px;
-				height: 24px;
-			}
-		}
+            svg {
+                width: 24px;
+                height: 24px;
+            }
+        }
 
-		.auth {
-			display: inline-flex;
-		}
-	}
+        .auth {
+            display: inline-flex;
+        }
+    }
 
-	.onlineLabel {
-		position: static;
-		width: auto;
-		height: auto;
-		margin: 0;
-		overflow: visible;
-		clip: auto;
-		white-space: nowrap;
-	}
+    .onlineLabel {
+        position: static;
+        width: auto;
+        height: auto;
+        margin: 0;
+        overflow: visible;
+        clip: auto;
+        white-space: nowrap;
+    }
 
-	.userType {
-		display: flex;
-		flex: 0 0 auto;
-		align-items: center;
-		height: 40px;
-		margin-right: 24px;
-		padding: 2px;
-		border: 2px solid var(--user-type-background);
-		border-radius: 8px;
-		background: var(--user-type-background);
-		gap: 2px;
+    .userType {
+        display: flex;
+        flex: 0 0 auto;
+        align-items: center;
+        height: 40px;
+        margin-right: 24px;
+        padding: 2px;
+        border: 2px solid var(--user-type-background);
+        border-radius: 8px;
+        background: var(--user-type-background);
+        gap: 2px;
 
-		a,
-		span {
-			display: flex;
-			align-items: center;
-			min-height: 36px;
-			padding: 8px 12px;
-			border-radius: 6px;
-			font-size: 14px;
-			font-weight: 500;
-			line-height: 1.2;
-			text-decoration: none;
-			white-space: nowrap;
-		}
+        a,
+        span {
+            display: flex;
+            align-items: center;
+            min-height: 36px;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 1.2;
+            text-decoration: none;
+            white-space: nowrap;
+        }
 
-		a {
-			color: var(--text-secondary);
-			transition: color 0.2s;
+        a {
+            color: var(--text-secondary);
+            transition: color 0.2s;
 
-			&:hover {
-				color: var(--text-main);
-			}
-		}
+            &:hover {
+                color: var(--text-main);
+            }
+        }
 
-		span {
-			background: var(--background-main);
-			color: var(--text-main);
-		}
-	}
+        span {
+            background: var(--background-main);
+            color: var(--text-main);
+        }
+    }
 
-	.menu {
-		display: flex;
-		flex-grow: 1;
-		align-self: stretch;
-		min-width: 0;
-	}
+    .menu {
+        display: flex;
+        flex-grow: 1;
+        align-self: stretch;
+        min-width: 0;
+    }
 }

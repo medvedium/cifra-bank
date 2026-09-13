@@ -1,421 +1,425 @@
 @use '@/styles/breakpoints' as *;
 
 .footer {
-	margin-top: auto;
-	padding: 32px 0 24px;
-	background: var(--footer-bg);
-	color: var(--footer-text);
+    margin-top: auto;
+    padding: 32px 0 24px;
+    background: var(--footer-bg);
+    color: var(--footer-text);
 }
 
 .inner {
-	display: flex;
-	flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 .logo {
-	display: inline-flex;
-	margin-bottom: 48px;
-	color: var(--footer-text);
+    display: inline-flex;
+    margin-bottom: 48px;
+    color: var(--footer-text);
 
-	svg {
-		display: block;
-		width: 131px;
-		height: auto;
-	}
+    svg {
+        display: block;
+        width: 131px;
+        height: auto;
+    }
 }
 
 .call {
-	display: flex;
-	flex-direction: column;
-	gap: 24px;
-	margin-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 24px;
 }
 
 .phones {
-	display: grid;
-	gap: 16px;
-	margin: 0;
-	padding: 0;
-	list-style: none;
-	font-family: var(--font-heading), sans-serif;
-	font-size: 20px;
-	font-weight: 500;
-	line-height: 1.2;
+    display: grid;
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-family: var(--font-heading), sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.2;
 }
 
 .phoneLink {
-	color: var(--footer-text);
-	text-decoration: none;
+    color: var(--footer-text);
+    text-decoration: none;
 }
 
 .phoneCaption {
-	display: block;
-	margin-top: 8px;
-	color: var(--footer-text-muted);
-	font-family: var(--font-main), sans-serif;
-	font-size: 14px;
-	font-weight: 400;
-	line-height: 1.29;
+    display: block;
+    margin-top: 8px;
+    color: var(--footer-text-muted);
+    font-family: var(--font-main), sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.29;
 }
 
 .qr {
-	display: none;
-	gap: 24px;
-	width: fit-content;
-	min-width: 365px;
-	padding: 24px;
-	border-radius: 16px;
-	background: var(--footer-surface);
+    display: none;
+    gap: 24px;
+    width: fit-content;
+    min-width: 365px;
+    padding: 24px;
+    border-radius: 16px;
+    background: var(--footer-surface);
 }
 
 .qrImage {
-	flex: 0 0 100px;
-	width: 100px;
-	height: 100px;
-	padding: 6px;
-	border-radius: 8px;
-	background: var(--footer-qr-image-bg);
+    flex: 0 0 100px;
+    width: 100px;
+    height: 100px;
+    padding: 6px;
+    border-radius: 8px;
+    background: var(--footer-qr-image-bg);
 
-	img {
-		display: block;
-		width: 100%;
-		height: 100%;
-	}
+    img {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
 }
 
 .qrContent {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .qrText {
-	margin: 0;
-	color: var(--footer-text);
-	font-family: var(--font-heading), sans-serif;
-	font-size: 18px;
-	font-weight: 500;
-	line-height: 24px;
-	white-space: pre-line;
+    margin: 0;
+    color: var(--footer-text);
+    font-family: var(--font-heading), sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 24px;
+    white-space: pre-line;
 }
 
 .qrStores {
-	display: flex;
-	flex-wrap: nowrap;
-	gap: 16px;
-	width: fit-content;
-	color: var(--footer-text);
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 16px;
+    width: fit-content;
+    color: var(--footer-text);
 }
 
 .qrStoreIcon {
-	display: block;
-	flex: 0 0 24px;
-	width: 24px;
-	height: 24px;
+    display: block;
+    flex: 0 0 24px;
+    width: 24px;
+    height: 24px;
 }
 
 .info {
-	display: flex;
-	flex-direction: column;
-	margin-bottom: 48px;
-	padding-bottom: 28px;
-	border-bottom: 1px solid var(--footer-divider);
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 48px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--footer-divider);
 }
 
 .contacts,
 .additional {
-	margin: 0 0 48px;
-	padding: 0;
-	list-style: none;
-	font-size: 14px;
-	font-weight: 400;
-	line-height: 1.29;
+    margin: 0 0 48px;
+    padding: 0;
+    list-style: none;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.29;
 
-	li + li {
-		margin-top: 12px;
-	}
+    li + li {
+        margin-top: 12px;
+    }
 }
 
 .contacts {
-	max-width: 540px;
+    max-width: 540px;
 }
 
 .contactLink,
 .additionalLink {
-	display: inline-flex;
-	align-items: center;
-	color: var(--footer-text);
-	text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    color: var(--footer-text);
+    text-decoration: none;
 
-	&:hover {
-		text-decoration: underline;
-	}
+    &:hover {
+        text-decoration: underline;
+    }
 }
 
 .additionalLink svg {
-	flex: 0 0 auto;
-	width: 16px;
-	height: 15px;
-	margin-left: 4px;
+    flex: 0 0 auto;
+    width: 16px;
+    height: 15px;
+    margin-left: 4px;
 }
 
 .apps {
-	margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 .blockTitle {
-	display: block;
-	margin-bottom: 12px;
-	color: var(--footer-text-muted);
-	font-size: 14px;
-	line-height: 1.29;
+    display: block;
+    margin-bottom: 12px;
+    color: var(--footer-text-muted);
+    font-size: 14px;
+    line-height: 1.29;
 }
 
 .iconRow {
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-	gap: 12px;
-	margin: 0;
-	padding: 0;
-	list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
 .iconButton {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	width: 48px;
-	min-width: 48px;
-	height: 48px;
-	padding: 0;
-	border: 0;
-	border-radius: 8px;
-	background: var(--footer-surface);
-	color: var(--footer-text);
-	text-decoration: none;
-	cursor: pointer;
-	transition: background 0.25s, color 0.25s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    min-width: 48px;
+    height: 48px;
+    padding: 0;
+    border: 0;
+    border-radius: 8px;
+    background: var(--footer-surface);
+    color: var(--footer-text);
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+        background 0.25s,
+        color 0.25s;
 
-	svg {
-		display: block;
-		width: 24px;
-		height: 24px;
-		pointer-events: none;
-	}
+    svg {
+        display: block;
+        width: 24px;
+        height: 24px;
+        pointer-events: none;
+    }
 
-	&:hover {
-		background: var(--footer-icon-hover-bg);
-		color: var(--footer-icon-hover-text);
-		text-decoration: none;
-	}
+    &:hover {
+        background: var(--footer-icon-hover-bg);
+        color: var(--footer-icon-hover-text);
+        text-decoration: none;
+    }
 }
 
 .iconButtonWide {
-	width: fit-content;
-	padding-inline: 12px;
-	gap: 8px;
+    width: fit-content;
+    padding-inline: 12px;
+    gap: 8px;
 
-	span {
-		font-size: 12px;
-		font-weight: 500;
-		line-height: 1.33;
-		white-space: nowrap;
-	}
+    span {
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 1.33;
+        white-space: nowrap;
+    }
 }
 
 .onlineCall {
-	background: var(--footer-cta-bg);
-	color: var(--footer-cta-text);
+    background: var(--footer-cta-bg);
+    color: var(--footer-cta-text);
 
-	&:hover {
-		background: var(--footer-cta-hover-bg);
-		color: var(--footer-cta-text);
-	}
+    &:hover {
+        background: var(--footer-cta-hover-bg);
+        color: var(--footer-cta-text);
+    }
 }
 
 .social {
-	margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 .actions {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 32px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
 }
 
 .action {
-	display: inline-flex;
-	flex-direction: column;
+    display: inline-flex;
+    flex-direction: column;
 }
 
 .impaired {
-	display: inline-flex;
-	align-items: center;
-	width: fit-content;
-	min-width: 48px;
-	height: 48px;
-	padding: 0 12px;
-	border: 0;
-	border-radius: 8px;
-	background: var(--footer-surface);
-	color: var(--footer-text);
-	font-size: 14px;
-	line-height: 16px;
-	cursor: pointer;
-	transition: background 0.25s, color 0.25s;
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    min-width: 48px;
+    height: 48px;
+    padding: 0 12px;
+    border: 0;
+    border-radius: 8px;
+    background: var(--footer-surface);
+    color: var(--footer-text);
+    font-size: 14px;
+    line-height: 16px;
+    cursor: pointer;
+    transition:
+        background 0.25s,
+        color 0.25s;
 
-	svg {
-		display: block;
-		margin-right: 8px;
-		pointer-events: none;
-	}
+    svg {
+        display: block;
+        margin-right: 8px;
+        pointer-events: none;
+    }
 
-	span {
-		white-space: nowrap;
-	}
+    span {
+        white-space: nowrap;
+    }
 
-	&:hover {
-		background: var(--footer-icon-hover-bg);
-		color: var(--footer-icon-hover-text);
-	}
+    &:hover {
+        background: var(--footer-icon-hover-bg);
+        color: var(--footer-icon-hover-text);
+    }
 }
 
 .nav {
-	margin-bottom: 20px;
-	padding-bottom: 0;
-	border-bottom: 1px solid var(--footer-divider);
+    margin-bottom: 20px;
+    padding-bottom: 0;
+    border-bottom: 1px solid var(--footer-divider);
 }
 
 .navPrimary,
 .navSecondary {
-	display: flex;
-	flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 .bottom {
-	display: flex;
-	flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 .copyright {
-	margin: 0 0 12px;
-	color: var(--footer-text-muted);
-	font-size: 12px;
-	font-weight: 400;
-	line-height: 1.25;
+    margin: 0 0 12px;
+    color: var(--footer-text-muted);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.25;
 }
 
 @include from(lg) {
-	.call {
-		display: grid;
-		grid-template-columns: 55.3% 1fr;
-		align-items: start;
-		gap: 0;
-	}
+    .call {
+        display: grid;
+        grid-template-columns: 55.3% 1fr;
+        align-items: start;
+        gap: 0;
+    }
 
-	.phones {
-		max-width: none;
-	}
+    .phones {
+        max-width: none;
+    }
 
-	.qr {
-		display: flex;
-		flex: 0 0 auto;
-	}
+    .qr {
+        display: flex;
+        flex: 0 0 auto;
+    }
 
-	.info {
-		display: grid;
-		grid-template-columns: 55.3% 1fr;
-		margin-bottom: 32px;
-		padding-bottom: 12px;
-	}
+    .info {
+        display: grid;
+        grid-template-columns: 55.3% 1fr;
+        margin-bottom: 32px;
+        padding-bottom: 12px;
+    }
 
-	.contacts,
-	.additional {
-		margin-bottom: 32px;
-	}
+    .contacts,
+    .additional {
+        margin-bottom: 32px;
+    }
 
-	.apps {
-		display: none;
-	}
+    .apps {
+        display: none;
+    }
 
-	.social,
-	.actions {
-		margin-bottom: 0;
-		display: flex;
-		align-items: flex-end;
-	}
+    .social,
+    .actions {
+        margin-bottom: 0;
+        display: flex;
+        align-items: flex-end;
+    }
 
-	.nav {
-		display: grid;
-		grid-template-columns: 55.3% 1fr;
-		gap: 0 24px;
-	}
+    .nav {
+        display: grid;
+        grid-template-columns: 55.3% 1fr;
+        gap: 0 24px;
+    }
 
-	.navPrimary {
-		display: grid;
-		grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
-		gap: 0 24px;
-	}
+    .navPrimary {
+        display: grid;
+        grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+        gap: 0 24px;
+    }
 }
 
 @include from(xl) {
-	.footer {
-		padding: 64px 0 24px;
-	}
+    .footer {
+        padding: 64px 0 24px;
+    }
 
-	.logo {
-		margin-bottom: 32px;
-	}
+    .logo {
+        margin-bottom: 32px;
+    }
 
-	.call {
-		margin-bottom: 32px;
-	}
+    .call {
+        margin-bottom: 32px;
+    }
 
-	.phones {
-		font-size: 28px;
-		line-height: 1.14;
-	}
+    .phones {
+        font-size: 28px;
+        line-height: 1.14;
+    }
 
-	.phoneCaption {
-		font-size: 16px;
-		line-height: 1.25;
-	}
+    .phoneCaption {
+        font-size: 16px;
+        line-height: 1.25;
+    }
 
-	.contacts,
-	.additional {
-		font-size: 16px;
-		line-height: 1.25;
-	}
+    .contacts,
+    .additional {
+        font-size: 16px;
+        line-height: 1.25;
+    }
 
-	.additional li + li {
-		margin-top: 8px;
-	}
+    .additional li + li {
+        margin-top: 8px;
+    }
 
-	.blockTitle {
-		font-size: 16px;
-		line-height: 1.25;
-	}
+    .blockTitle {
+        font-size: 16px;
+        line-height: 1.25;
+    }
 
-	.iconButtonWide span {
-		font-size: 14px;
-	}
+    .iconButtonWide span {
+        font-size: 14px;
+    }
 
-	.actions {
-		gap: 46px;
-	}
+    .actions {
+        gap: 46px;
+    }
 
-	.nav {
-		padding-bottom: 50px;
-	}
+    .nav {
+        padding-bottom: 50px;
+    }
 
-	.bottom {
-		flex-direction: row;
-		align-items: center;
-	}
+    .bottom {
+        flex-direction: row;
+        align-items: center;
+    }
 
-	.copyright {
-		margin: 0;
-		font-size: 14px;
-	}
+    .copyright {
+        margin: 0;
+        font-size: 14px;
+    }
 }
