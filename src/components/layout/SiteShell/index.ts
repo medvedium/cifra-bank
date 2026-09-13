@@ -1,3 +1,3 @@
-import SiteShell from "./SiteShell";
+import SiteShell from './SiteShell'
 
-export default SiteShell;
+export default SiteShell

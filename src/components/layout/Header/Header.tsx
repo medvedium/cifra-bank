@@ -29,13 +29,24 @@ export default function Header({ navigation, altNavigation, site, audience }: He
         <header className={styles.header}>
             <div className={styles.topbar}>
                 <div className={`container container--wide ${styles.barInner}`}>
-                    <TextLink href={homeHref} className={styles.logo} aria-label={site.name}>
+                    <TextLink
+                        href={homeHref}
+                        className={styles.logo}
+                        aria-label={site.name}
+                    >
                         <Logo />
                     </TextLink>
 
-                    <nav className={`${styles.topMenu} ${styles.topMenuDesktop}`} aria-label="Продукты группы">
+                    <nav
+                        className={`${styles.topMenu} ${styles.topMenuDesktop}`}
+                        aria-label="Продукты группы"
+                    >
                         {navigation.topLinks.map((link) => (
-                            <TextLink key={link.href} href={link.href} className={`${styles.topMenuLink} ${link.href === '/' ? styles.active : ''}`}>
+                            <TextLink
+                                key={link.href}
+                                href={link.href}
+                                className={`${styles.topMenuLink} ${link.href === '/' ? styles.active : ''}`}
+                            >
                                 {link.label}
                             </TextLink>
                         ))}
@@ -43,19 +54,35 @@ export default function Header({ navigation, altNavigation, site, audience }: He
 
                     <div className={styles.headerButtons}>
                         {offices ? (
-                            <Button className={styles.location} href={offices.href} color={offices.color} size="xs">
+                            <Button
+                                className={styles.location}
+                                href={offices.href}
+                                color={offices.color}
+                                size="xs"
+                            >
                                 {offices.label}
                             </Button>
                         ) : null}
 
                         {internet ? (
-                            <Button className={styles.online} href={internet.href} color={internet.color} size="xs" aria-label={internet.label}>
+                            <Button
+                                className={styles.online}
+                                href={internet.href}
+                                color={internet.color}
+                                size="xs"
+                                aria-label={internet.label}
+                            >
                                 <span className={styles.onlineLabel}>{internet.label}</span>
                             </Button>
                         ) : null}
 
                         {openAccount ? (
-                            <Button className={styles.auth} href={openAccount.href || undefined} color={openAccount.color} size="xs">
+                            <Button
+                                className={styles.auth}
+                                href={openAccount.href || undefined}
+                                color={openAccount.color}
+                                size="xs"
+                            >
                                 {openAccount.label}
                             </Button>
                         ) : null}
@@ -75,10 +102,16 @@ export default function Header({ navigation, altNavigation, site, audience }: He
 
             <div className={styles.subbar}>
                 <div className={`container container--wide ${styles.barInner}`}>
-
-                    <nav className={`${styles.topMenu} ${styles.topMenuCompact}`} aria-label="Продукты группы">
+                    <nav
+                        className={`${styles.topMenu} ${styles.topMenuCompact}`}
+                        aria-label="Продукты группы"
+                    >
                         {navigation.topLinks.map((link) => (
-                            <TextLink key={link.href} href={link.href} className={`${styles.topMenuLink} ${link.href === '/' ? styles.active : ''}`}>
+                            <TextLink
+                                key={link.href}
+                                href={link.href}
+                                className={`${styles.topMenuLink} ${link.href === '/' ? styles.active : ''}`}
+                            >
                                 {link.label}
                             </TextLink>
                         ))}
@@ -89,19 +122,24 @@ export default function Header({ navigation, altNavigation, site, audience }: He
                             item.id === audience ? (
                                 <span key={item.id}>{item.label}</span>
                             ) : (
-                                <TextLink key={item.id} href={item.href}>
+                                <TextLink
+                                    key={item.id}
+                                    href={item.href}
+                                >
                                     {item.label}
                                 </TextLink>
                             )
                         )}
                     </nav>
 
-                    <nav className={styles.menu} aria-label="Разделы сайта">
+                    <nav
+                        className={styles.menu}
+                        aria-label="Разделы сайта"
+                    >
                         <MainMenu items={navigation.mainMenu} />
                     </nav>
 
                     <HeaderSearch search={site.search} />
-
                 </div>
             </div>
         </header>

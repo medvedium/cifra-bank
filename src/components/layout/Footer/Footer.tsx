@@ -29,7 +29,11 @@ export default async function Footer({ navigation, site, audience }: FooterProps
     return (
         <footer className={styles.footer}>
             <div className={`container container--wide ${styles.inner}`}>
-                <TextLink href={homeHref} className={styles.logo} aria-label={site.name}>
+                <TextLink
+                    href={homeHref}
+                    className={styles.logo}
+                    aria-label={site.name}
+                >
                     <Logo />
                 </TextLink>
 
@@ -37,7 +41,10 @@ export default async function Footer({ navigation, site, audience }: FooterProps
                     <ul className={styles.phones}>
                         {footer.phones.map((phone) => (
                             <li key={phone.href}>
-                                <TextLink className={styles.phoneLink} href={phone.href}>
+                                <TextLink
+                                    className={styles.phoneLink}
+                                    href={phone.href}
+                                >
                                     {phone.label}
                                 </TextLink>
                                 {phone.caption ? <span className={styles.phoneCaption}>{phone.caption}</span> : null}
@@ -46,14 +53,25 @@ export default async function Footer({ navigation, site, audience }: FooterProps
                     </ul>
                     <div className={styles.qr}>
                         <div className={styles.qrImage}>
-                            <Image src={footer.app.qrImage} alt={footer.app.qrAlt} width={88} height={88} />
+                            <Image
+                                src={footer.app.qrImage}
+                                alt={footer.app.qrAlt}
+                                width={88}
+                                height={88}
+                            />
                         </div>
                         <div className={styles.qrContent}>
                             <p className={styles.qrText}>{footer.app.title}</p>
                             <div className={styles.qrStores}>
                                 {footer.app.stores.map((store) => {
                                     const Icon = storeIcons[store.id]
-                                    return <Icon key={store.id} className={styles.qrStoreIcon} aria-hidden />
+                                    return (
+                                        <Icon
+                                            key={store.id}
+                                            className={styles.qrStoreIcon}
+                                            aria-hidden
+                                        />
+                                    )
                                 })}
                             </div>
                         </div>
@@ -64,7 +82,10 @@ export default async function Footer({ navigation, site, audience }: FooterProps
                     <ul className={styles.contacts}>
                         {footer.contacts.map((item) => (
                             <li key={item.href}>
-                                <TextLink className={styles.contactLink} href={item.href}>
+                                <TextLink
+                                    className={styles.contactLink}
+                                    href={item.href}
+                                >
                                     {item.label}
                                 </TextLink>
                             </li>
@@ -73,7 +94,10 @@ export default async function Footer({ navigation, site, audience }: FooterProps
                     <ul className={styles.additional}>
                         {footer.additional.map((item) => (
                             <li key={item.href}>
-                                <TextLink className={styles.additionalLink} href={item.href}>
+                                <TextLink
+                                    className={styles.additionalLink}
+                                    href={item.href}
+                                >
                                     {item.label}
                                     <ArrowRightIcon />
                                 </TextLink>
@@ -87,7 +111,10 @@ export default async function Footer({ navigation, site, audience }: FooterProps
                                 const Icon = storeIcons[store.id]
                                 return (
                                     <li key={store.id}>
-                                        <TextLink className={styles.iconButton} href={store.href}>
+                                        <TextLink
+                                            className={styles.iconButton}
+                                            href={store.href}
+                                        >
                                             <span className="visually-hidden">{store.label}</span>
                                             <Icon />
                                         </TextLink>
@@ -102,7 +129,10 @@ export default async function Footer({ navigation, site, audience }: FooterProps
                                 const Icon = socialIcons[item.id]
                                 return (
                                     <li key={item.id}>
-                                        <TextLink className={styles.iconButton} href={item.href}>
+                                        <TextLink
+                                            className={styles.iconButton}
+                                            href={item.href}
+                                        >
                                             <span className="visually-hidden">{item.label}</span>
                                             <Icon />
                                         </TextLink>
@@ -110,13 +140,19 @@ export default async function Footer({ navigation, site, audience }: FooterProps
                                 )
                             })}
                             <li>
-                                <TextLink className={`${styles.iconButton} ${styles.iconButtonWide}`} href={footer.feedback.href}>
+                                <TextLink
+                                    className={`${styles.iconButton} ${styles.iconButtonWide}`}
+                                    href={footer.feedback.href}
+                                >
                                     <FeedbackIcon />
                                     <span>{footer.feedback.label}</span>
                                 </TextLink>
                             </li>
                             <li>
-                                <button type="button" className={`${styles.iconButton} ${styles.iconButtonWide} ${styles.onlineCall}`}>
+                                <button
+                                    type="button"
+                                    className={`${styles.iconButton} ${styles.iconButtonWide} ${styles.onlineCall}`}
+                                >
                                     <OnlineCallIcon />
                                     <span>{footer.onlineCall.label}</span>
                                 </button>
@@ -126,14 +162,20 @@ export default async function Footer({ navigation, site, audience }: FooterProps
                     <div className={styles.actions}>
                         <div className={styles.action}>
                             <span className={styles.blockTitle}>{footer.bio.label}</span>
-                            <TextLink className={styles.iconButton} href={footer.bio.href}>
+                            <TextLink
+                                className={styles.iconButton}
+                                href={footer.bio.href}
+                            >
                                 <span className="visually-hidden">{footer.bio.alt}</span>
                                 <BioIcon />
                             </TextLink>
                         </div>
                         <div className={styles.action}>
                             <span className={styles.blockTitle}>{footer.accessibility.label}</span>
-                            <button type="button" className={styles.impaired}>
+                            <button
+                                type="button"
+                                className={styles.impaired}
+                            >
                                 <VisuallyImpairedIcon />
                                 <span>{footer.accessibility.offLabel}</span>
                             </button>
@@ -141,22 +183,39 @@ export default async function Footer({ navigation, site, audience }: FooterProps
                     </div>
                 </div>
 
-                <nav className={styles.nav} aria-label="Навигация по сайту">
+                <nav
+                    className={styles.nav}
+                    aria-label="Навигация по сайту"
+                >
                     <div className={styles.navPrimary}>
                         {footer.nav.primary.map((group) => (
-                            <NavGroup key={group.title} group={group} variant="primary" />
+                            <NavGroup
+                                key={group.title}
+                                group={group}
+                                variant="primary"
+                            />
                         ))}
                     </div>
                     <div className={styles.navSecondary}>
                         {footer.nav.secondary.map((group) => (
-                            <NavGroup key={group.title} group={group} variant="secondary" />
+                            <NavGroup
+                                key={group.title}
+                                group={group}
+                                variant="secondary"
+                            />
                         ))}
                     </div>
                 </nav>
 
                 <div className={styles.bottom}>
-                    <CitySelect current={footer.city.current} items={footer.city.items} searchPlaceholder={footer.city.searchPlaceholder} />
-                    <p className={styles.copyright}>{footer.copyright}</p>
+                    <CitySelect
+                        current={footer.city.current}
+                        items={footer.city.items}
+                        searchPlaceholder={footer.city.searchPlaceholder}
+                    />
+                    <p className={styles.copyright}>
+                        {new Date().getFullYear()} {footer.copyright}
+                    </p>
                 </div>
             </div>
         </footer>

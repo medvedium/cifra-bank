@@ -126,7 +126,10 @@ export default function Hero({ slides }: HeroProps) {
     return (
         <section className={`${styles.hero} section`}>
             <div className="container container--wide">
-                <div className={styles.intro} ref={introRef}>
+                <div
+                    className={styles.intro}
+                    ref={introRef}
+                >
                     <div className={styles.viewport}>
                         {slides.map((slide, slideIndex) => {
                             const isActive = slideIndex === index
@@ -161,7 +164,10 @@ export default function Hero({ slides }: HeroProps) {
                                         </div>
                                         {slide.cta ? (
                                             <div className={styles.action}>
-                                                <Button color="primary" href={slide.cta.href || undefined}>
+                                                <Button
+                                                    color="primary"
+                                                    href={slide.cta.href || undefined}
+                                                >
                                                     {slide.cta.label}
                                                 </Button>
                                             </div>
@@ -185,7 +191,11 @@ export default function Hero({ slides }: HeroProps) {
 
                     {isSlider ? (
                         <>
-                            <div className={styles.pagination} role="tablist" aria-label="Слайды баннера">
+                            <div
+                                className={styles.pagination}
+                                role="tablist"
+                                aria-label="Слайды баннера"
+                            >
                                 {slides.map((slide, slideIndex) => {
                                     const isActive = slideIndex === index
                                     return (
@@ -233,7 +243,10 @@ export default function Hero({ slides }: HeroProps) {
                 </div>
 
                 {hasInform ? (
-                    <div className={styles.inform} ref={informRef}>
+                    <div
+                        className={styles.inform}
+                        ref={informRef}
+                    >
                         <h2 className="visually-hidden">Информация</h2>
                         <div
                             className={styles.informViewport}
@@ -252,7 +265,10 @@ export default function Hero({ slides }: HeroProps) {
                                     {slide.inform?.length ? (
                                         <div className={styles.informGrid}>
                                             {slide.inform.map((card) => (
-                                                <div className={styles.informItem} key={card.title}>
+                                                <div
+                                                    className={styles.informItem}
+                                                    key={card.title}
+                                                >
                                                     <strong className={styles.informTitle}>{card.title}</strong>
                                                     <p className={styles.informText}>{card.text}</p>
                                                 </div>

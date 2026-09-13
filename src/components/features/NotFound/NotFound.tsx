@@ -10,7 +10,10 @@ export default function NotFound({ page }: NotFoundProps) {
     return (
         <section className={styles.section}>
             <div className="container">
-                <span className={styles.number} aria-hidden="true">
+                <span
+                    className={styles.number}
+                    aria-hidden="true"
+                >
                     {page.code}
                 </span>
                 <h1 className={styles.title}>{page.heading}</h1>

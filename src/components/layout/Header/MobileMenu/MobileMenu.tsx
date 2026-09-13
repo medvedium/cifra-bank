@@ -22,7 +22,15 @@ function flattenColumns(item: MainMenuItem) {
     return item.dropdown?.columns.flat() ?? []
 }
 
-export default function MobileMenu({ audience, audienceItems, menus, offices, internet, openAccount, search }: MobileMenuProps) {
+export default function MobileMenu({
+    audience,
+    audienceItems,
+    menus,
+    offices,
+    internet,
+    openAccount,
+    search
+}: MobileMenuProps) {
     const panelId = useId()
     const pathname = usePathname()
     const panelRef = useRef<HTMLDivElement>(null)
@@ -90,8 +98,17 @@ export default function MobileMenu({ audience, audienceItems, menus, offices, in
                 <span />
             </button>
 
-            <div className={styles.panel} id={panelId} ref={panelRef} hidden={!open}>
-                <form className={`${styles.search} ${query ? styles.searchFilled : ''}`} action={search.action} method="get">
+            <div
+                className={styles.panel}
+                id={panelId}
+                ref={panelRef}
+                hidden={!open}
+            >
+                <form
+                    className={`${styles.search} ${query ? styles.searchFilled : ''}`}
+                    action={search.action}
+                    method="get"
+                >
                     <input
                         className={styles.searchInput}
                         type="search"
@@ -102,7 +119,11 @@ export default function MobileMenu({ audience, audienceItems, menus, offices, in
                         autoComplete="off"
                         onChange={(event) => setQuery(event.target.value)}
                     />
-                    <button type="submit" className={styles.searchSubmit} aria-label={search.submitLabel}>
+                    <button
+                        type="submit"
+                        className={styles.searchSubmit}
+                        aria-label={search.submitLabel}
+                    >
                         <SearchIcon />
                     </button>
                     <button
@@ -116,7 +137,11 @@ export default function MobileMenu({ audience, audienceItems, menus, offices, in
                     </button>
                 </form>
 
-                <div className={styles.switch} role="tablist" aria-label="Тип клиента">
+                <div
+                    className={styles.switch}
+                    role="tablist"
+                    aria-label="Тип клиента"
+                >
                     {audienceItems.map((item) => (
                         <button
                             type="button"
@@ -143,7 +168,10 @@ export default function MobileMenu({ audience, audienceItems, menus, offices, in
                             return (
                                 <li key={item.label}>
                                     {item.href ? (
-                                        <TextLink className={styles.navLink} href={item.href}>
+                                        <TextLink
+                                            className={styles.navLink}
+                                            href={item.href}
+                                        >
                                             {item.label}
                                         </TextLink>
                                     ) : (
@@ -154,7 +182,10 @@ export default function MobileMenu({ audience, audienceItems, menus, offices, in
                         }
 
                         return (
-                            <li key={item.label} className={isOpen ? styles.navItemOpen : undefined}>
+                            <li
+                                key={item.label}
+                                className={isOpen ? styles.navItemOpen : undefined}
+                            >
                                 <button
                                     type="button"
                                     className={styles.navLink}
@@ -164,10 +195,16 @@ export default function MobileMenu({ audience, audienceItems, menus, offices, in
                                     {item.label}
                                     <ChevronIcon />
                                 </button>
-                                <ul className={styles.dropdown} hidden={!isOpen}>
+                                <ul
+                                    className={styles.dropdown}
+                                    hidden={!isOpen}
+                                >
                                     {links.map((link) => (
                                         <li key={link.href}>
-                                            <TextLink className={styles.dropdownLink} href={link.href}>
+                                            <TextLink
+                                                className={styles.dropdownLink}
+                                                href={link.href}
+                                            >
                                                 {link.label}
                                                 {link.mark ? <span className={styles.mark}>{link.mark}</span> : null}
                                             </TextLink>
@@ -180,7 +217,10 @@ export default function MobileMenu({ audience, audienceItems, menus, offices, in
                 </ul>
 
                 {offices ? (
-                    <TextLink className={styles.location} href={offices.href}>
+                    <TextLink
+                        className={styles.location}
+                        href={offices.href}
+                    >
                         {offices.label}
                     </TextLink>
                 ) : null}
@@ -188,7 +228,11 @@ export default function MobileMenu({ audience, audienceItems, menus, offices, in
                 <div className={styles.additional}>
                     {internet ? (
                         <div className={styles.online}>
-                            <Button href={internet.href} color="secondary" size="xs">
+                            <Button
+                                href={internet.href}
+                                color="secondary"
+                                size="xs"
+                            >
                                 {internet.label}
                             </Button>
                         </div>
@@ -196,7 +240,11 @@ export default function MobileMenu({ audience, audienceItems, menus, offices, in
 
                     {openAccount ? (
                         <div className={styles.action}>
-                            <Button href={openAccount.href || undefined} color="primary" size="xs">
+                            <Button
+                                href={openAccount.href || undefined}
+                                color="primary"
+                                size="xs"
+                            >
                                 {openAccount.label}
                             </Button>
                         </div>

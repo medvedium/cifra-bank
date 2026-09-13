@@ -14,7 +14,13 @@ interface IndexedHit extends SearchHit {
 function normalizeHref(href: string): string | null {
     const trimmed = href.trim()
 
-    if (!trimmed || trimmed.startsWith('#') || trimmed.startsWith('tel:') || trimmed.startsWith('mailto:') || trimmed.startsWith('javascript:')) {
+    if (
+        !trimmed ||
+        trimmed.startsWith('#') ||
+        trimmed.startsWith('tel:') ||
+        trimmed.startsWith('mailto:') ||
+        trimmed.startsWith('javascript:')
+    ) {
         return null
     }
 
@@ -117,7 +123,12 @@ function collectHome(index: SearchIndex, page: HomePage, audience: 'retail' | 'c
     const fallbackCategory = audience === 'corporate' ? 'Продукты для юридических лиц' : 'Частным лицам'
 
     for (const item of page.hero.items) {
-        index.add(item.title, item.mark || fallbackCategory, item.cta.href, `${keywords} ${item.description ?? ''} ${item.features?.join(' ') ?? ''}`)
+        index.add(
+            item.title,
+            item.mark || fallbackCategory,
+            item.cta.href,
+            `${keywords} ${item.description ?? ''} ${item.features?.join(' ') ?? ''}`
+        )
     }
 
     if (audience === 'retail') {
@@ -134,7 +145,10 @@ function collectFooter(index: SearchIndex, groups: FooterNavGroup[]) {
 
         for (const column of group.columns) {
             for (const link of column) {
-                const itemCategory = category === 'Юридические лица' && normalizeHref(link.href) !== '/corporate' ? corporateCategory(link.href) : category
+                const itemCategory =
+                    category === 'Юридические лица' && normalizeHref(link.href) !== '/corporate'
+                        ? corporateCategory(link.href)
+                        : category
                 index.add(link.label, itemCategory, link.href, keywordsFor(audience, itemCategory))
             }
         }
@@ -180,7 +194,10 @@ function matches(hit: IndexedHit, query: string) {
         return true
     }
 
-    return query.split(/\s+/).filter(Boolean).every((word) => haystack.includes(word))
+    return query
+        .split(/\s+/)
+        .filter(Boolean)
+        .every((word) => haystack.includes(word))
 }
 
 export async function getSearchHits(query: string): Promise<SearchHit[]> {

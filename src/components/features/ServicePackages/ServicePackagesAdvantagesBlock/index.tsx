@@ -1,3 +1,3 @@
-import ServicePackagesAdvantagesBlock from "./ServicePackagesAdvantagesBlock";
+import ServicePackagesAdvantagesBlock from './ServicePackagesAdvantagesBlock'
 
-export default ServicePackagesAdvantagesBlock;
+export default ServicePackagesAdvantagesBlock

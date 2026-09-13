@@ -99,9 +99,7 @@
                 ],
                 "aside": {
                     "title": "Полезное",
-                    "links": [
-                        { "label": "Зарплатные карты", "href": "/corporate/payroll-cards/" }
-                    ]
+                    "links": [{ "label": "Зарплатные карты", "href": "/corporate/payroll-cards/" }]
                 }
             }
         }

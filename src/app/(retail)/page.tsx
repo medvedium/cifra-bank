@@ -24,7 +24,10 @@ export default async function Home() {
                     <h2 className="section__title">{page.products.title}</h2>
                     <div className={styles.productsGrid}>
                         {page.products.items?.map((item, index) => (
-                            <TextLink href={item.href} key={index}>
+                            <TextLink
+                                href={item.href}
+                                key={index}
+                            >
                                 <h3 className={styles.productsItemTitle}>{item.title}</h3>
                                 <span className={styles.productsItemLink}>{item.linkLabel}</span>
                             </TextLink>

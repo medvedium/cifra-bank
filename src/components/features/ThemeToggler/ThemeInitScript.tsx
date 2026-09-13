@@ -6,7 +6,11 @@ import { THEME_INIT_SCRIPT } from '@/lib/theme'
 const subscribe = () => () => {}
 
 export default function ThemeInitScript() {
-    const isServerRender = useSyncExternalStore(subscribe, () => false, () => true)
+    const isServerRender = useSyncExternalStore(
+        subscribe,
+        () => false,
+        () => true
+    )
 
     if (!isServerRender) {
         return null

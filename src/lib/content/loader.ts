@@ -1,4 +1,13 @@
-import { CorporateHomePage, FooterContent, HomePage, Navigation, NotFoundPage, SearchPage, ServicePackagesPage, SiteInfo } from '@/lib/content/types'
+import {
+    CorporateHomePage,
+    FooterContent,
+    HomePage,
+    Navigation,
+    NotFoundPage,
+    SearchPage,
+    ServicePackagesPage,
+    SiteInfo
+} from '@/lib/content/types'
 import { readFile } from 'node:fs/promises'
 import path from 'node:path'
 

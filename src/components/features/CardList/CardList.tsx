@@ -11,13 +11,19 @@ export default function CardList({ cards }: CardListProps): JSX.Element {
     return (
         <div className={styles.grid}>
             {cards.map((item) => (
-                <div key={item.title} className={styles.card}>
+                <div
+                    key={item.title}
+                    className={styles.card}
+                >
                     <h3 className={styles.title}>{item.title}</h3>
                     <p className={styles.description}>{item.description}</p>
-                    
+
                     <div className={styles.features}>
                         {item.features.map((feature, idx) => (
-                            <div key={idx} className={styles.feature}>
+                            <div
+                                key={idx}
+                                className={styles.feature}
+                            >
                                 <span className={styles.featureValue}>{feature.value}</span>
                                 <span className={styles.featureLabel}>{feature.description}</span>
                             </div>

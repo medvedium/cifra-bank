@@ -36,7 +36,17 @@ export default async function SearchRoute({ searchParams }: SearchRouteProps) {
     //TODO заменить локальный моковый эндпоинт на боевой
     const hits = await getSearchHits(query)
     const totalPages = Math.max(1, Math.ceil(hits.length / SEARCH_PAGE_SIZE))
-    const page = Number.isFinite(requestedPage) && requestedPage > 0 ? Math.min(requestedPage, hits.length ? totalPages : 1) : 1
+    const page =
+        Number.isFinite(requestedPage) && requestedPage > 0 ? Math.min(requestedPage, hits.length ? totalPages : 1) : 1
 
-    return <SearchPage query={query} page={page} hits={hits} copy={copy} search={site.search} baseUrl={site.baseUrl} />
+    return (
+        <SearchPage
+            query={query}
+            page={page}
+            hits={hits}
+            copy={copy}
+            search={site.search}
+            baseUrl={site.baseUrl}
+        />
+    )
 }

@@ -54,7 +54,10 @@ export default function CitySelect({ current, items, searchPlaceholder }: CitySe
     }, [open])
 
     return (
-        <div className={`${styles.city} ${open ? styles.cityOpen : ''}`} ref={rootRef}>
+        <div
+            className={`${styles.city} ${open ? styles.cityOpen : ''}`}
+            ref={rootRef}
+        >
             {open ? <div className={styles.cityOverlay} /> : null}
             <button
                 type="button"
@@ -66,8 +69,15 @@ export default function CitySelect({ current, items, searchPlaceholder }: CitySe
                 <span>{selected}</span>
                 <ChevronIcon />
             </button>
-            <div className={styles.cityPanel} id={listId} hidden={!open}>
-                <form className={styles.citySearch} onSubmit={(event) => event.preventDefault()}>
+            <div
+                className={styles.cityPanel}
+                id={listId}
+                hidden={!open}
+            >
+                <form
+                    className={styles.citySearch}
+                    onSubmit={(event) => event.preventDefault()}
+                >
                     <input
                         className={styles.citySearchInput}
                         type="search"

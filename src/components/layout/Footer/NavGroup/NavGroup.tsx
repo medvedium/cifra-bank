@@ -11,7 +11,9 @@ export default function NavGroup({ group, variant }: NavGroupProps) {
     const isSingleColumn = group.columns.length === 1
     const columnsClassName = [
         styles.navColumns,
-        isSingleColumn ? styles.navColumnsSingle : styles[`navColumns${variant === 'primary' ? 'Primary' : 'Secondary'}`]
+        isSingleColumn
+            ? styles.navColumnsSingle
+            : styles[`navColumns${variant === 'primary' ? 'Primary' : 'Secondary'}`]
     ]
         .filter(Boolean)
         .join(' ')
@@ -21,10 +23,16 @@ export default function NavGroup({ group, variant }: NavGroupProps) {
             <span className={styles.navTitle}>{group.title}</span>
             <div className={columnsClassName}>
                 {group.columns.map((column, index) => (
-                    <ul className={styles.navMenu} key={index}>
+                    <ul
+                        className={styles.navMenu}
+                        key={index}
+                    >
                         {column.map((link) => (
                             <li key={link.href}>
-                                <TextLink className={styles.navLink} href={link.href}>
+                                <TextLink
+                                    className={styles.navLink}
+                                    href={link.href}
+                                >
                                     {link.label}
                                 </TextLink>
                             </li>

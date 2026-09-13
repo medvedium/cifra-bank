@@ -9,7 +9,10 @@ export default function ServicePackagesAdvantagesBlock({ title, featured, items 
 
             <div className={styles.featuredGrid}>
                 {featured.map((item) => (
-                    <article key={item.title} className={styles.featuredCard}>
+                    <article
+                        key={item.title}
+                        className={styles.featuredCard}
+                    >
                         <div className={styles.featuredText}>
                             <h3>{item.title}</h3>
                             <p>{item.description}</p>
@@ -27,7 +30,10 @@ export default function ServicePackagesAdvantagesBlock({ title, featured, items 
 
             <div className={styles.itemsGrid}>
                 {items.map((item) => (
-                    <article key={item.title} className={styles.itemCard}>
+                    <article
+                        key={item.title}
+                        className={styles.itemCard}
+                    >
                         <h3>{item.title}</h3>
                         <p>{item.description}</p>
                     </article>
