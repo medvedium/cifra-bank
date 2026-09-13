@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import Link from 'next/link'
 import Button from '@/components/ui/Button'
 import TextLink from '@/components/ui/TextLink'
@@ -34,15 +34,14 @@ function searchHref(action: string, query: string, page?: number) {
     return search ? `${action}?${search}` : action
 }
 
-export default function SearchPage({ query, page, hits, copy, search, baseUrl }: SearchPageProps) {
+export default function SearchPage(props: SearchPageProps) {
+    return <SearchPageInner key={`${props.query}-${props.page}`} {...props} />
+}
+
+function SearchPageInner({ query, page, hits, copy, search, baseUrl }: SearchPageProps) {
     const inputRef = useRef<HTMLInputElement>(null)
     const [value, setValue] = useState(query)
     const [extra, setExtra] = useState(0)
-
-    useEffect(() => {
-        setValue(query)
-        setExtra(0)
-    }, [query, page])
 
     const total = hits.length
     const start = (page - 1) * SEARCH_PAGE_SIZE
@@ -58,7 +57,11 @@ export default function SearchPage({ query, page, hits, copy, search, baseUrl }:
             <div className="container container--wide">
                 <h1 className="visually-hidden">{copy.heading}</h1>
 
-                <form className={styles.form} action={search.action} method="get">
+                <form
+                    className={styles.form}
+                    action={search.action}
+                    method="get"
+                >
                     <div className={styles.field}>
                         <input
                             ref={inputRef}
@@ -84,15 +87,23 @@ export default function SearchPage({ query, page, hits, copy, search, baseUrl }:
                             <CloseIcon />
                         </button>
                     </div>
-                    <Button type="submit" className={styles.submit}>
+                    <Button
+                        type="submit"
+                        className={styles.submit}
+                    >
                         {copy.submitLabel}
                     </Button>
                 </form>
 
-                {showResults && total > 0 ? <p className={styles.count}>{formatSearchCount(total, copy.countPrefix, copy.variants)}</p> : null}
+                {showResults && total > 0 ? (
+                    <p className={styles.count}>{formatSearchCount(total, copy.countPrefix, copy.variants)}</p>
+                ) : null}
 
                 {isEmpty ? (
-                    <div className={styles.empty} role="status">
+                    <div
+                        className={styles.empty}
+                        role="status"
+                    >
                         <span className={styles.emptyIcon}>
                             <SearchIcon />
                         </span>
@@ -103,16 +114,25 @@ export default function SearchPage({ query, page, hits, copy, search, baseUrl }:
                 {visible.length > 0 ? (
                     <ul className={styles.list}>
                         {visible.map((hit) => (
-                            <li key={`${hit.href}-${hit.title}`} className={styles.item}>
+                            <li
+                                key={`${hit.href}-${hit.title}`}
+                                className={styles.item}
+                            >
                                 <div className={styles.text}>
                                     <h2 className={styles.title}>
-                                        <TextLink href={hit.href} className={styles.titleLink}>
+                                        <TextLink
+                                            href={hit.href}
+                                            className={styles.titleLink}
+                                        >
                                             {hit.title}
                                         </TextLink>
                                     </h2>
                                     <p className={styles.category}>{hit.category}</p>
                                 </div>
-                                <TextLink href={hit.href} className={styles.url}>
+                                <TextLink
+                                    href={hit.href}
+                                    className={styles.url}
+                                >
                                     {displaySearchUrl(baseUrl, hit.href)}
                                 </TextLink>
                             </li>
@@ -123,25 +143,42 @@ export default function SearchPage({ query, page, hits, copy, search, baseUrl }:
                 {showPagination ? (
                     <div className={`${styles.footer} ${canLoadMore ? '' : styles.footerCompact}`}>
                         {canLoadMore ? (
-                            <Button type="button" className={styles.loadMore} onClick={() => setExtra((current) => current + SEARCH_PAGE_SIZE)}>
+                            <Button
+                                type="button"
+                                className={styles.loadMore}
+                                onClick={() => setExtra((current) => current + SEARCH_PAGE_SIZE)}
+                            >
                                 {copy.loadMore}
                             </Button>
                         ) : null}
 
-                        <nav className={styles.pagination} aria-label="Страницы результатов">
+                        <nav
+                            className={styles.pagination}
+                            aria-label="Страницы результатов"
+                        >
                             {page > 1 ? (
-                                <Link className={styles.pageArrow} href={searchHref(search.action, query, page - 1)} aria-label={copy.prevPageLabel}>
+                                <Link
+                                    className={styles.pageArrow}
+                                    href={searchHref(search.action, query, page - 1)}
+                                    aria-label={copy.prevPageLabel}
+                                >
                                     <ArrowRightIcon />
                                 </Link>
                             ) : (
-                                <span className={`${styles.pageArrow} ${styles.pageArrowDisabled}`} aria-disabled="true">
+                                <span
+                                    className={`${styles.pageArrow} ${styles.pageArrowDisabled}`}
+                                    aria-disabled="true"
+                                >
                                     <ArrowRightIcon />
                                 </span>
                             )}
 
                             {getPageTokens(page, totalPages).map((token, index) =>
                                 token === 'ellipsis' ? (
-                                    <span key={`ellipsis-${index}`} className={styles.ellipsis}>
+                                    <span
+                                        key={`ellipsis-${index}`}
+                                        className={styles.ellipsis}
+                                    >
                                         …
                                     </span>
                                 ) : (
@@ -157,11 +194,18 @@ export default function SearchPage({ query, page, hits, copy, search, baseUrl }:
                             )}
 
                             {page < totalPages ? (
-                                <Link className={`${styles.pageArrow} ${styles.pageArrowNext}`} href={searchHref(search.action, query, page + 1)} aria-label={copy.nextPageLabel}>
+                                <Link
+                                    className={`${styles.pageArrow} ${styles.pageArrowNext}`}
+                                    href={searchHref(search.action, query, page + 1)}
+                                    aria-label={copy.nextPageLabel}
+                                >
                                     <ArrowRightIcon />
                                 </Link>
                             ) : (
-                                <span className={`${styles.pageArrow} ${styles.pageArrowNext} ${styles.pageArrowDisabled}`} aria-disabled="true">
+                                <span
+                                    className={`${styles.pageArrow} ${styles.pageArrowNext} ${styles.pageArrowDisabled}`}
+                                    aria-disabled="true"
+                                >
                                     <ArrowRightIcon />
                                 </span>
                             )}
