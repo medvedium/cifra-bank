@@ -1,4 +1,4 @@
-import { Navigation, SiteInfo } from '@/lib/content/types'
+import { HeaderButton, Navigation, SiteInfo } from '@/lib/content/types'
 import styles from './Header.module.scss'
 import Button from '@/components/ui/Button'
 import Logo from '@/components/ui/Logo'
@@ -14,15 +14,25 @@ interface HeaderProps {
     audience: string
 }
 
+function pickHeaderActions(links: HeaderButton[]) {
+    return {
+        offices: links.find((link) => link.href.includes('offices')),
+        internet: links.find((link) => link.href.startsWith('http')),
+        openAccount: links.find((link) => link.color === 'primary')
+    }
+}
+
 export default function Header({ navigation, altNavigation, site, audience }: HeaderProps) {
     const homeHref = navigation.audience.find((item) => item.id === audience)?.href ?? '/'
-    const offices = navigation.topSideLinks.find((link) => link.href.includes('offices'))
-    const internet = navigation.topSideLinks.find((link) => link.href.startsWith('http'))
-    const openAccount = navigation.topSideLinks.find((link) => link.color === 'primary')
     const otherAudience = navigation.audience.find((item) => item.id !== audience)
+    const { offices, internet, openAccount } = pickHeaderActions(navigation.topSideLinks)
     const menus = {
         [audience]: navigation.mainMenu,
         ...(otherAudience ? { [otherAudience.id]: altNavigation.mainMenu } : {})
+    }
+    const actions = {
+        [audience]: { offices, internet, openAccount },
+        ...(otherAudience ? { [otherAudience.id]: pickHeaderActions(altNavigation.topSideLinks) } : {})
     }
 
     return (
@@ -68,6 +78,7 @@ export default function Header({ navigation, altNavigation, site, audience }: He
                             <Button
                                 className={styles.online}
                                 href={internet.href}
+                                mobileHref={internet.mobileHref}
                                 color={internet.color}
                                 size="xs"
                                 aria-label={internet.label}
@@ -92,9 +103,7 @@ export default function Header({ navigation, altNavigation, site, audience }: He
                         audience={audience}
                         audienceItems={navigation.audience}
                         menus={menus}
-                        offices={offices}
-                        internet={internet}
-                        openAccount={openAccount}
+                        actions={actions}
                         search={site.search}
                     />
                 </div>
