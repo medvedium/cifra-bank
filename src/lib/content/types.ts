@@ -98,7 +98,6 @@ export interface HeaderButton {
     color: 'primary' | 'secondary' | 'white' | undefined
     label: string
     href: string
-    mobileHref?: string
 }
 
 export interface AudienceItem {

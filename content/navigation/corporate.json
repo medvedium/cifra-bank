@@ -33,8 +33,7 @@
         },
         {
             "label": "Интернет-банк",
-            "href": "https://ibank.cifra-bank.ru/f2b/",
-            "mobileHref": "https://ibank.cifra-bank.ru/f2b/pwa",
+            "href": "https://client.cifra-bank.ru",
             "color": "secondary"
         },
         {
