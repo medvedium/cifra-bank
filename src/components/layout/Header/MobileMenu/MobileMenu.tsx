@@ -2,19 +2,23 @@
 
 import { useEffect, useId, useRef, useState } from 'react'
 import { usePathname } from 'next/navigation'
-import type { AudienceItem, MainMenuItem, MenuItem, SiteSearch } from '@/lib/content/types'
+import type { AudienceItem, HeaderButton, MainMenuItem, SiteSearch } from '@/lib/content/types'
 import TextLink from '@/components/ui/TextLink'
 import Button from '@/components/ui/Button'
 import { ChevronIcon, CloseIcon, SearchIcon } from '@/components/ui/Icons'
 import styles from './MobileMenu.module.scss'
 
+interface HeaderActions {
+    offices?: HeaderButton
+    internet?: HeaderButton
+    openAccount?: HeaderButton
+}
+
 interface MobileMenuProps {
     audience: string
     audienceItems: AudienceItem[]
     menus: Record<string, MainMenuItem[]>
-    offices?: MenuItem
-    internet?: MenuItem
-    openAccount?: MenuItem
+    actions: Record<string, HeaderActions>
     search: SiteSearch
 }
 
@@ -26,9 +30,7 @@ export default function MobileMenu({
     audience,
     audienceItems,
     menus,
-    offices,
-    internet,
-    openAccount,
+    actions,
     search
 }: MobileMenuProps) {
     const panelId = useId()
@@ -39,8 +41,6 @@ export default function MobileMenu({
     const [tab, setTab] = useState(audience)
     const [openIndex, setOpenIndex] = useState<number | null>(null)
     const [query, setQuery] = useState('')
-
-    console.log(pathname)
 
     if (pathname !== menuPathname) {
         setMenuPathname(pathname)
@@ -79,6 +79,7 @@ export default function MobileMenu({
     }, [open])
 
     const items = menus[tab] ?? []
+    const { offices, internet, openAccount } = actions[tab] ?? {}
 
     return (
         <div className={styles.root}>
@@ -230,6 +231,7 @@ export default function MobileMenu({
                         <div className={styles.online}>
                             <Button
                                 href={internet.href}
+                                mobileHref={internet.mobileHref}
                                 color="secondary"
                                 size="xs"
                             >
