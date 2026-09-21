@@ -10,9 +10,17 @@
 
 .viewport {
     position: relative;
-    height: 600px;
     overflow: hidden;
     border-radius: 16px;
+}
+
+.viewportFixed {
+    height: 600px;
+}
+
+.viewportAuto {
+    height: auto;
+    overflow: visible;
 }
 
 .slide {
@@ -36,6 +44,15 @@
 
 .slideActive {
     z-index: 1;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.slideStatic {
+    position: relative;
+    inset: auto;
+    z-index: auto;
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
@@ -93,10 +110,6 @@
 
 .title {
     margin: 0;
-    font-family: var(--font-heading), sans-serif;
-    font-size: var(--h1-size);
-    font-weight: var(--h1-weight);
-    line-height: var(--h1-line-height);
 }
 
 .description,
@@ -255,6 +268,11 @@
     pointer-events: auto;
 }
 
+.informViewportStatic {
+    position: relative;
+    overflow: visible;
+}
+
 .informGrid {
     display: grid;
     grid-template-columns: 1fr;
@@ -307,7 +325,7 @@
 }
 
 @include from(md) {
-    .viewport {
+    .viewportFixed {
         height: 556px;
     }
 
