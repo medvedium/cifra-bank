@@ -4,6 +4,10 @@
         "title": "Дебетовые карты: оформить онлайн | «Цифра банк»",
         "description": "Дебетовые карты с бесплатным обслуживанием для физических лиц заказать банковскую карту в «Цифра банк» онлайн оформление, быстрое решение по заявке."
     },
+    "breadcrumbs": [
+        {"label":  "Главная", "href":  "/"},
+        {"label":  "Дебетовые карты"}
+    ],
     "hero": {
         "items": [
             {
@@ -14,11 +18,10 @@
                     "href": "#request",
                     "label": "Оформить карту"
                 },
-                "imageHref": "",
-                "imageAlt": "",
-                "imageWidth": 0,
-                "imageHeight": 0,
-                "imageUrl": ""
+                "imageAlt": "Изображение с картами и значками валют",
+                "imageWidth": 550,
+                "imageHeight": 546,
+                "imageUrl": "/service-packages/assets/img-intro-service-packages.png"
             }
         ]
     },
