@@ -12,13 +12,31 @@ const SLIDER_SPEED_MS = 1000
 
 interface HeroProps {
     slides: HeroItem[]
+    /** Фиксированная высота viewport. По умолчанию: true для карусели, false для одного слайда. */
+    fixedHeight?: boolean
 }
 
 function prefersReducedMotion() {
     return window.matchMedia('(prefers-reduced-motion: reduce)').matches
 }
 
-export default function Hero({ slides }: HeroProps) {
+function renderInformGrid(inform: NonNullable<HeroItem['inform']>) {
+    return (
+        <div className={styles.informGrid}>
+            {inform.map((card) => (
+                <div
+                    className={styles.informItem}
+                    key={card.title}
+                >
+                    <strong className={styles.informTitle}>{card.title}</strong>
+                    <p className={styles.informText}>{card.text}</p>
+                </div>
+            ))}
+        </div>
+    )
+}
+
+export default function Hero({ slides, fixedHeight }: HeroProps) {
     const paginationId = useId()
     const introRef = useRef<HTMLDivElement>(null)
     const informRef = useRef<HTMLDivElement>(null)
@@ -28,7 +46,11 @@ export default function Hero({ slides }: HeroProps) {
     const [autoplay, setAutoplay] = useState(true)
 
     const isSlider = slides.length > 1
-    const hasInform = slides.some((slide) => (slide.inform?.length ?? 0) > 0)
+    const useFixedHeight = fixedHeight ?? isSlider
+    const introSlides = isSlider ? slides : [slides[0]]
+    const hasInform = isSlider
+        ? slides.some((slide) => (slide.inform?.length ?? 0) > 0)
+        : (slides[0].inform?.length ?? 0) > 0
 
     function goTo(next: number) {
         const total = slides.length
@@ -36,6 +58,10 @@ export default function Hero({ slides }: HeroProps) {
     }
 
     useLayoutEffect(() => {
+        if (!isSlider) {
+            return
+        }
+
         const viewport = informViewportRef.current
         if (!viewport) {
             return
@@ -59,7 +85,7 @@ export default function Hero({ slides }: HeroProps) {
         return () => {
             observers.forEach((observer) => observer.disconnect())
         }
-    }, [index, slides])
+    }, [index, isSlider, slides])
 
     useEffect(() => {
         if (!isSlider) {
@@ -130,12 +156,14 @@ export default function Hero({ slides }: HeroProps) {
                     className={styles.intro}
                     ref={introRef}
                 >
-                    <div className={styles.viewport}>
-                        {slides.map((slide, slideIndex) => {
-                            const isActive = slideIndex === index
+                    <div
+                        className={`${styles.viewport} ${useFixedHeight ? styles.viewportFixed : styles.viewportAuto}`}
+                    >
+                        {introSlides.map((slide, slideIndex) => {
+                            const isActive = isSlider ? slideIndex === index : true
                             const slideClassName = [
                                 styles.slide,
-                                isActive ? styles.slideActive : '',
+                                isSlider ? (isActive ? styles.slideActive : '') : styles.slideStatic,
                                 slide.theme === 'dark' ? styles.slideDark : ''
                             ]
                                 .filter(Boolean)
@@ -145,13 +173,13 @@ export default function Hero({ slides }: HeroProps) {
                                 <div
                                     className={slideClassName}
                                     key={`${slide.title}-${slideIndex}`}
-                                    aria-hidden={!isActive}
+                                    aria-hidden={isSlider ? !isActive : undefined}
                                     style={slide.background ? { background: slide.background } : undefined}
                                 >
                                     <div className={styles.content}>
                                         <div className={styles.text}>
                                             {slide.mark ? <span className={styles.mark}>{slide.mark}</span> : null}
-                                            <h2 className={styles.title}>{slide.title}</h2>
+                                            <h2 className={`text-h1 ${styles.title}`}>{slide.title}</h2>
                                             {slide.features?.length ? (
                                                 <ul className={styles.features}>
                                                     {slide.features.map((item) => (
@@ -181,6 +209,7 @@ export default function Hero({ slides }: HeroProps) {
                                                 alt={slide.imageAlt || ''}
                                                 width={slide.imageWidth || 720}
                                                 height={slide.imageHeight || 556}
+                                                loading="eager"
                                             />
                                         </div>
                                     ) : null}
@@ -248,36 +277,28 @@ export default function Hero({ slides }: HeroProps) {
                         ref={informRef}
                     >
                         <h2 className="visually-hidden">Информация</h2>
-                        <div
-                            className={styles.informViewport}
-                            ref={informViewportRef}
-                            style={{ transitionDuration: `${SLIDER_SPEED_MS}ms` }}
-                        >
-                            {slides.map((slide, slideIndex) => (
-                                <div
-                                    className={`${styles.informSlide} ${slideIndex === index ? styles.informSlideActive : ''}`}
-                                    key={`inform-${slide.title}-${slideIndex}`}
-                                    aria-hidden={slideIndex !== index}
-                                    ref={(node) => {
-                                        informSlideRefs.current[slideIndex] = node
-                                    }}
-                                >
-                                    {slide.inform?.length ? (
-                                        <div className={styles.informGrid}>
-                                            {slide.inform.map((card) => (
-                                                <div
-                                                    className={styles.informItem}
-                                                    key={card.title}
-                                                >
-                                                    <strong className={styles.informTitle}>{card.title}</strong>
-                                                    <p className={styles.informText}>{card.text}</p>
-                                                </div>
-                                            ))}
-                                        </div>
-                                    ) : null}
-                                </div>
-                            ))}
-                        </div>
+                        {isSlider ? (
+                            <div
+                                className={styles.informViewport}
+                                ref={informViewportRef}
+                                style={{ transitionDuration: `${SLIDER_SPEED_MS}ms` }}
+                            >
+                                {slides.map((slide, slideIndex) => (
+                                    <div
+                                        className={`${styles.informSlide} ${slideIndex === index ? styles.informSlideActive : ''}`}
+                                        key={`inform-${slide.title}-${slideIndex}`}
+                                        aria-hidden={slideIndex !== index}
+                                        ref={(node) => {
+                                            informSlideRefs.current[slideIndex] = node
+                                        }}
+                                    >
+                                        {slide.inform?.length ? renderInformGrid(slide.inform) : null}
+                                    </div>
+                                ))}
+                            </div>
+                        ) : slides[0].inform?.length ? (
+                            <div className={styles.informViewportStatic}>{renderInformGrid(slides[0].inform)}</div>
+                        ) : null}
                     </div>
                 ) : null}
             </div>
