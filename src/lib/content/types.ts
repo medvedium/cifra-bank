@@ -228,6 +228,7 @@ export interface NotFoundPage {
 export interface ServicePackagesPage {
     slug: string
     seo: Seo
+    breadcrumbs: BreadcrumbItem[]
     hero: {
         items: HeroItem[]
     }

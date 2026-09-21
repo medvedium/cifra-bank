@@ -3,6 +3,7 @@ import { getServicePackagesPage, getSiteInfo } from '@/lib/content/loader'
 import { buildPageMetadata } from '@/lib/seo/metadata'
 import Hero from '@/components/features/Hero'
 import ServicePackagesTabsSection from '@/components/features/ServicePackages/ServicePackagesTabsSection'
+import Breadcrumbs from '@/components/ui/Breadcrumbs'
 
 export async function generateMetadata(): Promise<Metadata> {
     const page = await getServicePackagesPage()
@@ -15,6 +16,8 @@ export default async function ServicePackagesPage() {
     return (
         <>
             <h1 className="visually-hidden">{site.name}</h1>
+
+            <Breadcrumbs items={page.breadcrumbs} />
 
             <Hero slides={page.hero.items} />
 
