@@ -1,0 +1,88 @@
+@use '@/styles/breakpoints' as *;
+
+.breadcrumbs {
+	margin: 0 0 32px 0;
+
+	@include from(lg) {
+		margin: 0 0 48px 0;
+	}
+}
+
+.mobileBack {
+	display: inline-flex;
+	align-items: center;
+
+	color: inherit;
+	text-decoration: none;
+	padding-left: 24px;
+	position: relative;
+	transition: color .3s ease-in-out;
+
+	@include from(lg) {
+		display: none;
+	}
+
+	&::before {
+		content: "";
+		display: block;
+		width: 16px;
+		height: 16px;
+		background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M6.16 8.47999C5.94667 8.19555 5.94667 7.80445 6.16 7.52001L8.55997 4.32004C8.82506 3.96659 9.3265 3.89495 9.67996 4.16005C10.0334 4.42514 10.105 4.92657 9.83995 5.28003L7.79998 8L9.83995 10.72C10.105 11.0734 10.0334 11.5749 9.67996 11.84C9.3265 12.105 8.82506 12.0334 8.55997 11.68L6.16 8.47999Z' fill='currentColor'%3E%3C/path%3E%3C/svg%3E");
+		background-size: contain;
+		position: absolute;
+		top: 50%;
+		left: 0;
+		margin: -8px 0 0;
+	}
+}
+
+.desktopList {
+	display: none;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+	@include from(lg) {
+
+		display: flex;
+	}
+}
+
+.breadcrumb {
+	color: var(--text-secondary);
+
+	&:last-child .breadcrumbLink::after {
+		content: none;
+	}
+}
+
+.breadcrumbLink {
+	color: inherit;
+	text-decoration: none;
+	padding-right: 32px;
+	position: relative;
+	transition: color .3s ease-in-out;
+
+	@media (hover: hover) {
+		&:hover {
+			color: var(--text-main);
+		}
+	}
+
+	&::after {
+		content: "";
+		display: block;
+		width: 16px;
+		height: 16px;
+		background: url("data:image/svg+xml,%3Csvg width='17' height='16' viewBox='0 0 17 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M10.1271 8.47999C10.3404 8.19555 10.3404 7.80445 10.1271 7.52001L7.72714 4.32004C7.46205 3.96659 6.96061 3.89495 6.60715 4.16005C6.25369 4.42514 6.18206 4.92657 6.44715 5.28003L8.48713 8L6.44715 10.72C6.18206 11.0734 6.25369 11.5749 6.60715 11.84C6.96061 12.105 7.46205 12.0334 7.72714 11.68L10.1271 8.47999Z' fill='%236B6B6B'/%3E%3C/svg%3E%0A") 50% 50% no-repeat;
+		background-size: contain;
+		position: absolute;
+		top: 50%;
+		right: 8px;
+		margin: -8px 0 0;
+	}
+}
+
+.breadcrumbLabel {
+	color: var(--text-main)
+}

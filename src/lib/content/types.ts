@@ -285,3 +285,8 @@ export interface ComboBannerBlock {
     imageAlt: string
 }
 export type TabBlock = AdvantagesBlock | ComboBannerBlock
+
+export type BreadcrumbItem = {
+    label: string
+    href?: string
+}
