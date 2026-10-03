@@ -68,7 +68,6 @@ export interface HeroItem {
     cta: HeroCta
     theme?: 'light' | 'dark'
     background?: string
-    imageHref?: string
     imageAlt?: string
     imageWidth?: number
     imageHeight?: number
@@ -80,7 +79,6 @@ export interface HomeProduct {
     title: string
     href: string
     linkLabel: string
-    imageHref: string
     imageAlt: string
     imageWidth: number
     imageHeight: number
