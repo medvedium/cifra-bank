@@ -14,14 +14,22 @@
                 "mark": "ЦИФРА КАРТЫ",
                 "title": "Цифра карта: удобство, скорость и безопасность в каждом платеже",
                 "description": "Конвертация валют внутри одной карты\nОбслуживание от 0 ₽",
-                "cta": {
-                    "href": "#request",
-                    "label": "Оформить карту"
-                },
-                "imageAlt": "Изображение с картами и значками валют",
-                "imageWidth": 550,
-                "imageHeight": 546,
-                "imageUrl": "/assets/images/service-packages/img-intro-service-packages.png"
+                "ctas": [
+                    {
+                        "label": "Оформить карту",
+                        "href": "#request",
+                        "action": "scroll",
+                        "className": "primary"
+                    }
+                ],
+                "image": {
+                    "alt": "",
+                    "desktop": {
+                        "src": "/assets/images/service-packages/img-intro-service-packages.png",
+                        "width": 550,
+                        "height": 546
+                    }
+                }
             }
         ]
     },

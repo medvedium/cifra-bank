@@ -15,6 +15,7 @@ interface ButtonProps {
     loading?: boolean // бонус, если успеешь
     href?: string
     mobileHref?: string
+    target?: '_self' | '_blank'
     type?: 'button' | 'submit'
     className?: string
     onClick?: () => void
@@ -25,20 +26,24 @@ function ButtonLink({
     href,
     className,
     children,
-    ariaLabel
+    ariaLabel,
+    target
 }: {
     href: string
     className: string
     children: React.ReactNode
     ariaLabel?: string
+    target?: '_self' | '_blank'
 }) {
-    if (href.startsWith('http')) {
+    const openInNewTab = target === '_blank' || (!target && href.startsWith('http'))
+
+    if (openInNewTab || href.startsWith('http') || href.startsWith('#')) {
         return (
             <a
                 className={className}
                 href={href}
-                target="_blank"
-                rel="noopener noreferrer"
+                target={openInNewTab ? '_blank' : undefined}
+                rel={openInNewTab ? 'noopener noreferrer' : undefined}
                 aria-label={ariaLabel}
             >
                 {children}
@@ -67,6 +72,7 @@ export default function Button(props: ButtonProps) {
         loading = false,
         href,
         mobileHref,
+        target,
         type = 'button',
         className = '',
         onClick,
@@ -109,6 +115,7 @@ export default function Button(props: ButtonProps) {
                         href={href}
                         className={buttonClassNames}
                         ariaLabel={ariaLabel}
+                        target={target}
                     >
                         {content}
                     </ButtonLink>
@@ -118,6 +125,7 @@ export default function Button(props: ButtonProps) {
                         href={responsiveHref}
                         className={buttonClassNames}
                         ariaLabel={ariaLabel}
+                        target={target}
                     >
                         {content}
                     </ButtonLink>
@@ -131,6 +139,7 @@ export default function Button(props: ButtonProps) {
             href={href}
             className={buttonClassNames}
             ariaLabel={ariaLabel}
+            target={target}
         >
             {content}
         </ButtonLink>

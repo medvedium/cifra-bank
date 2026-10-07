@@ -50,9 +50,16 @@ export interface Products {
     items: HomeProduct[]
 }
 
+/** Действие CTA из конструктора баннера. */
+export type HeroCtaAction = 'none' | 'link' | 'blank' | 'modal' | 'scroll'
+
 export interface HeroCta {
-    href: string
     label: string
+    /** Класс/стиль кнопки из CMS: primary, secondary, white, text и т.п. */
+    className?: string
+    action?: HeroCtaAction
+    /** URL для link/blank/modal или CSS-селектор / #id для scroll. */
+    href?: string
 }
 
 export interface HeroInformCard {
@@ -60,18 +67,33 @@ export interface HeroInformCard {
     text: string
 }
 
+export interface ImageSource {
+    src: string
+    width: number
+    height: number
+}
+
+export interface HeroImage {
+    alt: string
+    desktop: ImageSource
+    mobile?: ImageSource
+}
+
 export interface HeroItem {
     mark?: string
+    /** HTML-разметка (допускаются span.accented и т.п.). */
     title: string
+    /** HTML-разметка описания. */
     description?: string
     features?: string[]
-    cta: HeroCta
-    theme?: 'light' | 'dark'
-    background?: string
-    imageAlt?: string
-    imageWidth?: number
-    imageHeight?: number
-    imageUrl?: string
+    /** До двух CTA-кнопок. */
+    ctas?: HeroCta[]
+    /** Один hex или пара [from, to] для градиента. */
+    background?: string | [string, string]
+    markColor?: string
+    textColor?: string
+    titleColor?: string
+    image?: HeroImage
     inform?: HeroInformCard[]
 }
 
