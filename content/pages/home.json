@@ -8,14 +8,24 @@
         "items": [
             {
                 "mark": "Сберегательный продукт",
-                "title": "Вклад «Ключевой»",
+                "title": "Вклад <span class=\"accented accented--green\">«Ключевой»</span>",
                 "description": "Откройте вклад, привязанный к ключевой ставке ЦБ и получайте выгоду уже сегодня",
-                "cta": {
-                    "href": "/deposits/#key",
-                    "label": "Подробнее"
+                "ctas": [
+                    {
+                        "label": "Подробнее",
+                        "href": "/deposits/#key",
+                        "action": "link",
+                        "className": "primary"
+                    }
+                ],
+                "image": {
+                    "alt": "",
+                    "desktop": {
+                        "src": "/assets/images/service-packages/img-intro-service-packages.png",
+                        "width": 550,
+                        "height": 546
+                    }
                 },
-                "theme": "light",
-                "imageAlt": "Вклад «Ключевой»",
                 "inform": [
                     {
                         "title": "Выгодно",
@@ -39,23 +49,47 @@
                     "Открывайте вклад в мобильном приложении",
                     "Вклады застрахованы на сумму 1 400 000 ₽"
                 ],
-                "cta": {
-                    "href": "/deposits",
-                    "label": "Открыть вклад"
-                },
-                "theme": "dark",
-                "imageAlt": "Вклады"
+                "ctas": [
+                    {
+                        "label": "Открыть вклад",
+                        "href": "/deposits",
+                        "action": "link",
+                        "className": "primary"
+                    }
+                ],
+                "background": "#2c3c4a",
+                "markColor": "#fafbfc",
+                "titleColor": "#fafbfc",
+                "textColor": "#fafbfc",
+                "image": {
+                    "alt": "",
+                    "desktop": {
+                        "src": "/assets/images/service-packages/img-intro-service-packages.png",
+                        "width": 550,
+                        "height": 546
+                    }
+                }
             },
             {
                 "mark": "Кешбэк",
                 "title": "Кешбэк акциями без ограничений",
                 "description": "Оплачивайте покупки привычным или новым способом, просто совершая покупки.",
-                "cta": {
-                    "href": "/cashback",
-                    "label": "Подробнее"
+                "ctas": [
+                    {
+                        "label": "Подробнее",
+                        "href": "/cashback",
+                        "action": "link",
+                        "className": "primary"
+                    }
+                ],
+                "image": {
+                    "alt": "",
+                    "desktop": {
+                        "src": "/assets/images/service-packages/img-intro-service-packages.png",
+                        "width": 550,
+                        "height": 546
+                    }
                 },
-                "theme": "light",
-                "imageAlt": "Кешбэк акциями",
                 "inform": [
                     {
                         "title": "Без ограничений",

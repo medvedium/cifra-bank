@@ -10,14 +10,48 @@
                 "mark": "Банк без границ",
                 "title": "Стать партнёром",
                 "description": "Рекомендуйте РКО нашего банка, отправляйте заявку через личный кабинет агента и получайте вознаграждение без ограничений",
-                "cta": {
-                    "href": "/corporate/rko",
-                    "label": "Отправить заявку"
-                },
-                "imageAlt": "",
-                "imageWidth": 0,
-                "imageHeight": 0,
-                "imageUrl": ""
+                "ctas": [
+                    {
+                        "label": "Отправить заявку",
+                        "href": "/corporate/rko",
+                        "action": "link",
+                        "className": "primary"
+                    }
+                ],
+                "image": {
+                    "alt": "",
+                    "desktop": {
+                        "src": "/assets/images/service-packages/img-intro-service-packages.png",
+                        "width": 550,
+                        "height": 546
+                    }
+                }
+            },
+            {
+                "mark": "Банк без границ",
+                "title": "Открытие расчётного счёта для бизнеса за 0 ₽",
+                "features": [
+                    "Платежи в Китай, Казахстан, ОАЭ и другие страны",
+                    "Бесплатное обслуживание счета",
+                    "0% за переводы физ.лицам внутри банка до 3 млн ₽",
+                    "Интернет-банк бесплатно "
+                ],
+                "ctas": [
+                    {
+                        "label": "Открыть счёт",
+                        "href": "/corporate/rko",
+                        "action": "link",
+                        "className": "primary"
+                    }
+                ],
+                "image": {
+                    "alt": "",
+                    "desktop": {
+                        "src": "/assets/images/service-packages/img-intro-service-packages.png",
+                        "width": 550,
+                        "height": 546
+                    }
+                }
             }
         ]
     },
