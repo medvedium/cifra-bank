@@ -123,12 +123,11 @@ function collectHome(index: SearchIndex, page: HomePage, audience: 'retail' | 'c
     const fallbackCategory = audience === 'corporate' ? 'Продукты для юридических лиц' : 'Частным лицам'
 
     for (const item of page.hero.items) {
-        index.add(
-            item.title,
-            item.mark || fallbackCategory,
-            item.cta.href,
-            `${keywords} ${item.description ?? ''} ${item.features?.join(' ') ?? ''}`
-        )
+        const title = item.title.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim()
+        const description = (item.description ?? '').replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim()
+        const href = item.ctas?.find((cta) => cta.href)?.href || '/'
+
+        index.add(title, item.mark || fallbackCategory, href, `${keywords} ${description} ${item.features?.join(' ') ?? ''}`)
     }
 
     if (audience === 'retail') {

@@ -1,19 +1,19 @@
 'use client'
 
-import { useEffect, useId, useLayoutEffect, useRef, useState } from 'react'
-import Image from 'next/image'
+import { useEffect, useId, useLayoutEffect, useRef, useState, type PointerEvent as ReactPointerEvent } from 'react'
 import type { HeroItem } from '@/lib/content/types'
-import Button from '@/components/ui/Button'
 import { ArrowRightIcon } from '@/components/ui/Icons'
+import HeroCtas from './HeroCtas'
+import HeroPicture from './HeroPicture'
+import { getSlideStyle, resolveSlideTone } from './heroUtils'
 import styles from './Hero.module.scss'
 
 const SLIDER_DELAY_MS = 7000
 const SLIDER_SPEED_MS = 1000
+const SWIPE_THRESHOLD_PX = 40
 
 interface HeroProps {
     slides: HeroItem[]
-    /** Фиксированная высота viewport. По умолчанию: true для карусели, false для одного слайда. */
-    fixedHeight?: boolean
 }
 
 function prefersReducedMotion() {
@@ -36,26 +36,71 @@ function renderInformGrid(inform: NonNullable<HeroItem['inform']>) {
     )
 }
 
-export default function Hero({ slides, fixedHeight }: HeroProps) {
+export default function Hero({ slides }: HeroProps) {
     const paginationId = useId()
     const introRef = useRef<HTMLDivElement>(null)
+    const viewportRef = useRef<HTMLDivElement>(null)
+    const slideRefs = useRef<Array<HTMLDivElement | null>>([])
     const informRef = useRef<HTMLDivElement>(null)
     const informViewportRef = useRef<HTMLDivElement>(null)
     const informSlideRefs = useRef<Array<HTMLDivElement | null>>([])
+    const pointerStartX = useRef<number | null>(null)
     const [index, setIndex] = useState(0)
     const [autoplay, setAutoplay] = useState(true)
 
     const isSlider = slides.length > 1
-    const useFixedHeight = fixedHeight ?? isSlider
     const introSlides = isSlider ? slides : [slides[0]]
     const hasInform = isSlider
         ? slides.some((slide) => (slide.inform?.length ?? 0) > 0)
-        : (slides[0].inform?.length ?? 0) > 0
+        : (slides[0]?.inform?.length ?? 0) > 0
+    const activeTone = resolveSlideTone(slides[index] ?? slides[0])
 
     function goTo(next: number) {
         const total = slides.length
         setIndex(((next % total) + total) % total)
     }
+
+    useLayoutEffect(() => {
+        const viewport = viewportRef.current
+        if (!viewport || !isSlider) {
+            if (viewport) {
+                viewport.style.height = ''
+            }
+            return
+        }
+
+        const updateHeight = () => {
+            const minHeight = Number.parseFloat(getComputedStyle(viewport).minHeight) || 0
+            let maxHeight = 0
+
+            slideRefs.current.forEach((slide) => {
+                if (!slide) {
+                    return
+                }
+
+                maxHeight = Math.max(maxHeight, slide.scrollHeight)
+            })
+
+            viewport.style.height = `${Math.max(maxHeight, minHeight)}px`
+        }
+
+        updateHeight()
+
+        const observers = slideRefs.current
+            .filter((node): node is HTMLDivElement => Boolean(node))
+            .map((node) => {
+                const observer = new ResizeObserver(updateHeight)
+                observer.observe(node)
+                return observer
+            })
+
+        window.addEventListener('resize', updateHeight)
+
+        return () => {
+            observers.forEach((observer) => observer.disconnect())
+            window.removeEventListener('resize', updateHeight)
+        }
+    }, [isSlider, slides])
 
     useLayoutEffect(() => {
         if (!isSlider) {
@@ -145,6 +190,37 @@ export default function Hero({ slides, fixedHeight }: HeroProps) {
         return () => window.clearInterval(timer)
     }, [autoplay, index, isSlider, slides.length])
 
+    function onPointerDown(event: ReactPointerEvent<HTMLDivElement>) {
+        if (!isSlider || event.pointerType === 'mouse') {
+            return
+        }
+
+        pointerStartX.current = event.clientX
+    }
+
+    function onPointerUp(event: ReactPointerEvent<HTMLDivElement>) {
+        if (!isSlider || pointerStartX.current === null) {
+            return
+        }
+
+        const delta = event.clientX - pointerStartX.current
+        pointerStartX.current = null
+
+        if (Math.abs(delta) < SWIPE_THRESHOLD_PX) {
+            return
+        }
+
+        if (delta < 0) {
+            goTo(index + 1)
+        } else {
+            goTo(index - 1)
+        }
+    }
+
+    function onPointerCancel() {
+        pointerStartX.current = null
+    }
+
     if (slides.length === 0) {
         return null
     }
@@ -155,16 +231,21 @@ export default function Hero({ slides, fixedHeight }: HeroProps) {
                 <div
                     className={styles.intro}
                     ref={introRef}
+                    data-tone={activeTone}
+                    data-slider={isSlider ? 'true' : 'false'}
                 >
                     <div
-                        className={`${styles.viewport} ${useFixedHeight ? styles.viewportFixed : styles.viewportAuto}`}
+                        className={styles.viewport}
+                        ref={viewportRef}
+                        onPointerDown={onPointerDown}
+                        onPointerUp={onPointerUp}
+                        onPointerCancel={onPointerCancel}
                     >
                         {introSlides.map((slide, slideIndex) => {
                             const isActive = isSlider ? slideIndex === index : true
                             const slideClassName = [
                                 styles.slide,
-                                isSlider ? (isActive ? styles.slideActive : '') : styles.slideStatic,
-                                slide.theme === 'dark' ? styles.slideDark : ''
+                                isSlider ? (isActive ? styles.slideActive : '') : styles.slideStatic
                             ]
                                 .filter(Boolean)
                                 .join(' ')
@@ -172,14 +253,21 @@ export default function Hero({ slides, fixedHeight }: HeroProps) {
                             return (
                                 <div
                                     className={slideClassName}
-                                    key={`${slide.title}-${slideIndex}`}
+                                    key={`${slide.mark ?? 'slide'}-${slideIndex}`}
                                     aria-hidden={isSlider ? !isActive : undefined}
-                                    style={slide.background ? { background: slide.background } : undefined}
+                                    style={getSlideStyle(slide)}
+                                    data-tone={resolveSlideTone(slide)}
+                                    ref={(node) => {
+                                        slideRefs.current[slideIndex] = node
+                                    }}
                                 >
                                     <div className={styles.content}>
                                         <div className={styles.text}>
                                             {slide.mark ? <span className={styles.mark}>{slide.mark}</span> : null}
-                                            <h2 className={`text-h1 ${styles.title}`}>{slide.title}</h2>
+                                            <h2
+                                                className={`text-h1 ${styles.title}`}
+                                                dangerouslySetInnerHTML={{ __html: slide.title }}
+                                            />
                                             {slide.features?.length ? (
                                                 <ul className={styles.features}>
                                                     {slide.features.map((item) => (
@@ -187,29 +275,19 @@ export default function Hero({ slides, fixedHeight }: HeroProps) {
                                                     ))}
                                                 </ul>
                                             ) : slide.description ? (
-                                                <p className={styles.description}>{slide.description}</p>
+                                                <div
+                                                    className={styles.description}
+                                                    dangerouslySetInnerHTML={{ __html: slide.description }}
+                                                />
                                             ) : null}
                                         </div>
-                                        {slide.cta ? (
-                                            <div className={styles.action}>
-                                                <Button
-                                                    color="primary"
-                                                    href={slide.cta.href || undefined}
-                                                >
-                                                    {slide.cta.label}
-                                                </Button>
-                                            </div>
-                                        ) : null}
+                                        <HeroCtas items={slide.ctas} />
                                     </div>
-                                    {slide.imageUrl ? (
+                                    {slide.image ? (
                                         <div className={styles.media}>
-                                            <Image
-                                                className={styles.image}
-                                                src={slide.imageUrl}
-                                                alt={slide.imageAlt || ''}
-                                                width={slide.imageWidth || 720}
-                                                height={slide.imageHeight || 556}
-                                                loading="eager"
+                                            <HeroPicture
+                                                image={slide.image}
+                                                highPriority={slideIndex === 0}
                                             />
                                         </div>
                                     ) : null}
@@ -234,7 +312,7 @@ export default function Hero({ slides, fixedHeight }: HeroProps) {
                                             key={`${paginationId}-${slideIndex}`}
                                             className={`${styles.bullet} ${isActive ? styles.bulletActive : ''}`}
                                             aria-selected={isActive}
-                                            aria-label={`Слайд ${slideIndex + 1}: ${slide.title}`}
+                                            aria-label={`Слайд ${slideIndex + 1}`}
                                             onClick={() => goTo(slideIndex)}
                                         >
                                             {isActive ? (
@@ -286,7 +364,7 @@ export default function Hero({ slides, fixedHeight }: HeroProps) {
                                 {slides.map((slide, slideIndex) => (
                                     <div
                                         className={`${styles.informSlide} ${slideIndex === index ? styles.informSlideActive : ''}`}
-                                        key={`inform-${slide.title}-${slideIndex}`}
+                                        key={`inform-${slideIndex}`}
                                         aria-hidden={slideIndex !== index}
                                         ref={(node) => {
                                             informSlideRefs.current[slideIndex] = node

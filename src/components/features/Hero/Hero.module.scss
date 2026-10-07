@@ -10,30 +10,28 @@
 
 .viewport {
     position: relative;
+    min-height: 600px;
     overflow: hidden;
     border-radius: 16px;
-}
-
-.viewportFixed {
-    height: 600px;
-}
-
-.viewportAuto {
-    height: auto;
-    overflow: visible;
+    touch-action: pan-y;
 }
 
 .slide {
     position: absolute;
-    inset: 0;
+    top: 0;
+    right: 0;
+    left: 0;
     z-index: 0;
     display: flex;
     flex-direction: column;
     gap: 32px;
+    width: 100%;
+    min-height: 100%;
+    height: auto;
     padding: 24px 16px 0;
     overflow: hidden;
     background: var(--background-secondary);
-    color: var(--text-main);
+    color: var(--hero-text-color, var(--text-main));
     opacity: 0;
     visibility: hidden;
     transition:
@@ -53,32 +51,16 @@
     position: relative;
     inset: auto;
     z-index: auto;
+    min-height: 600px;
+    height: auto;
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
 }
 
-.slideDark {
-    background: var(--footer-surface);
-    color: var(--text-light);
-
-    .mark {
-        border-color: var(--lines-light-grey);
-        color: var(--text-light);
-    }
-
-    .features li::before {
-        background: var(--text-light);
-    }
-
-    .title,
-    .description,
-    .features {
-        color: var(--text-light);
-    }
-}
-
 .content {
+    position: relative;
+    z-index: 2;
     display: flex;
     flex: 0 0 auto;
     flex-direction: column;
@@ -98,9 +80,9 @@
     display: inline-flex;
     align-items: center;
     padding: 4px 8px;
-    border: 1px solid var(--lines-dark-grey);
+    border: 1px solid var(--hero-mark-border, var(--lines-dark-grey));
     border-radius: 4px;
-    color: var(--text-secondary);
+    color: var(--hero-mark-color, var(--text-secondary));
     font-size: var(--caption-size);
     font-weight: var(--caption-weight);
     line-height: var(--caption-line-height);
@@ -110,13 +92,14 @@
 
 .title {
     margin: 0;
+    color: var(--hero-title-color, var(--text-main));
 }
 
 .description,
 .features {
     margin: 0;
     max-width: 36em;
-    color: var(--text-main);
+    color: var(--hero-text-color, var(--text-main));
     font-size: var(--t1-size);
     font-weight: var(--t1-weight);
     line-height: var(--t1-line-height);
@@ -147,16 +130,58 @@
     background: currentColor;
 }
 
+.title,
+.description {
+    :global(.accented) {
+        color: inherit;
+    }
+
+    :global(.accented--green) {
+        color: var(--background-primary);
+    }
+
+    :global(.accented--black) {
+        color: var(--text-dark);
+    }
+
+    :global(.accented--white) {
+        color: var(--text-light);
+    }
+
+    :global(.accented--gray) {
+        color: var(--text-secondary);
+    }
+}
+
 .action {
     display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: stretch;
+    width: 100%;
+}
+
+.cta {
+    width: 100%;
 }
 
 .media {
     display: flex;
     flex: 1 1 auto;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
     min-height: 0;
+}
+
+.picture {
+    display: flex;
+    flex: 1 1 auto;
+    align-items: flex-end;
+    justify-content: center;
+    min-width: 0;
+    min-height: 0;
+    width: 100%;
+    height: 100%;
 }
 
 .image {
@@ -165,17 +190,16 @@
     height: 100%;
     max-height: 230px;
     object-fit: contain;
+    object-position: center bottom;
 }
 
 .pagination {
-    position: absolute;
-    right: 16px;
-    bottom: 16px;
-    left: 16px;
+    position: relative;
     z-index: 2;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 16px;
 }
 
 .bullet {
@@ -214,10 +238,6 @@
 
 :global([data-theme='dark']) .bullet {
     background: color-mix(in srgb, var(--text-main) 40%, transparent);
-}
-
-.intro:has(.slideActive.slideDark) .bullet {
-    background: rgb(250 251 252 / 24%);
 }
 
 .bulletProgress {
@@ -325,19 +345,21 @@
 }
 
 @include from(md) {
-    .viewportFixed {
-        height: 556px;
+    .viewport {
+        min-height: 556px;
     }
 
-    .slide {
+    .slide,
+    .slideStatic {
         flex-direction: row;
         align-items: center;
         gap: 32px;
+        min-height: 556px;
         padding: 64px 40px;
     }
 
     .content {
-        flex: 1 1 0;
+        flex: 1 1 50%;
         min-width: 0;
         height: 100%;
         justify-content: center;
@@ -353,20 +375,45 @@
         margin-top: -8px;
     }
 
+    .action {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 24px;
+        align-items: center;
+        width: auto;
+    }
+
+    .cta {
+        width: auto;
+    }
+
     .media {
-        flex: 1 1 0;
+        position: relative;
+        z-index: 1;
+        flex: 1 1 42%;
         align-self: stretch;
+        justify-content: flex-start;
+        min-width: 0;
+        max-width: 48%;
+        margin-right: -40px;
+        overflow: hidden;
     }
 
+    .picture {
+        justify-content: flex-start;
+        align-items: flex-end;
+        overflow: hidden;
+    }
+
+    // Desktop-asset на планшете: высота целиком, якорь слева —
+    // важная часть кадра видна, лишнее уходит и клипуется справа.
     .image {
+        width: auto;
+        height: 100%;
+        max-width: none;
         max-height: none;
-    }
-
-    .pagination {
-        right: 40px;
-        bottom: 40px;
-        left: auto;
-        justify-content: flex-end;
+        object-fit: contain;
+        object-position: left bottom;
     }
 
     .inform {
@@ -379,13 +426,45 @@
 }
 
 @include from(xl) {
-    .slide {
+    .slide,
+    .slideStatic {
         padding: 64px 80px;
     }
 
+    .media {
+        flex: 0 1 560px;
+        max-width: 560px;
+        margin-right: -80px;
+        overflow: visible;
+    }
+
+    .picture {
+        overflow: visible;
+        justify-content: flex-end;
+    }
+
+    .image {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: right bottom;
+    }
+
+    .action {
+        gap: 40px;
+    }
+
     .pagination {
+        position: absolute;
         right: 80px;
         bottom: 80px;
+        left: auto;
+        justify-content: flex-end;
+        margin-top: 0;
+    }
+
+    .intro[data-tone='dark'] .bullet {
+        background: rgb(250 251 252 / 24%);
     }
 
     .arrow {
@@ -414,7 +493,7 @@
         }
     }
 
-    .intro:has(.slideActive.slideDark) .arrow {
+    .intro[data-tone='dark'] .arrow {
         color: rgb(250 251 252 / 56%);
 
         &:hover {
