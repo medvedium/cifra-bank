@@ -18,7 +18,7 @@
     "app": {
         "title": "Скачать мобильное\nприложение",
         "mobileTitle": "Цифра банк",
-        "qrImage": "/footer/qr-code.png",
+        "qrImage": "/assets/images/common/qr-code.png",
         "qrAlt": "QR-код приложения Цифра банк",
         "stores": [
             {
