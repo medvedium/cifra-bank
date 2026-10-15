@@ -1,15 +1,20 @@
 import { getCorporateHomePage, getFooter, getHomePage, getNavigation } from '@/lib/content/loader'
 import type { FooterNavGroup, HomePage, MainMenuItem, MenuItem, Navigation, SearchHit } from '@/lib/content/types'
+import { filterSearchHits, type SearchIndexEntry } from '@/lib/search/helpers'
 
-export { SEARCH_PAGE_SIZE, displaySearchUrl, formatSearchCount, getPageTokens } from '@/lib/search/helpers'
-export type { PageToken } from '@/lib/search/helpers'
+export {
+    SEARCH_PAGE_SIZE,
+    displaySearchUrl,
+    filterSearchHits,
+    formatSearchCount,
+    getPageTokens
+} from '@/lib/search/helpers'
+export type { PageToken, SearchIndexEntry } from '@/lib/search/helpers'
 
 const RETAIL_KEYWORDS = 'частным лицам физические лица'
 const CORPORATE_KEYWORDS = 'для бизнеса юридические лица юридическим лицам'
 
-interface IndexedHit extends SearchHit {
-    keywords: string
-}
+type IndexedHit = SearchIndexEntry
 
 function normalizeHref(href: string): string | null {
     const trimmed = href.trim()
@@ -186,29 +191,10 @@ function collectTopLinks(index: SearchIndex, navigation: Navigation) {
     }
 }
 
-function matches(hit: IndexedHit, query: string) {
-    const haystack = `${hit.title} ${hit.category} ${hit.href} ${hit.keywords}`.toLowerCase()
-
-    if (haystack.includes(query)) {
-        return true
-    }
-
-    return query
-        .split(/\s+/)
-        .filter(Boolean)
-        .every((word) => haystack.includes(word))
+export async function getSearchIndex(): Promise<SearchIndexEntry[]> {
+    return buildIndex()
 }
 
 export async function getSearchHits(query: string): Promise<SearchHit[]> {
-    const normalized = query.trim().toLowerCase()
-
-    if (!normalized) {
-        return []
-    }
-
-    const index = await buildIndex()
-
-    return index
-        .filter((hit) => matches(hit, normalized))
-        .map(({ title, category, href }) => ({ title, category, href }))
+    return filterSearchHits(await buildIndex(), query)
 }
