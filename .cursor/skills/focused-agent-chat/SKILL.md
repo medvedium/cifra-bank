@@ -16,15 +16,17 @@ description: >-
 ## Brief template (give the user this to paste)
 
 ```text
-Задача: <одна цель>
-Контекст: уже сделано <1–3 пункта>
-Файлы: @path1 @path2
+Задача: следующий пункт из @docs/roadmap.md
+  (или явно: <одна цель>)
+Файлы: @docs/roadmap.md @path1 @path2
 Ограничения: не коммитить / не трогать X / pnpm
+По завершении: обновить @docs/roadmap.md (статусы, Next, Changelog)
 Критерий готовности: <как проверить>
 ```
 
 ## Agent behavior in the new chat
 
-1. Read only the named files (and types they import) before editing.
+1. Read `@docs/roadmap.md` first, then only the named feature files.
 2. Follow `.cursor/rules` and project skills; don’t re-ask settled conventions.
-3. Don’t summarize the old mega-thread — work from the brief + code.
+3. Don’t summarize old mega-threads — work from roadmap + code.
+4. When the task is accepted/done, update the roadmap (skill `site-roadmap`).

@@ -68,3 +68,4 @@ Empty inform slide → `HeroInform` returns `null` → height 0 via `autoHeight`
 - [ ] Autoplay pauses out of view and resumes with remaining time
 - [ ] Active bullet widens + green progress; no double-wide jerk on change
 - [ ] Custom arrows work (desktop)
+- [ ] Update `docs/roadmap.md` (statuses, Next, Changelog)

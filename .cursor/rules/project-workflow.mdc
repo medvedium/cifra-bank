@@ -12,3 +12,4 @@ alwaysApply: true
 - UI-тексты и контент — на русском, в духе существующего сайта «Цифра банк».
 - Новые фичи класть рядом с похожими: `src/components/features/`, стили — CSS Modules (`*.module.scss`), контент страниц — `content/pages/*.json`.
 - Слайдеры сайта — **Swiper** (`swiper` + модули). Не писать свой слайдер-движок, если задачу закрывает Swiper.
+- Статус проекта и очередь задач — `docs/roadmap.md` (см. rule `site-roadmap`).
