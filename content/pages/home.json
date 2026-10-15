@@ -7,21 +7,178 @@
     "hero": {
         "items": [
             {
-                "mark": "Сберегательный продукт",
-                "title": "Вклад <span class=\"accented accented--green\">«Ключевой»</span>",
-                "description": "Откройте вклад, привязанный к ключевой ставке ЦБ и получайте выгоду уже сегодня",
+                "mark": "Важно",
+                "title": "Установите сертификаты Минцифры",
+                "description": "Они помогут сохранить безопасный доступ к сайтам и&nbsp;онлайн-сервисам. Рассказываем, где скачать и как установить",
                 "ctas": [
                     {
                         "label": "Подробнее",
-                        "href": "/deposits/#key",
+                        "href": "https://cifra-bank.ru/certificates/",
                         "action": "link",
+                        "color": "white"
+                    },
+                    {
+                        "label": "Подробнее",
+                        "href": "https://cifra-bank.ru/certificates/",
+                        "action": "scroll",
+                        "color": "white",
+                        "variant": "text"
+                    }
+                ],
+                "image": {
+                    "alt": "",
+                    "desktop": {
+                        "src": "/assets/images/homepage/img-intro-home-mincifra.png",
+                        "width": 550,
+                        "height": 546
+                    }
+                },
+                "inform": [
+                    {
+                        "title": "Платежный стикер в подарок",
+                        "text": "Стильный и удобный"
+                    },
+                    {
+                        "title": "Фитнес и здоровье",
+                        "text": "Спорт, массаж, салоны, барбершопы за наш счёт"
+                    },
+                    {
+                        "title": "Личный ассистент",
+                        "text": "Возьмем на себя бытовые задачи"
+                    }
+                ]
+            },
+            {
+                "mark": "Валюта",
+                "title": "Честный курс <br>и&nbsp;<span class=\"accented accented--green\">новые доллары</span> США",
+                "description": "Меняйте валюту как вам удобно – в мобильном приложении или в офисах банка. Без скрытых комиссий",
+                "ctas": [
+                    {
+                        "label": "Обменять валюту",
+                        "href": "#rates",
+                        "action": "scroll",
                         "className": "primary"
                     }
                 ],
                 "image": {
                     "alt": "",
                     "desktop": {
-                        "src": "/assets/images/service-packages/img-intro-service-packages.png",
+                        "src": "/assets/images/homepage/img-intro-home-rates.png",
+                        "width": 550,
+                        "height": 546
+                    }
+                }
+            },
+            {
+                "mark": "тарифный план",
+                "title": "Двойная выгода:<br>\n10,5% годовых + Тариф «Индивидуальный» за 0&nbsp;<span class=\"icon-rouble\">₽</span>",
+                "description": "Вам доступно больше выгоды, переходите на тариф<br>и получайте больше индивидуальных предложений",
+                "ctas": [
+                    {
+                        "label": "Подробнее",
+                        "href": "/service-packages/individual/",
+                        "action": "link",
+                        "className": "primary"
+                    }
+                ],
+                "background": "#eaf1ff",
+                "titleColor": "var(--text-dark)",
+                "textColor": "var(--text-dark)",
+                "image": {
+                    "alt": "",
+                    "desktop": {
+                        "src": "/assets/images/homepage/img-intro-home-tariffs.webp",
+                        "width": 550,
+                        "height": 546
+                    }
+                },
+                "inform": [
+                    {
+                        "title": "Платежный стикер в подарок",
+                        "text": "Стильный и удобный"
+                    },
+                    {
+                        "title": "Фитнес и здоровье",
+                        "text": "Спорт, массаж, салоны, барбершопы за наш счёт"
+                    },
+                    {
+                        "title": "Личный ассистент",
+                        "text": "Возьмем на себя бытовые задачи"
+                    }
+                ]
+            },
+            {
+                "mark": "Сберегательный продукт",
+                "title": "Успейте открыть накопительный счёт<br>на выгодных условиях",
+                "description": "Ставка для новых&nbsp;клиентов* — до&nbsp;12,50%<br><br><span style=\"font-size:12px; line-height: 8px; opacity: 0.4;\">* Новым клиентом считается клиент, не имевший ранее накопительных счетов, открытых в банке. Для новых клиентов на минимальный / ежедневный остаток: 1–30 день — 12,50% / 11,50%, 31–60 день — 11,50% / 10,50%, с 61 дня — базовая ставка. Базовая ставка — 9,5% на минимальный остаток, 7,5% на ежедневный остаток. Подробные условия — на странице «Сбережения»</span>",
+                "ctas": [
+                    {
+                        "label": "Подробнее",
+                        "href": "/deposits/",
+                        "action": "blank",
+                        "className": "primary"
+                    }
+                ],
+                "image": {
+                    "alt": "",
+                    "desktop": {
+                        "src": "/assets/images/homepage/img-intro-home-savings.webp",
+                        "width": 550,
+                        "height": 546
+                    }
+                }
+            },
+            {
+                "mark": "Только в «Цифра банк»",
+                "title": "<span class=\"accented\">Ультратонкий</span> платежный стикер",
+                "description": "Получите в офисе банка без предварительного заказа<br>и оплачивайте покупки одним касанием",
+                "ctas": [
+                    {
+                        "label": "Подробнее",
+                        "href": "/news/detail/udobnye-platezhnye-stikery-tsifra-bank-dlya-beskontaktnoy-oplaty/",
+                        "action": "blank",
+                        "className": "primary"
+                    }
+                ],
+                "image": {
+                    "alt": "",
+                    "desktop": {
+                        "src": "/assets/images/homepage/img-intro-home-sticker.png",
+                        "width": 550,
+                        "height": 546
+                    }
+                },
+                "inform": [
+                    {
+                        "title": "Бесплатно",
+                        "text": "Для пользователей пакета Private Banking и тарифа «Индивидуальный»"
+                    },
+                    {
+                        "title": "Получение",
+                        "text": "Выдача возможна только в офисах «Цифра банк»"
+                    },
+                    {
+                        "title": "Преимущество",
+                        "text": "Стикер в два раза тоньше, чем обычная банковская карта"
+                    }
+                ]
+            },
+            {
+                "mark": "Сберегательный продукт",
+                "title": "Вклад «Ключевой»",
+                "description": "Откройте вклад, привязанный к ключевой ставке ЦБ,<br>и получайте выгоду уже сегодня",
+                "ctas": [
+                    {
+                        "label": "Подробнее",
+                        "href": "/deposits/#key",
+                        "action": "link"
+                    }
+                ],
+                "background": ["#03ec5f", "#008b60"],
+                "image": {
+                    "alt": "",
+                    "desktop": {
+                        "src": "/assets/images/homepage/img-intro-home-key-deposit.png",
                         "width": 550,
                         "height": 546
                     }
@@ -42,62 +199,194 @@
                 ]
             },
             {
-                "mark": "Сбережения",
-                "title": "Вклады",
-                "features": [
-                    "Ставка по вкладам до 13% в рублях",
-                    "Открывайте вклад в мобильном приложении",
-                    "Вклады застрахованы на сумму 1 400 000 ₽"
-                ],
+                "mark": "Банк без границ",
+                "title": "Оформите <span class=\"accented\">виртуальную<br>карту</span> «Цифра банк»<br>и оплачивайте свои покупки<br><span class=\"accented\">быстро и&nbsp;безопасно</span>",
+                "description": "Предложение доступно для&nbsp;действующих клиентов «Цифра банк»",
                 "ctas": [
                     {
-                        "label": "Открыть вклад",
-                        "href": "/deposits",
-                        "action": "link",
-                        "className": "primary"
-                    }
-                ],
-                "background": "#2c3c4a",
-                "markColor": "#fafbfc",
-                "titleColor": "#fafbfc",
-                "textColor": "#fafbfc",
-                "image": {
-                    "alt": "",
-                    "desktop": {
-                        "src": "/assets/images/service-packages/img-intro-service-packages.png",
-                        "width": 550,
-                        "height": 546
-                    }
-                }
-            },
-            {
-                "mark": "Кешбэк",
-                "title": "Кешбэк акциями без ограничений",
-                "description": "Оплачивайте покупки привычным или новым способом, просто совершая покупки.",
-                "ctas": [
-                    {
-                        "label": "Подробнее",
-                        "href": "/cashback",
-                        "action": "link",
+                        "label": "Перейти в мобильное приложение",
+                        "href": "#popup-banner-application",
+                        "action": "modal",
                         "className": "primary"
                     }
                 ],
                 "image": {
                     "alt": "",
                     "desktop": {
-                        "src": "/assets/images/service-packages/img-intro-service-packages.png",
+                        "src": "/assets/images/homepage/img-intro-home-virtual-card.png",
                         "width": 550,
                         "height": 546
                     }
                 },
                 "inform": [
                     {
-                        "title": "Без ограничений",
-                        "text": "Кешбэк не ограничен суммой покупок"
+                        "title": "Безопасно",
+                        "text": "Карту невозможно потерять"
                     },
                     {
-                        "title": "В приложении",
-                        "text": "Подключайте категории и следите за начислениями"
+                        "title": "Быстро",
+                        "text": "Оформление займёт несколько минут"
+                    },
+                    {
+                        "title": "Удобно",
+                        "text": "Быстрый доступ к финансам в приложении"
+                    }
+                ]
+            },
+            {
+                "mark": "Информация",
+                "title": "Будьте внимательны и осторожны",
+                "description": "Участились случаи мошенничества.<br>Если вам звонят и под любым предлогом просят перевести или снять деньги, закончите диалог и позвоните в нашу поддержку<br><span style=\"color: #37b44a;\">8 800 302 92 29</span><br><span style=\"color: #37b44a;\">8 800 333 92 29</span>",
+                "ctas": [
+                    {
+                        "label": "Подробнее",
+                        "href": "/information-security/",
+                        "action": "link",
+                        "className": "primary"
+                    }
+                ],
+                "background": "#1c1c1c",
+                "markColor": "#fafbfc",
+                "titleColor": "#fafbfc",
+                "textColor": "#fafbfc",
+                "image": {
+                    "alt": "",
+                    "desktop": {
+                        "src": "/assets/images/homepage/img-intro-home-security.png",
+                        "width": 550,
+                        "height": 546
+                    }
+                },
+                "inform": [
+                    {
+                        "title": "Будьте бдительны",
+                        "text": "Не доверяйте свои личные данные и деньги незнакомым людям"
+                    },
+                    {
+                        "title": "Оповещайте о мошенничестве",
+                        "text": "Наша служба поддержки всегда на связи и готова вам помочь"
+                    },
+                    {
+                        "title": "Не разглашайте личную информацию",
+                        "text": "Не передавайте по телефону свои персональные данные"
+                    }
+                ]
+            },
+            {
+                "mark": "Банк без границ",
+                "title": "Дебетовая карта с&nbsp;неограниченным кешбэком и счетами в трёх валютах",
+                "description": "Доступ ко всем банковским и инвестиционным продуктам экосистемы «Цифра»",
+                "ctas": [
+                    {
+                        "label": "Выбрать карту",
+                        "href": "/service-packages/",
+                        "action": "link",
+                        "className": "primary"
+                    }
+                ],
+                "image": {
+                    "alt": "",
+                    "desktop": {
+                        "src": "/assets/images/homepage/img-intro-home-debit.png",
+                        "width": 550,
+                        "height": 546
+                    }
+                },
+                "inform": [
+                    {
+                        "title": "Для частных лиц",
+                        "text": "Дебетовые карты, кредитные продукты, вклады с высокой ставкой"
+                    },
+                    {
+                        "title": "Для бизнеса",
+                        "text": "Зарплатные проекты, эквайринг, корпоративные карты"
+                    },
+                    {
+                        "title": "Переводы за 0%",
+                        "text": "Пополнение карт и брокерских счетов мгновенно и бесплатно"
+                    },
+                    {
+                        "title": "Особые привилегии",
+                        "text": "Неограниченный кешбэк акциями, поддержка 24/7, спецпредложения"
+                    }
+                ]
+            },
+            {
+                "mark": "Сервисы и услуги",
+                "title": "Кешбэк акциями<br>без&nbsp;ограничений",
+                "description": "Станьте клиентом тарифа «Премиальный» или&nbsp;«Индивидуальный» и&nbsp;получайте акции, просто совершая покупки",
+                "ctas": [
+                    {
+                        "label": "Подробнее",
+                        "href": "/cashback/",
+                        "action": "link",
+                        "className": "primary"
+                    }
+                ],
+                "image": {
+                    "alt": "",
+                    "desktop": {
+                        "src": "/assets/images/homepage/img-intro-home-cashback.png",
+                        "width": 550,
+                        "height": 546
+                    }
+                },
+                "inform": [
+                    {
+                        "title": "Неограниченный кешбэк",
+                        "text": "Максимальная сумма выплат по кешбэку не ограничена"
+                    },
+                    {
+                        "title": "Растут акции — растет ваш кешбэк",
+                        "text": "Получайте дополнительный доход при росте курсовой стоимости акций"
+                    },
+                    {
+                        "title": "Переводите акции в деньги",
+                        "text": "Вы можете продать имеющиеся акции в любой момент времени"
+                    },
+                    {
+                        "title": "Выбор кешбэка из 15 акций",
+                        "text": "Большой выбор акций перспективных компаний"
+                    }
+                ]
+            },
+            {
+                "mark": "Только в «Цифра банк»",
+                "title": "Уникальная карта<br>инвестора с доступом<br>к брокерскому счету 24/7",
+                "description": "Карта позволяет круглосуточно осуществлять операции<br>с помощью средств на&nbsp;брокерском счёте",
+                "ctas": [
+                    {
+                        "label": "Подробнее",
+                        "href": "/card-invest/",
+                        "action": "link"
+                    }
+                ],
+                "background": ["#03ec5f", "#008b60"],
+                "markColor": "var(--text-dark)",
+                "image": {
+                    "alt": "",
+                    "desktop": {
+                        "src": "/assets/images/homepage/img-intro-home-invest-card.png",
+                        "width": 550,
+                        "height": 546
+                    }
+                },
+                "inform": [
+                    {
+                        "title": "Бесплатное обслуживание",
+                        "text": "Ежемесячное обслуживание и интернет-банк"
+                    },
+                    {
+                        "title": "Пополнение счёта",
+                        "text": "Без комиссии в банкоматах или через сайт"
+                    },
+                    {
+                        "title": "До 2 500 000 ₽ в день",
+                        "text": "Возможность снятия наличных через банкоматы"
+                    },
+                    {
+                        "title": "Моментальный доступ",
+                        "text": "Получайте именную карту в день обращения в офис"
                     }
                 ]
             }

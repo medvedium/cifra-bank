@@ -38,42 +38,6 @@
         { "id": "physical", "label": "Дебетовые карты" }
     ],
     "tabContent": {
-        "digital": {
-            "blocks": [
-                {
-                    "type": "advantages",
-                    "title": "Преимущества",
-                    "featured": [
-                        {
-                            "title": "Выпуск и обслуживание бесплатно",
-                            "description": "Выпуск в течение 15 минут",
-                            "imageUrl": "/assets/images/service-packages/img-1-advantages-banner.png",
-                            "imageAlt": "Выпуск и обслуживание бесплатно"
-                        },
-                        {
-                            "title": "Все привилегии МИР",
-                            "description": "Доступны все бонусы и кешбэки МИР",
-                            "imageUrl": "/assets/images/service-packages/img-2-advantages-banner.png",
-                            "imageAlt": "Все привилегии МИР"
-                        }
-                    ],
-                    "items": [
-                        {
-                            "title": "Переводы без комиссии",
-                            "description": "Бесплатно до 100 000 ₽ в месяц по СБП на свои счета"
-                        },
-                        {
-                            "title": "Оплачивайте покупки",
-                            "description": "Карту можно привязать к МИР Pay"
-                        },
-                        {
-                            "title": "Лимит 100 000 ₽",
-                            "description": "На операции по карте"
-                        }
-                    ]
-                }
-            ]
-        },
         "physical": {
             "blocks": [
                 {
