@@ -13,9 +13,7 @@ export default function Hero({ slides }: HeroProps) {
     return (
         <div className="container container--wide">
             {slides.length > 1 ? (
-                <>
-                    <HeroSlider slides={slides} />
-                </>
+                <HeroSlider slides={slides} />
             ) : (
                 <>
                     <HeroBanner slide={slides[0]} />

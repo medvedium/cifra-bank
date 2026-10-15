@@ -6,26 +6,12 @@
 	flex-direction: column;
 	gap: 24px;
 	background-color: var(--background-banner);
-	margin-bottom: 58px;
+	height: 100%;
 
 	@include from(md) {
-		margin-bottom: 32px;
 		flex-direction: row;
 		justify-content: space-between;
 	}
-
-	@include from(tablet) {
-		margin-bottom: 48px;
-	}
-
-	@include from(xl) {
-		margin-bottom: 56px;
-	}
-
-	@include from(wide) {
-		margin-bottom: 64px;
-	}
-
 }
 
 .heroBannerContent {
