@@ -3,8 +3,17 @@ import type { NextConfig } from 'next'
 
 const srcDir = path.join(__dirname, 'src')
 const stylesDir = path.join(srcDir, 'styles')
+const isStaticExport = process.env.STATIC_EXPORT === '1'
 
 const nextConfig: NextConfig = {
+    ...(isStaticExport
+        ? {
+              output: 'export' as const,
+              images: {
+                  unoptimized: true
+              }
+          }
+        : {}),
     sassOptions: {
         loadPaths: [stylesDir]
     },

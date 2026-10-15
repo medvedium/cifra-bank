@@ -20,6 +20,7 @@
 
 # production
 /build
+/cifra-bank-static.zip
 
 # misc
 .DS_Store
