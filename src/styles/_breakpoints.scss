@@ -3,7 +3,9 @@
 $breakpoints: (
     md: 768px,
     lg: 992px,
-    xl: 1200px
+    tablet: 1024px,
+    xl: 1200px,
+    wide: 1440px
 );
 
 @function breakpoint($name) {

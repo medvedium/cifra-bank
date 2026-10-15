@@ -57,6 +57,8 @@ export interface HeroCta {
     label: string
     /** Класс/стиль кнопки из CMS: primary, secondary, white, text и т.п. */
     className?: string
+    color?: 'primary' | 'secondary' | 'white'
+    variant?: 'contained' | 'text'
     action?: HeroCtaAction
     /** URL для link/blank/modal или CSS-селектор / #id для scroll. */
     href?: string
@@ -93,7 +95,7 @@ export interface HeroItem {
     markColor?: string
     textColor?: string
     titleColor?: string
-    image?: HeroImage
+    image: HeroImage
     inform?: HeroInformCard[]
 }
 

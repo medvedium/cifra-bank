@@ -1,0 +1,117 @@
+@use '@/styles/breakpoints' as *;
+
+.heroBanner {
+	border-radius: 16px;
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+	background-color: var(--background-banner);
+	margin-bottom: 58px;
+
+	@include from(md) {
+		margin-bottom: 32px;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
+	@include from(tablet) {
+		margin-bottom: 48px;
+	}
+
+	@include from(xl) {
+		margin-bottom: 56px;
+	}
+
+	@include from(wide) {
+		margin-bottom: 64px;
+	}
+
+}
+
+.heroBannerContent {
+	padding: 32px 20px 0;
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+	justify-content: center;
+
+	@include from(md) {
+		padding: 34px 0 34px 42px;
+		flex-basis: 60%;
+	}
+
+	@include from(tablet) {
+		padding: 44px 0 44px 56px;
+	}
+
+	@include from(xl) {
+		padding: 56px 0 56px 70px;
+	}
+}
+
+.heroBannerMark {
+	border: 1px solid var(--lines-dark-grey);
+	border-radius: 4px;
+	padding: 4px 6px;
+	text-transform: uppercase;
+	color: var(--text-secondary);
+	background-color: transparent;
+	font-size: var(--banner-mark-size);
+	line-height: var(--banner-mark-line-height);
+	font-weight: var(--banner-mark-weight);
+	width: fit-content;
+}
+
+.heroBannerTitle {
+	font-size: var(--banner-title-size);
+	line-height: var(--banner-title-line-height);
+	font-weight: var(--banner-title-weight);
+	font-family: var(--font-heading), sans-serif;
+}
+
+.heroBannerDescription {
+	font-size: var(--banner-description-size);
+	line-height: var(--banner-description-line-height);
+	font-weight: var(--banner-description-weight);
+	font-family: var(--font-main), sans-serif;
+}
+
+.heroBannerAction {
+	display: flex;
+	gap: 16px;
+	flex-direction: column;
+
+	@include from(md) {
+		flex-direction: row;
+	}
+
+	a, button {
+		width: 100%;
+
+		@include from(md) {
+			width: fit-content;
+		}
+	}
+}
+
+.heroBannerImage {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	@include from(md) {
+		flex-basis: 40%;
+	}
+
+	img {
+		width: 328px;
+		height: 320px;
+		flex: 0 1 100%;
+		object-fit: contain;
+
+		@include from(md) {
+			width: 100%;
+			height: 100%;
+		}
+	}
+}
