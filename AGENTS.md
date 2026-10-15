@@ -7,6 +7,10 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 ## Cursor agent guidance
 
-- Rules: `.cursor/rules/*.mdc` (workflow, Hero, content JSON, components).
-- Skills: `.cursor/skills/*/SKILL.md` (Hero/Swiper, prod content migrate, focused chat briefs).
+- Rules: `.cursor/rules/*.mdc` (workflow, content JSON, components).
+- Skills: `.cursor/skills/*/SKILL.md`:
+  - `hero-swiper` — Hero Banner/Inform/Swiper sync, autoplay, pagination
+  - `git-pr-prep` — план ветки / файлов / коммита / PR перед пушем
+  - `prod-content-migrate` — контент с прода в JSON/assets
+  - `focused-agent-chat` — короткий бриф для нового чата
 - Package manager: **pnpm**.
