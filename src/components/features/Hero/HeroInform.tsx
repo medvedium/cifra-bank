@@ -6,10 +6,14 @@ interface HeroInformProps {
 }
 
 export default function HeroInform({ informs }: HeroInformProps) {
+    if (!informs?.length) {
+        return null
+    }
+
     return (
-        <div className={`${styles.informWrapper} ${!informs?.length ? styles.collapsed : ''}`}>
+        <div className={styles.informWrapper}>
             <div className={styles.informInner}>
-                {informs?.map((inform, index) => (
+                {informs.map((inform, index) => (
                     <div
                         className={styles.informItem}
                         key={`${inform.title}-${index}`}

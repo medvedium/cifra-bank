@@ -1,25 +1,26 @@
 @use '@/styles/breakpoints' as *;
 
 .informWrapper {
-	display: grid;
-	grid-template-rows: 1fr;
-	transition: grid-template-rows 0.35s ease, margin-bottom 0.35s ease;
-	margin-bottom: 32px;
+	margin-top: 32px;
 
-	@include from(xl) {
-		margin-bottom: 64px;
+	@include from(md) {
+		margin-top: 32px;
 	}
 
-	&.collapsed {
-		grid-template-rows: 0fr;
-		margin-bottom: 0;
+	@include from(tablet) {
+		margin-top: 48px;
+	}
+
+	@include from(xl) {
+		margin-top: 56px;
+	}
+
+	@include from(wide) {
+		margin-top: 64px;
 	}
 }
 
 .informInner {
-	overflow: hidden;
-	min-height: 0;
-
 	display: grid;
 	gap: 24px;
 	grid-template-columns: 1fr;

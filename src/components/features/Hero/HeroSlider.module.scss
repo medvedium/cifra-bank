@@ -1,0 +1,164 @@
+@use '@/styles/breakpoints' as *;
+
+.swiperWrap {
+	position: relative;
+}
+
+.inView {
+	--hero-in-view: 1;
+}
+
+.swiper {
+	position: relative;
+
+	:global(.swiper-pagination) {
+		display: flex;
+		justify-content: center;
+		position: static;
+		margin-top: 20px;
+		width: 100%;
+
+		@include from(md) {
+			justify-content: flex-end;
+			position: absolute;
+			bottom: 80px;
+			right: 80px;
+			left: auto;
+			margin: 0;
+			width: fit-content;
+			z-index: 2;
+		}
+	}
+
+	:global(.swiper-pagination-bullet) {
+		position: relative;
+		flex: 0 0 6px;
+		width: 6px !important;
+		min-width: 6px;
+		height: 6px !important;
+		margin: 0 8px !important;
+		border-radius: 6px;
+		background: var(--background-banner);
+		opacity: 1 !important;
+		overflow: visible;
+		transition: none;
+
+		&:first-child {
+			margin-left: 0 !important;
+		}
+
+		&:last-child {
+			margin-right: 0 !important;
+		}
+
+		&::before {
+			content: '';
+			display: block;
+			position: absolute;
+			inset: -4px;
+			border-radius: 4px;
+		}
+
+		@include from(md) {
+			background: var(--lines-grey);
+		}
+	}
+
+	:global(.swiper-pagination-bullet.swiper-pagination-bullet-active) {
+		flex: 0 0 64px !important;
+		width: 64px !important;
+		min-width: 64px !important;
+		/* анимация только на «включении» active — при снятии класса
+		   transition пропадает и буллет сразу 6px, без двух широких сразу */
+		transition: width 0.25s ease, flex-basis 0.25s ease, min-width 0.25s ease;
+		background: linear-gradient(
+			to right,
+			var(--text-green) 0%,
+			var(--text-green) calc(var(--bullet-progress, 0) * 100%),
+			var(--lines-grey) calc(var(--bullet-progress, 0) * 100%)
+		) !important;
+	}
+}
+
+.prev,
+.next {
+	display: none;
+
+	@include from(md) {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: absolute;
+		top: 0;
+		z-index: 2;
+		width: 48px;
+		height: 100%;
+		padding: 0;
+		border: none;
+		background: none;
+		color: var(--text-secondary);
+		cursor: pointer;
+		overflow: hidden;
+
+		&::before {
+			content: '';
+			display: block;
+			position: absolute;
+			inset: 0;
+			z-index: -1;
+			opacity: 0;
+			transition: opacity 0.25s;
+		}
+
+		@media (hover: hover) {
+			&:hover {
+				color: var(--text-main);
+
+				&::before {
+					opacity: 1;
+				}
+			}
+		}
+
+	}
+}
+
+.prev {
+	@include from(md) {
+		left: 0;
+		border-radius: 16px 0 0 16px;
+
+		&::before {
+			background: linear-gradient(90deg, rgba(0, 0, 0, 0.06), transparent);
+		}
+	}
+}
+
+.next {
+	@include from(md) {
+		right: 0;
+		border-radius: 0 16px 16px 0;
+
+		&::before {
+			background: linear-gradient(-90deg, rgba(0, 0, 0, 0.06), transparent);
+		}
+	}
+}
+
+.swiperSlide {
+	height: auto;
+	box-sizing: border-box;
+}
+
+.informSwiper {
+	width: 100%;
+
+	:global(.swiper-wrapper) {
+		transition-property: transform, height, opacity;
+	}
+
+	:global(.swiper-slide) {
+		height: auto;
+		box-sizing: border-box;
+	}
+}

@@ -417,6 +417,44 @@ export function CloseIcon({ className }: IconProps) {
     )
 }
 
+export function ChevronLeftIcon({ className }: IconProps) {
+    return (
+        <Icon
+            className={className}
+            viewBox="0 0 16 16"
+            width={16}
+            height={16}
+        >
+            <path
+                d="M10 3L5 8L10 13"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+        </Icon>
+    )
+}
+
+export function ChevronRightIcon({ className }: IconProps) {
+    return (
+        <Icon
+            className={className}
+            viewBox="0 0 16 16"
+            width={16}
+            height={16}
+        >
+            <path
+                d="M6 13L11 8L6 3"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+        </Icon>
+    )
+}
+
 export const storeIcons = {
     appstore: AppStoreIcon,
     appgallery: AppGalleryIcon,

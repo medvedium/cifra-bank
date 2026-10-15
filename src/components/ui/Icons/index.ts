@@ -15,6 +15,8 @@ export {
     InternetBankIcon,
     SearchIcon,
     CloseIcon,
+    ChevronLeftIcon,
+    ChevronRightIcon,
     storeIcons,
     socialIcons
 } from './Icons'
