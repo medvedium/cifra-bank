@@ -1,0 +1,13 @@
+---
+description: React-компоненты и SCSS Modules в src/components
+globs: src/components/**/*.{tsx,scss}
+alwaysApply: false
+---
+
+# Components
+
+- Feature-компоненты: папка + `index.ts` реэкспорт + `*.module.scss`.
+- Клиентский интерактив — `'use client'` только там, где нужны hooks/события; страницы по возможности оставлять серверными и передавать данные вниз.
+- Стили: CSS Modules, брейкпоинты через `@use '@/styles/breakpoints'`. Не плодить глобальные классы без нужды; для сторонних либ (Swiper) — `:global(...)` точечно.
+- Повторять существующие примитивы (`Button`, иконки, `container` / `container--wide`, типографику `text-h1` и CSS variables темы).
+- Не добавлять `useMemo`/`useCallback` по умолчанию; следовать паттернам соседнего кода.
