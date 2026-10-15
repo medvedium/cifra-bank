@@ -1,0 +1,70 @@
+@use '@/styles/breakpoints' as *;
+
+.informWrapper {
+	display: grid;
+	grid-template-rows: 1fr;
+	transition: grid-template-rows 0.35s ease, margin-bottom 0.35s ease;
+	margin-bottom: 32px;
+
+	@include from(xl) {
+		margin-bottom: 64px;
+	}
+
+	&.collapsed {
+		grid-template-rows: 0fr;
+		margin-bottom: 0;
+	}
+}
+
+.informInner {
+	overflow: hidden;
+	min-height: 0;
+
+	display: grid;
+	gap: 24px;
+	grid-template-columns: 1fr;
+
+	@include from(md) {
+		grid-template-columns: 1fr 1fr;
+		gap: 32px;
+	}
+
+	@include from(xl) {
+		grid-template-columns: repeat(3, 1fr);
+
+		&:has(:nth-of-type(4)) {
+			grid-template-columns: repeat(4, 1fr);
+		}
+	}
+}
+
+.informItem {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.informTitle {
+	font-family: var(--font-heading), sans-serif;
+	font-size: 16px;
+	line-height: 1.25;
+	font-weight: 500;
+	margin: 0;
+
+	@include from(xl) {
+		font-size: 18px;
+		line-height: 1.33;
+	}
+}
+
+.informDescription {
+	margin: 0;
+	font-size: 16px;
+	line-height: 1.25;
+	color: var(--text-secondary);
+
+	@include from(xl) {
+		font-size: 18px;
+		line-height: 1.33;
+	}
+}
