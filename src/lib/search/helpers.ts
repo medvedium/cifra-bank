@@ -1,4 +1,33 @@
+import type { SearchHit } from '@/lib/content/types'
+
 export const SEARCH_PAGE_SIZE = 10
+
+export interface SearchIndexEntry extends SearchHit {
+    keywords: string
+}
+
+export function filterSearchHits(index: SearchIndexEntry[], query: string): SearchHit[] {
+    const normalized = query.trim().toLowerCase()
+
+    if (!normalized) {
+        return []
+    }
+
+    return index
+        .filter((hit) => {
+            const haystack = `${hit.title} ${hit.category} ${hit.href} ${hit.keywords}`.toLowerCase()
+
+            if (haystack.includes(normalized)) {
+                return true
+            }
+
+            return normalized
+                .split(/\s+/)
+                .filter(Boolean)
+                .every((word) => haystack.includes(word))
+        })
+        .map(({ title, category, href }) => ({ title, category, href }))
+}
 
 export function formatSearchCount(count: number, prefix: string, variants: { one: string; few: string; many: string }) {
     const abs = Math.abs(count) % 100
