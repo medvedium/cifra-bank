@@ -7,8 +7,10 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 ## Cursor agent guidance
 
-- Rules: `.cursor/rules/*.mdc` (workflow, content JSON, components).
+- **Roadmap (SOT):** `docs/roadmap.md` — статус и следующие шаги. Новый чат: `@docs/roadmap.md`. По завершении задачи — обновить файл.
+- Rules: `.cursor/rules/*.mdc` (workflow, roadmap, content JSON, components).
 - Skills: `.cursor/skills/*/SKILL.md`:
+  - `site-roadmap` — читать/обновлять `docs/roadmap.md`
   - `hero-swiper` — Hero Banner/Inform/Swiper sync, autoplay, pagination
   - `git-pr-prep` — план ветки / файлов / коммита / PR перед пушем
   - `prod-content-migrate` — контент с прода в JSON/assets
