@@ -1,0 +1,13 @@
+---
+description: Контент страниц в content/pages JSON
+globs: content/pages/**/*.json
+alwaysApply: false
+---
+
+# Page content JSON
+
+- Источник правды для текстов/SEO/hero — JSON в `content/pages/`, типы в `src/lib/content/types.ts`.
+- Hero item: `mark`, `title` (HTML ok: `<br>`, `&nbsp;`, `.accented`, `.icon-rouble`), `description` (HTML), `ctas[]`, опционально `background` (hex или `[from, to]`), цвета текста, `image`, `inform[]`, иногда `features[]` вместо description.
+- Сохранять стиль уже заполненных слайдов на странице (регистр mark, HTML в title, trailing slash в href как у соседей).
+- Картинки класть в `public/assets/images/<section>/` с понятными именами (`img-intro-home-*.png|webp`). Тяжёлые PNG по возможности webp.
+- Не выдумывать юридически значимые ставки/сноски — брать с продакшена или у редактора.
