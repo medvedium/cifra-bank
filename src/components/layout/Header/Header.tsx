@@ -68,7 +68,7 @@ export default function Header({ navigation, altNavigation, site, audience }: He
                                 className={styles.location}
                                 href={offices.href}
                                 color={offices.color}
-                                size="xs"
+                                size="small"
                             >
                                 {offices.label}
                             </Button>
@@ -80,7 +80,7 @@ export default function Header({ navigation, altNavigation, site, audience }: He
                                 href={internet.href}
                                 mobileHref={internet.mobileHref}
                                 color={internet.color}
-                                size="xs"
+                                size="small"
                                 aria-label={internet.label}
                             >
                                 <span className={styles.onlineLabel}>{internet.label}</span>
@@ -92,7 +92,7 @@ export default function Header({ navigation, altNavigation, site, audience }: He
                                 className={styles.auth}
                                 href={openAccount.href || undefined}
                                 color={openAccount.color}
-                                size="xs"
+                                size="small"
                             >
                                 {openAccount.label}
                             </Button>

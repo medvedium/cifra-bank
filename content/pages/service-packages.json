@@ -19,7 +19,7 @@
                         "label": "Оформить карту",
                         "href": "#request",
                         "action": "scroll",
-                        "className": "primary"
+                        "color": "primary"
                     }
                 ],
                 "image": {
