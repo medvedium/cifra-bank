@@ -1,6 +1,6 @@
 import { HeroItem } from '@/lib/content/types'
-import HeroBanner from '@/components/features/Hero/HeroBanner'
 import HeroSlider from '@/components/features/Hero/HeroSlider'
+import HeroBanner from '@/components/features/Hero/HeroBanner'
 import HeroInform from '@/components/features/Hero/HeroInform'
 
 interface HeroProps {
