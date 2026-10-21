@@ -8,11 +8,11 @@ import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/a11y'
 import 'swiper/css/effect-fade'
-import HeroBanner from '@/components/features/Hero/HeroBanner'
-import HeroInform from '@/components/features/Hero/HeroInform'
 import { ChevronLeftIcon, ChevronRightIcon } from '@/components/ui/Icons'
 import { HeroItem } from '@/lib/content/types'
 import styles from './HeroSlider.module.scss'
+import HeroBanner from '@/components/features/Hero/HeroBanner'
+import HeroInform from '@/components/features/Hero/HeroInform'
 
 const AUTOPLAY_DELAY_MS = 5000
 const SLIDE_SPEED_MS = 1000
