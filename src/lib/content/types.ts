@@ -55,9 +55,9 @@ export type HeroCtaAction = 'none' | 'link' | 'blank' | 'modal' | 'scroll'
 
 export interface HeroCta {
     label: string
-    /** Класс/стиль кнопки из CMS: primary, secondary, white, text и т.п. */
+    /** Устаревший стиль из CMS. Если нет color/variant, HeroBanner читает primary, secondary, white, dark, error и text. */
     className?: string
-    color?: 'primary' | 'secondary' | 'white'
+    color?: 'primary' | 'secondary' | 'white' | 'dark' | 'error'
     variant?: 'contained' | 'text'
     action?: HeroCtaAction
     /** URL для link/blank/modal или CSS-селектор / #id для scroll. */

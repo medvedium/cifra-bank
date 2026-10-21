@@ -37,4 +37,22 @@ describe('Button', () => {
         render(<Button disabled>Оформить</Button>)
         expect(screen.getByRole('button', { name: 'Оформить' })).toBeDisabled()
     })
+
+    it('loading оставляет имя и не вызывает onClick', () => {
+        const onClick = vi.fn()
+        render(
+            <Button
+                loading
+                onClick={onClick}
+            >
+                Оформить
+            </Button>
+        )
+        const button = screen.getByRole('button', { name: 'Оформить' })
+        expect(button).toHaveAttribute('aria-busy', 'true')
+        expect(button).not.toBeDisabled()
+        expect(button.querySelector('svg')).toBeInTheDocument()
+        button.click()
+        expect(onClick).not.toHaveBeenCalled()
+    })
 })

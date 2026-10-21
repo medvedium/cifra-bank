@@ -1,7 +1,23 @@
 import styles from './HeroBanner.module.scss'
-import { HeroItem } from '@/lib/content/types'
+import { HeroCta, HeroItem } from '@/lib/content/types'
 import Button from '@/components/ui/Button'
 import Image from 'next/image'
+
+const CTA_COLORS = ['primary', 'secondary', 'white', 'dark', 'error'] as const
+
+type CtaColor = (typeof CTA_COLORS)[number]
+
+function isCtaColor(value: string | undefined): value is CtaColor {
+    return !!value && (CTA_COLORS as readonly string[]).includes(value)
+}
+
+function ctaAppearance(item: HeroCta) {
+    return {
+        color: item.color ?? (isCtaColor(item.className) ? item.className : undefined),
+        variant: item.variant ?? (item.className === 'text' ? ('text' as const) : undefined),
+        target: item.action === 'blank' ? ('_blank' as const) : undefined
+    }
+}
 
 export interface HeroBannerProps {
     slide: HeroItem
@@ -40,16 +56,21 @@ export default function HeroBanner({ slide }: HeroBannerProps) {
                 )}
                 <div className={styles.heroBannerAction}>
                     {slide.ctas &&
-                        slide.ctas.map((item, index) => (
-                            <Button
-                                key={index}
-                                href={item.href}
-                                color={item.color}
-                                variant={item.variant}
-                            >
-                                {item.label}
-                            </Button>
-                        ))}
+                        slide.ctas.map((item, index) => {
+                            const appearance = ctaAppearance(item)
+
+                            return (
+                                <Button
+                                    key={`${item.href ?? ''}-${item.label}-${index}`}
+                                    href={item.href}
+                                    color={appearance.color}
+                                    variant={appearance.variant}
+                                    target={appearance.target}
+                                >
+                                    {item.label}
+                                </Button>
+                            )
+                        })}
                 </div>
             </div>
             {slide.image && (

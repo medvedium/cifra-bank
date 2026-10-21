@@ -15,7 +15,7 @@
                         "label": "Отправить заявку",
                         "href": "/corporate/rko",
                         "action": "link",
-                        "className": "primary"
+                        "color": "primary"
                     }
                 ],
                 "image": {
@@ -41,7 +41,7 @@
                         "label": "Открыть счёт",
                         "href": "/corporate/rko",
                         "action": "link",
-                        "className": "primary"
+                        "color": "primary"
                     }
                 ],
                 "image": {

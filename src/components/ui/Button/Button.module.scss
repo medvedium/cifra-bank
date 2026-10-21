@@ -1,6 +1,8 @@
 @use '@/styles/breakpoints' as *;
 
 .button {
+    position: relative;
+    isolation: isolate;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -10,9 +12,27 @@
     text-decoration: none;
     font-weight: var(--button-weight);
     border-radius: var(--button-radius);
-    transition: all 0.3s;
+    transition:
+        background-color 0.3s,
+        color 0.3s;
     font-family: var(--font-main), sans-serif;
     white-space: nowrap;
+
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        border-radius: inherit;
+        background: var(--button-hover-overlay);
+        opacity: 0;
+        transition: opacity 0.3s;
+        pointer-events: none;
+    }
+
+    &:hover:not(:disabled)::before {
+        opacity: 1;
+    }
 
     &:focus-visible {
         outline: 2px solid var(--button-focus-outline);
@@ -20,54 +40,74 @@
     }
 }
 
-// Sizes
 .large {
-    height: 56px;
-    padding: 16px 32px;
+    height: 48px;
+    padding: 12px 24px;
     font-size: var(--button-large-size);
     line-height: var(--button-large-line-height);
+
+    @include from(md) {
+        height: 56px;
+        padding: 16px 32px;
+    }
+}
+
+.medium {
+    height: 40px;
+    padding: 8px 16px;
+    font-size: var(--button-small-size);
+    line-height: var(--button-small-line-height);
+
+    @include from(md) {
+        gap: 8px;
+        height: 48px;
+        padding: 15px 16px;
+    }
 }
 
 .small {
-    height: 48px;
-    padding: 15px 16px;
+    height: 32px;
+    padding: 4px 12px;
     font-size: var(--button-small-size);
     line-height: var(--button-small-line-height);
+
+    @include from(md) {
+        gap: 8px;
+        height: 40px;
+        padding: 11px 16px;
+    }
 }
 
-.xs {
-    height: 40px;
-    padding: 10px 16px;
-    font-size: var(--button-small-size);
-    line-height: var(--button-small-line-height);
-}
-
-// Colors × Variant
 .contained.primary {
     background: var(--background-primary);
     color: var(--text-dark);
-
-    &:hover:not(:disabled) {
-        background-image: linear-gradient(var(--button-hover-overlay), var(--button-hover-overlay));
-        background-color: var(--background-primary);
-    }
 }
 
 .contained.secondary {
     background: var(--background-secondary);
     color: var(--text-main);
-
-    &:hover:not(:disabled) {
-        filter: brightness(0.97);
-    }
 }
 
 .contained.white {
     background: var(--background-main);
     color: var(--text-main);
+}
 
-    &:hover:not(:disabled) {
-        filter: brightness(0.97);
+.contained.dark {
+    background: var(--button-dark-background);
+    color: var(--text-light);
+
+    &::before {
+        background: var(--button-dark-hover-overlay);
+    }
+}
+
+.contained.error {
+    background: var(--background-light-red);
+    color: var(--text-red);
+
+    &::before {
+        background: var(--button-error-hover-overlay);
     }
 }
 
@@ -76,7 +116,7 @@
     color: var(--text-main);
 
     &:hover:not(:disabled) {
-        color: var(--text-link);
+        background-color: var(--background-main);
     }
 }
 
@@ -85,6 +125,64 @@
     opacity: var(--button-disabled-opacity);
     cursor: not-allowed;
     pointer-events: none;
+}
+
+.loading {
+    cursor: default;
+    pointer-events: none;
+}
+
+.faceHidden {
+    display: inline-flex;
+    align-items: center;
+    gap: inherit;
+    visibility: hidden;
+}
+
+.spinnerSlot {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.spinnerLarge {
+    display: inline-flex;
+}
+
+.spinnerCompact {
+    display: none;
+}
+
+.medium,
+.small {
+    @include from(md) {
+        .spinnerLarge {
+            display: none;
+        }
+
+        .spinnerCompact {
+            display: inline-flex;
+        }
+    }
+}
+
+.spinner {
+    display: block;
+    animation: spin 0.75s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .spinner {
+        animation: none;
+    }
 }
 
 .hrefSwitch,

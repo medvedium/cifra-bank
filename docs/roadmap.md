@@ -2,7 +2,7 @@
 
 > **Source of truth** для статуса работ. Любой новый чат: сначала прочитай этот файл (`@docs/roadmap.md`), бери задачу из **Next**, по завершении обнови статусы и **Changelog**.
 
-Обновлено: 2026-10-15
+Обновлено: 2026-10-21
 
 ## Next (что брать в работу)
 
@@ -30,7 +30,7 @@
 | Header / MobileMenu / Search в шапке | `done` | `src/components/layout/Header` |
 | Footer + city select | `done` | `src/components/layout/Footer` |
 | Theme toggler | `wip` | TODO в `src/app/layout.tsx` |
-| UI-kit (Button, Tabs, TextLink, Logo, Icons…) | `wip` | База есть; расширять по нуждам страниц |
+| UI-kit (Button, Tabs, TextLink, Logo, Icons…) | `wip` | Button сверен с DS (размеры 768, dark/error, loading). Остальное — по нуждам страниц |
 | Cursor rules/skills | `done` | `.cursor/rules`, `.cursor/skills` |
 | Static export (`build:static`) | `done` | Скрипт в `package.json` |
 
@@ -55,6 +55,12 @@
 | 404 | `done` | `NotFound` + `content/pages/not-found.json` |
 
 ## Changelog (кратко, новые сверху)
+
+### 2026-10-21
+
+- Button приведён к макету DS: размеры large / medium / small с брейкпоинтом 768, цвета dark и error, hover-оверлеи, loading-спиннер.
+- Hover кнопки снова плавный: оверлей проявляется за 0.3s.
+- CTA в HeroBanner идут через Button: в JSON `color` вместо `className`, `action: blank` открывает новую вкладку, на зелёных баннерах кнопка белая.
 
 ### 2026-10-15
 

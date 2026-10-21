@@ -233,7 +233,7 @@ export default function MobileMenu({
                                 href={internet.href}
                                 mobileHref={internet.mobileHref}
                                 color="secondary"
-                                size="xs"
+                                size="small"
                             >
                                 {internet.label}
                             </Button>
@@ -245,7 +245,7 @@ export default function MobileMenu({
                             <Button
                                 href={openAccount.href || undefined}
                                 color="primary"
-                                size="xs"
+                                size="small"
                             >
                                 {openAccount.label}
                             </Button>
