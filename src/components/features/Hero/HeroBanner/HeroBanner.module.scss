@@ -60,6 +60,33 @@
 	line-height: var(--banner-description-line-height);
 	font-weight: var(--banner-description-weight);
 	font-family: var(--font-main), sans-serif;
+
+	ul {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+
+		li {
+			padding-left: 20px;
+			position: relative;
+			color: var(--text-main);
+			transition: color 0.2s ease-in-out;
+
+			&::before {
+				content: '';
+				position: absolute;
+				left: 0;
+				top: 6px;
+				width: 6px;
+				height: 6px;
+				border-radius: 50%;
+				background-color: currentColor;
+				font-size: var(--t1-size);
+				line-height: var(--t1-line-height);
+
+			}
+		}
+	}
 }
 
 .heroBannerAction {
@@ -84,6 +111,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	margin-top: auto;
 
 	@include from(md) {
 		flex-basis: 40%;

@@ -398,40 +398,40 @@
         "title": "Популярные продукты",
         "items": [
             {
+                "title": "Вклады со ставкой до 13,25%",
+                "href": "/deposits",
+                "linkLabel": "Подробнее",
+                "imageAlt": "",
+                "imageWidth": 570,
+                "imageHeight": 570,
+                "imageUrl": "/assets/images/homepage/img-products-1.png"
+            },
+            {
                 "title": "Дебетовые карты с обслуживанием от 0₽ в месяц",
                 "href": "/service-packages",
                 "linkLabel": "Подробнее",
                 "imageAlt": "",
-                "imageWidth": 0,
-                "imageHeight": 0,
-                "imageUrl": ""
+                "imageWidth": 570,
+                "imageHeight": 570,
+                "imageUrl": "/assets/images/homepage/img-products-2.png"
             },
             {
                 "title": "Уникальная карта инвестора только в «Цифра банк»",
                 "href": "/card-invest",
                 "linkLabel": "Подробнее",
                 "imageAlt": "",
-                "imageWidth": 0,
-                "imageHeight": 0,
-                "imageUrl": ""
-            },
-            {
-                "title": "Вклады со ставкой до 13,25%",
-                "href": "/deposits",
-                "linkLabel": "Подробнее",
-                "imageAlt": "",
-                "imageWidth": 0,
-                "imageHeight": 0,
-                "imageUrl": ""
+                "imageWidth": 570,
+                "imageHeight": 586,
+                "imageUrl": "/assets/images/homepage/img-products-3.png"
             },
             {
                 "title": "Ценности под надежной защитой в сейфовых ячейках",
                 "href": "/safe-boxes",
                 "linkLabel": "Подробнее",
                 "imageAlt": "",
-                "imageWidth": 0,
-                "imageHeight": 0,
-                "imageUrl": ""
+                "imageWidth": 529,
+                "imageHeight": 529,
+                "imageUrl": "/assets/images/homepage/img-products-4.png"
             }
         ]
     }
