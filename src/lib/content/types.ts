@@ -102,6 +102,7 @@ export interface HeroItem {
 export interface HomeProduct {
     title: string
     href: string
+    description?: string
     linkLabel: string
     imageAlt: string
     imageWidth: number

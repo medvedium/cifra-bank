@@ -8,8 +8,8 @@
         "items": [
             {
                 "mark": "Банк без границ",
-                "title": "Стать партнёром",
-                "description": "Рекомендуйте РКО нашего банка, отправляйте заявку через личный кабинет агента и получайте вознаграждение без ограничений",
+                "title": "Открытие расчётного счёта для бизнеса за 0 ₽",
+                "description": "<ul><li>Платежи в Китай, Казахстан, ОАЭ и другие страны</li><li>Бесплатное обслуживание счета</li><li>0% за переводы физ.лицам внутри&nbsp;банка до&nbsp;3&nbsp;млн&nbsp;₽</li><li>Интернет-банк бесплатно </li></ul>",
                 "ctas": [
                     {
                         "label": "Отправить заявку",
@@ -30,12 +30,7 @@
             {
                 "mark": "Банк без границ",
                 "title": "Открытие расчётного счёта для бизнеса за 0 ₽",
-                "features": [
-                    "Платежи в Китай, Казахстан, ОАЭ и другие страны",
-                    "Бесплатное обслуживание счета",
-                    "0% за переводы физ.лицам внутри банка до 3 млн ₽",
-                    "Интернет-банк бесплатно "
-                ],
+                "description": "<ul><li>Платежи в Китай, Казахстан, ОАЭ и другие страны</li><li>Бесплатное обслуживание счета</li><li>0% за переводы физ.лицам внутри&nbsp;банка до&nbsp;3&nbsp;млн&nbsp;₽</li><li>Интернет-банк бесплатно </li></ul>",
                 "ctas": [
                     {
                         "label": "Открыть счёт",
@@ -56,43 +51,47 @@
         ]
     },
     "products": {
-        "title": "Популярные продукты",
+        "title": "Продукты для бизнеса",
         "items": [
             {
-                "title": "Дебетовые карты с обслуживанием от 0₽ в месяц",
+                "title": "ВЭД",
                 "href": "/service-packages",
-                "linkLabel": "Подробнее",
+                "description": "<ul><li>Платежи в Китай, ОАЭ, Казахстан и&nbsp;другие&nbsp;страны</li><li>Открытие счета в 14 валютах</li><li>Валютный контроль</li></ul>",
+                "linkLabel": "Открыть счет",
                 "imageAlt": "",
-                "imageWidth": 0,
-                "imageHeight": 0,
-                "imageUrl": ""
+                "imageWidth": 560,
+                "imageHeight": 576,
+                "imageUrl": "/assets/images/corporate/img-products-1.png"
             },
             {
-                "title": "Уникальная карта инвестора только в «Цифра банк»",
-                "href": "/card-invest",
+                "title": "Интернет-эквайринг",
+                "href": "/corporate/acquiring",
+                "description": "<ul><li>Индивидуальные тарифы</li><li>Моментальное зачисление<br>по QR-кодам 24/7</li><li>Подключение СБП<br>в день обращения</li></ul>",
                 "linkLabel": "Подробнее",
                 "imageAlt": "",
-                "imageWidth": 0,
-                "imageHeight": 0,
-                "imageUrl": ""
+                "imageWidth": 560,
+                "imageHeight": 570,
+                "imageUrl": "/assets/images/corporate/img-products-2.png"
             },
             {
-                "title": "Вклады со ставкой до 13,25%",
-                "href": "/deposits",
+                "title": "Зарплатный проект",
+                "href": "/corporate/payroll-card",
+                "description": "<ul><li>Бесплатное обслуживание</li><li>Кэшбэк акциями</li></ul>",
                 "linkLabel": "Подробнее",
                 "imageAlt": "",
-                "imageWidth": 0,
-                "imageHeight": 0,
-                "imageUrl": ""
+                "imageWidth": 560,
+                "imageHeight": 576,
+                "imageUrl": "/assets/images/corporate/img-products-3.png"
             },
             {
-                "title": "Ценности под надежной защитой в сейфовых ячейках",
-                "href": "/safe-boxes",
+                "title": "Корпоративные карты",
+                "href": "/corporate/corporate-cards",
+                "description": "<ul><li>Оплата услуг по хозяйственной деятельности<br> до 3 млн руб в месяц</li><li>Возможность выдачи наличных в любых банкоматах<br> до 100 000 в сутки</li></ul>",
                 "linkLabel": "Подробнее",
                 "imageAlt": "",
-                "imageWidth": 0,
-                "imageHeight": 0,
-                "imageUrl": ""
+                "imageWidth": 560,
+                "imageHeight": 576,
+                "imageUrl": "/assets/images/corporate/img-products-4.png"
             }
         ]
     }

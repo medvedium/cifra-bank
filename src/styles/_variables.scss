@@ -56,6 +56,13 @@
 	--banner-background: var(--background-banner);
 	--user-type-background: var(--background-user-type);
 
+	// Border-radius
+	--border-radius-xs: 2px;
+	--border-radius-sm: 4px;
+	--border-radius-md: 8px;
+	--border-radius: 16px;
+	--border-radius-lg: 24px;
+
 	// Button
 	--button-radius: 8px;
 	--button-hover-overlay: rgba(33, 42, 52, 0.05);

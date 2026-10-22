@@ -1,0 +1,108 @@
+@use '@/styles/breakpoints' as *;
+
+.cardLink {
+	border-radius: var(--border-radius);
+	overflow: hidden;
+	background-color: var(--background-secondary);
+	display: flex;
+	justify-content: space-between;
+	text-decoration: none;
+	transform: translateY(0);
+	transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+
+	@media (hover: hover) {
+		&:hover {
+			background-color: var(--background-primary);
+			transform: translateY(-4px);
+
+			:global([data-theme="dark"]) & {
+				.cardLink__title,
+				.cardLink__description ul li,
+				.cardLink__linkLabel {
+					color: var(--text-dark);
+				}
+			}
+		}
+	}
+
+	@include from(xl) {
+		padding: 32px 28px;
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		padding: 24px 0 24px 24px;
+		gap: 8px;
+
+		@include from(xl) {
+			padding: 0;
+		}
+	}
+
+	&__title {
+		color: var(--text-main);
+		font-family: var(--font-heading), sans-serif;
+		font-size: var(--h4-size);
+		line-height: var(--h4-line-height);
+		font-weight: var(--h4-weight);
+		transition: color .3s ease-in-out;
+
+	}
+
+	&__description {
+		color: var(--text-main);
+		font-size: var(--t1-size);
+		line-height: var(--t1-line-height);
+		font-weight: var(--t1-weight);
+		transition: color .3s ease-in-out;
+
+
+		ul {
+			display: flex;
+			flex-direction: column;
+			gap: 8px;
+
+			li {
+				padding-left: 20px;
+				position: relative;
+				color: var(--text-main);
+				transition: color 0.2s ease-in-out;
+
+				&::before {
+					content: '';
+					position: absolute;
+					left: 0;
+					top: 6px;
+					width: 6px;
+					height: 6px;
+					border-radius: 50%;
+					background-color: currentColor;
+					font-size: var(--t1-size);
+					line-height: var(--t1-line-height);
+
+				}
+			}
+		}
+	}
+
+	&__linkLabel {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		color: var(--text-main);
+		font-size: var(--button-large-size);
+		line-height: var(--button-large-line-height);
+		font-weight: var(--button-weight);
+		transition: color .3s ease-in-out;
+		margin-top: auto;
+	}
+
+	&__image {
+		align-self: center;
+		flex-shrink: 0;
+		width: min(288px, 46%);
+		height: auto;
+	}
+}
