@@ -1,0 +1,47 @@
+@use '@/styles/breakpoints' as *;
+
+.switch {
+	height: 50px;
+	background: var(--background-switch);
+	border-radius: 8px;
+	display: flex;
+	padding: 4px;
+
+
+	@include from(md) {
+		height: 64px;
+	}
+
+	&__item {
+		background: transparent;
+		color: var(--text-secondary);
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex: 1;
+		border: 0;
+		cursor: pointer;
+		border-radius: 4px;
+		font-family: var(--font-main), sans-serif;
+		font-size: var(--h5-size);
+		line-height: var(--h5-line-height);
+		font-weight: var(--h5-weight);
+		transition: color .3s ease-in-out;
+
+		&.active {
+			background-color: var(--background-main);
+			color: var(--text-main);
+			cursor: unset;
+		}
+
+		&:hover {
+			color: var(--text-main);
+		}
+
+		&:focus-visible {
+			outline: 2px solid var(--button-focus-outline);
+			outline-offset: 2px
+		}
+	}
+}
