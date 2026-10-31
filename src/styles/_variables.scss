@@ -91,6 +91,7 @@
 	--footer-panel-text: var(--text-dark);
 	--footer-panel-hover-bg: var(--background-secondary);
 	--overlay-scrim: rgb(0 0 0 / 40%);
+	--tooltip-bg: #24303b;
 
 	// Layout
 	--spacing-section: 64px;
@@ -290,4 +291,6 @@
 	--lines-controls: #c1c4c8;
 	--lines-primary: #33e771;
 	--lines-red: #a44848;
+
+	--tooltip-bg: #2c3c4a;
 }

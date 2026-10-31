@@ -1,0 +1,69 @@
+@use '@/styles/breakpoints' as *;
+
+.toggle {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	font-family: var(--font-main), sans-serif;
+	background: none;
+	border: none;
+	font-size: var(--t1-size);
+	line-height: var(--t1-line-height);
+	font-weight: var(--t1-weight);
+
+	@include from(md) {
+		gap: 32px;
+	}
+
+	&:has(.toggleExtra) {
+		width: 100%;
+	}
+
+	&Label {
+		color: var(--text-main);
+	}
+
+	&Extra {
+		margin-left: auto;
+		color: var(--text-green);
+		opacity: 0;
+		transition: opacity .4s ease-in-out;
+
+		.toggle.checked & {
+			opacity: 1;
+		}
+	}
+
+	&Visual {
+		display: inline-flex;
+		width: 52px;
+		height: 28px;
+		border-radius: 360px;
+		background-color: var(--background-switch);
+		transition: all .4s ease-in-out;
+
+		&::before {
+			content: '';
+			display: block;
+			width: 24px;
+			height: 24px;
+			border-radius: 360px;
+			background-color: var(--background-main);
+			margin: 2px;
+		}
+
+		.toggle.checked & {
+			background-color: var(--background-primary);
+			justify-content: flex-end;
+		}
+	}
+
+	&:hover {
+		cursor: pointer;
+	}
+
+	&:focus-visible {
+		outline: 2px solid var(--button-focus-outline);
+		outline-offset: 2px
+	}
+}

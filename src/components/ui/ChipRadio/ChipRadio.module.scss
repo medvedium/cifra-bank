@@ -1,0 +1,52 @@
+@use '@/styles/breakpoints' as *;
+
+.chipRadio {
+	display: flex;
+	gap: 12px;
+	flex-wrap: nowrap;
+	overflow-x: auto;
+	overflow-y: visible;
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none;
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
+
+	&.wrap {
+		flex-wrap: wrap;
+	}
+
+	&Button {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 14px 24px;
+		border: transparent;
+		border-radius: 8px;
+		background-color: var(--background-switch);
+		cursor: pointer;
+		color: var(--text-main);
+		font-family: var(--font-main), sans-serif;
+		font-size: var(--button-large-size);
+		line-height: var(--button-large-line-height);
+		font-weight: var(--button-weight);
+		white-space: nowrap;
+
+		@include from(md) {
+			padding: 12px 24px;
+			font-size: var(--button-small-size);
+			line-height: var(--button-small-line-height);
+		}
+
+		&Active {
+			background-color: var(--background-primary);
+			color: var(--text-dark)
+		}
+
+		&:focus-visible {
+			outline: 2px solid var(--button-focus-outline);
+			outline-offset: -2px
+		}
+	}
+}

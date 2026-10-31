@@ -2,13 +2,13 @@
 
 > **Source of truth** для статуса работ. Любой новый чат: сначала прочитай этот файл (`@docs/roadmap.md`), бери задачу из **Next**, по завершении обнови статусы и **Changelog**.
 
-Обновлено: 2026-10-22
+Обновлено: 2026-10-31
 
 ## Next (что брать в работу)
 
-1. **Главная — остальные секции с прода** (курсы валют, приложения, новости/актуальное и т.д.) — контент + компоненты по мере приоритета.
-2. **Hero — хвосты**: modal CTA (приложение), mobile art-direction картинки, полировка высоты/вида с дизайнерами.
-3. **Theme toggler** — в `src/app/layout.tsx` есть TODO «переписать».
+1. **Калькулятор вклада** — собрать из принятого UI-kit (Switch, ChipRadio, Toggle, Field, Select, RangeField, Tooltip) + helpers; контент/логика по макету или проду.
+2. **Главная — остальные секции с прода** (курсы валют, приложения, новости/актуальное и т.д.).
+3. **Hero — хвосты** / **Theme toggler** — по приоритету.
 
 Порядок можно менять; в чате явно скажи, если берёшь не первый пункт.
 
@@ -29,7 +29,8 @@
 | Header / MobileMenu / Search в шапке | `done` | `src/components/layout/Header` |
 | Footer + city select | `done` | `src/components/layout/Footer` |
 | Theme toggler | `wip` | TODO в `src/app/layout.tsx` |
-| UI-kit (Button, Tabs, TextLink, Logo, Icons…) | `wip` | Button сверен с DS (размеры 768, dark/error, loading). Остальное — по нуждам страниц |
+| UI-kit (Button, Tabs, TextLink, Logo, Icons…) | `done` | Button + калькуляторный набор принят: ChipRadio, Toggle, Field, Select (RAC), RangeSlider, RangeField, Tooltip, Switch. Стенд `/ui`. Helpers: `amountFormat`, `formatPeriod` |
+| Калькулятор вклада | `todo` | Сборка из UI-kit; пока нет фиче-компонента страницы |
 | Cursor rules/skills | `done` | `.cursor/rules`, `.cursor/skills` |
 | Static export (`build:static`) | `done` | Скрипт в `package.json` |
 
@@ -54,6 +55,13 @@
 | 404 | `done` | `NotFound` + `content/pages/not-found.json` |
 
 ## Changelog (кратко, новые сверху)
+
+### 2026-10-31
+
+- `next` и `eslint-config-next`: 16.3.8 → 16.4.3 (патч октябрьских advisory, в т.ч. CVE-2026-94482).
+- UI-kit калькулятора **принят** (Switch…RangeField, Tooltip); следующий шаг — сборка калькулятора вклада.
+- RangeField: валюта в одном value с суммой; Backspace по ₽/пробелу → удаление цифры (`reconcileAmountDigits`).
+- Tooltip: hover / click (Popover), крестик, `--tooltip-bg`; helpers `amountFormat`, `formatPeriod`; стенд `/ui`.
 
 ### 2026-10-22
 
