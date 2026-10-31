@@ -3,13 +3,8 @@
 import styles from './Switch.module.scss'
 import { useRef } from 'react'
 
-interface SwitchOption {
-    label: string
-    value: string
-}
-
 interface SwitchProps {
-    options: SwitchOption[]
+    options: { label: string; value: string }[]
     value: string
     onChange: (value: string) => void
     ariaLabel?: string

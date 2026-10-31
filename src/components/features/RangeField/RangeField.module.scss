@@ -1,0 +1,17 @@
+@use '@/styles/breakpoints' as *;
+
+.rangeField {
+	width: 100%;
+}
+
+.rangeSliderInput input {
+	border-bottom: none;
+	border-bottom-right-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
+.rangeSlider {
+	margin-top: -8px;
+	position: relative;
+	z-index: 1;
+}
