@@ -17,6 +17,7 @@ export {
     CloseIcon,
     ChevronLeftIcon,
     ChevronRightIcon,
+    CalculatorFooterIcon,
     storeIcons,
     socialIcons
 } from './Icons'

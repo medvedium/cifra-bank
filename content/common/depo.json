@@ -1,0 +1,112 @@
+{
+  "rub": {
+    "quick": {
+      "title": "Быстрый доход",
+      "rate": 12.9,
+      "symbol": "₽",
+      "summa": 100000,
+      "min": 50000,
+      "max": 10000000,
+      "step": 10000,
+      "period": 2,
+      "periodInDays": 60,
+      "capitalization": "LWD",
+      "capPeriod": 1
+    },
+    "key": {
+      "title": "Ключевой",
+      "rate": [
+        {
+          "day": "365",
+          "rate": 12.8
+        },
+        {
+          "day": "730",
+          "rate": 13
+        }
+      ],
+      "rateMap": [
+        {
+          "period": "365",
+          "rate": 12.8
+        },
+        {
+          "period": "730",
+          "rate": 13
+        }
+      ],
+      "symbol": "₽",
+      "summa": 1000000,
+      "min": 100000,
+      "max": 15000000,
+      "step": 10000,
+      "period": 12,
+      "periodInDays": 365,
+      "capitalization": "LWD",
+      "capPeriod": 1
+    },
+    "free": {
+      "title": "Свободный",
+      "rate": 9.7,
+      "symbol": "₽",
+      "summa": 1000000,
+      "min": 100000,
+      "max": 10000000,
+      "step": 10000,
+      "period": 13,
+      "periodInDays": 395,
+      "capitalization": "LWD",
+      "capPeriod": 1
+    },
+    "cifra": {
+      "title": "Цифра вклад",
+      "rate": 12.6,
+      "rateMap": [
+        {
+          "period": "91",
+          "rate": 12.6
+        },
+        {
+          "period": "180",
+          "rate": 12.7
+        },
+        {
+          "period": "395",
+          "rate": 11.9
+        },
+        {
+          "period": "730",
+          "rate": 9.4
+        },
+        {
+          "period": "1095",
+          "rate": 8.5
+        }
+      ],
+      "symbol": "₽",
+      "summa": 1000000,
+      "min": 50000,
+      "max": 10000000,
+      "step": 10000,
+      "period": 13,
+      "periodInDays": 395,
+      "capitalization": "LWD",
+      "capPeriod": 1
+    }
+  },
+  "cny": {
+    "urgent": {
+      "title": "Срочный",
+      "rate": 0.01,
+      "symbol": "¥",
+      "summa": 10000,
+      "min": 10000,
+      "max": 10000000,
+      "step": 10000,
+      "period": 6,
+      "periodInDays": 180,
+      "capitalization": "LWD",
+      "capPeriod": 1
+    }
+  }
+}

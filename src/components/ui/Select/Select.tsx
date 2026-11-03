@@ -16,6 +16,7 @@ interface SelectProps {
     isDisabled?: boolean
     isSearchable?: boolean
     searchLabel?: string
+    className?: string
 }
 
 function highlightMatch(text: string, query: string) {
@@ -43,7 +44,8 @@ export default function SelectElement({
     label,
     isDisabled,
     isSearchable = true,
-    searchLabel
+    searchLabel,
+    className
 }: SelectProps) {
     const { contains } = useFilter({ sensitivity: 'base' })
     const [query, setQuery] = useState('')
@@ -82,7 +84,7 @@ export default function SelectElement({
             onChange={(key) => onChange(String(key))}
             isDisabled={isDisabled}
             name={name}
-            className={`${styles.select} ${value ? styles.filled : ''}`}
+            className={`${styles.select} ${value ? styles.filled : ''} ${className ? className : ''}`}
         >
             <Label className={styles.label}>{label}</Label>
             <Button className={styles.trigger}>
