@@ -1,5 +1,6 @@
 import {
     CorporateHomePage,
+    DepositsConfig,
     FooterContent,
     HomePage,
     Navigation,
@@ -55,4 +56,9 @@ export async function getNotFoundPage(): Promise<NotFoundPage> {
 // 2. Corporate
 export async function getCorporateHomePage(): Promise<HomePage> {
     return readJson<CorporateHomePage>('pages/corporate/mainpage.json')
+}
+
+// Получение настроек сайта
+export async function getDepo(): Promise<DepositsConfig> {
+    return readJson<DepositsConfig>('common/depo.json')
 }

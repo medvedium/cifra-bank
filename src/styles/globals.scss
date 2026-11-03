@@ -1,6 +1,7 @@
 @use 'variables' as *;
 @use '@/styles/breakpoints' as *;
 @use '@/styles/reset' as *;
+@use '@/styles/_ui.scss';
 
 *,
 *::before,

@@ -2,12 +2,12 @@
 
 > **Source of truth** для статуса работ. Любой новый чат: сначала прочитай этот файл (`@docs/roadmap.md`), бери задачу из **Next**, по завершении обнови статусы и **Changelog**.
 
-Обновлено: 2026-10-31
+Обновлено: 2026-11-03
 
 ## Next (что брать в работу)
 
-1. **Калькулятор вклада** — собрать из принятого UI-kit (Switch, ChipRadio, Toggle, Field, Select, RangeField, Tooltip) + helpers; контент/логика по макету или проду.
-2. **Главная — остальные секции с прода** (курсы валют, приложения, новости/актуальное и т.д.).
+1. **Калькулятор курсов валют на главной** — блок с прода (`#rates` / секция курсов); контент + UI, сверка с cifra-bank.ru.
+2. **Главная — остальные секции с прода** (приложения, новости/актуальное и т.д.).
 3. **Hero — хвосты** / **Theme toggler** — по приоритету.
 
 Порядок можно менять; в чате явно скажи, если берёшь не первый пункт.
@@ -30,7 +30,7 @@
 | Footer + city select | `done` | `src/components/layout/Footer` |
 | Theme toggler | `wip` | TODO в `src/app/layout.tsx` |
 | UI-kit (Button, Tabs, TextLink, Logo, Icons…) | `done` | Button + калькуляторный набор принят: ChipRadio, Toggle, Field, Select (RAC), RangeSlider, RangeField, Tooltip, Switch. Стенд `/ui`. Helpers: `amountFormat`, `formatPeriod` |
-| Калькулятор вклада | `todo` | Сборка из UI-kit; пока нет фиче-компонента страницы |
+| Калькулятор вклада | `done` | `DepositCalculator` на главной; `content/common/depo.json` + тексты в `home.json`; расчёт LWD/ED; тогглер только `rub:cifra` |
 | Cursor rules/skills | `done` | `.cursor/rules`, `.cursor/skills` |
 | Static export (`build:static`) | `done` | Скрипт в `package.json` |
 
@@ -42,7 +42,9 @@
 | Hero content + desktop images | `done` | `public/assets/images/homepage/` |
 | Hero modal CTA / mobile images / pixel polish | `todo` | Дизайн + доработки |
 | Популярные продукты | `done` | `CardLink`, картинки в `public/assets/images/homepage/` |
-| Остальные секции как на cifra-bank.ru | `todo` | Rates, apps, news… |
+| Калькулятор вклада | `done` | `src/components/features/DepositCalculator/*`, секция на `(retail)/page.tsx` |
+| Калькулятор / блок курсов валют | `todo` | Якорь `#rates` в hero; сверка с продом |
+| Остальные секции как на cifra-bank.ru | `todo` | Apps, news… |
 
 ### Другие страницы
 
@@ -55,6 +57,12 @@
 | 404 | `done` | `NotFound` + `content/pages/not-found.json` |
 
 ## Changelog (кратко, новые сверху)
+
+### 2026-11-03
+
+- Калькулятор вклада **принят**: фича `DepositCalculator`, UI-kit + `depo.json`, тексты из `home.json`.
+- Расчёт дохода по подходу calcDohod (LWD/ED); доходность из фактического income; дата старта с сервера (МСК).
+- Тогглер капитализации: whitelist `rub:cifra`; ChipRadio/Field для срока; overflow чипов на мобиле.
 
 ### 2026-10-31
 

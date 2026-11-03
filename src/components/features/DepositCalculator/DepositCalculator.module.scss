@@ -1,0 +1,158 @@
+@use '@/styles/breakpoints' as *;
+
+.depositCalculator {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 24px;
+	width: 100%;
+	min-width: 0;
+
+	@include from(lg) {
+		grid-template-columns: 7fr 5fr;
+	}
+}
+
+.unavailable {
+	color: var(--text-secondary);
+	font-size: var(--t1-size);
+	line-height: var(--t1-line-height);
+	text-align: center;
+}
+
+.controls {
+	display: flex;
+	flex-direction: column;
+	min-width: 0;
+	//gap: 48px;
+
+	.switch {
+		margin-bottom: 32px;
+
+		@include from(xl) {
+			margin-bottom: 48px;
+		}
+	}
+
+	.select {
+		margin-bottom: 32px;
+
+		@include from(xl) {
+			margin-bottom: 48px;
+		}
+	}
+
+	.period {
+		margin-bottom: 24px;
+		min-width: 0;
+		max-width: 100%;
+	}
+
+	.periodField {
+		margin-bottom: 32px;
+
+		@include from(xl) {
+			margin-bottom: 48px;
+		}
+	}
+
+	.toggle {
+		margin-top: 32px;
+
+		@include from(xl) {
+			margin-top: 48px;
+		}
+	}
+}
+
+.summary {
+	border-radius: 16px;
+	background-color: var(--background-secondary);
+	padding: 32px;
+
+}
+
+.summaryList {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 40px 48px;
+	align-self: start;
+	padding-bottom: 24px;
+	margin-bottom: 16px;
+	border-bottom: 1px solid var(--color-gray-border);
+
+	@include from(lg) {
+		padding-bottom: 24px;
+	}
+}
+
+.summaryItem {
+	display: flex;
+	flex-direction: column;
+	//gap: 4px;
+
+	&:has(.profit) {
+		width: 100%;
+	}
+
+	&.total {
+		width: 100%;
+	}
+}
+
+.summaryItemTitle {
+	color: var(--text-secondary);
+	font-size: var(--t1-size);
+	line-height: var(--t1-line-height);
+	font-weight: var(--t1-weight);
+}
+
+.summaryItemValue {
+	font-size: var(--total-item-size);
+	line-height: var(--total-item-line-height);
+	font-weight: var(--total-item-weight);
+}
+
+.profit {
+	font-size: var(--total-item-profit-size);
+	line-height: var(--total-item-line-profit-height);
+	font-weight: var(--total-item-profit-weight);
+}
+
+.disclaimer {
+	width: 100%;
+	color: var(--text-secondary);
+	font-size: var(--h5-size);
+	line-height: var(--h5-line-height);
+}
+
+.summaryCta {
+	margin-top: 24px;
+	width: 100%;
+
+	@include from(lg) {
+		margin-top: 40px;
+	}
+}
+
+.footer {
+	display: flex;
+	justify-content: space-between;
+	gap: 12px;
+	margin-top: 28px;
+
+	color: var(--text-secondary);
+	font-size: var(--t2-size);
+	line-height: var(--t2-line-height);
+	font-weight: var(--t2-weight);
+}
+
+.footerIcon {
+	flex-shrink: 0;
+	width: 32px;
+	height: 32px;
+
+	@include from(xl) {
+		width: 48px;
+		height: 48px;
+	}
+}

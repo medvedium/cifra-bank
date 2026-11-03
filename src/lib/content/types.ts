@@ -27,6 +27,15 @@ export interface Seo {
     description: string
 }
 
+/** Тексты блока калькулятора на странице (не тарифы — они в common/depo.json). */
+export interface DepositCalculatorContent {
+    title: string
+    disclaimer: string
+    footerText: string
+    buttonLabel: string
+    buttonHref: string
+}
+
 export interface HomePage {
     slug: string
     seo: Seo
@@ -34,6 +43,7 @@ export interface HomePage {
         items: HeroItem[]
     }
     products: Products
+    calculator: DepositCalculatorContent
 }
 
 export interface CorporateHomePage {
@@ -315,3 +325,36 @@ export type BreadcrumbItem = {
     label: string
     href?: string
 }
+
+export type DepoRateMapItem = {
+    period: string
+    rate: number
+}
+/** Вариант rate у «Ключевой»: ставка по дню. */
+export type DepoRateByDayItem = {
+    day: string
+    rate: number
+}
+
+/**
+ * Режимы капитализации из банковского калькулятора (calcDohod / main.js).
+ * Пустая строка — без капитализации (проценты «в конце» одним куском).
+ */
+export type DepoCapitalizationMode = 'LWD' | 'LWDF' | 'ED' | 'BFRP' | ''
+
+export type DepoProduct = {
+    title: string
+    rate: number | DepoRateByDayItem[]
+    rateMap?: DepoRateMapItem[]
+    symbol: string
+    summa: number
+    min: number
+    max: number
+    step: number
+    period: number
+    periodInDays: number
+    capitalization: DepoCapitalizationMode | string
+    capPeriod: number
+}
+/** currency code → product id → настройки */
+export type DepositsConfig = Record<string, Record<string, DepoProduct>>

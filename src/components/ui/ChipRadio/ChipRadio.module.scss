@@ -5,9 +5,13 @@
 	gap: 12px;
 	flex-wrap: nowrap;
 	overflow-x: auto;
-	overflow-y: visible;
+	overflow-y: hidden;
 	-ms-overflow-style: none; /* IE and Edge */
 	scrollbar-width: none;
+	max-width: 100%;
+	width: 100%;
+	min-width: 0;
+	overscroll-behavior-x: contain;
 
 	&::-webkit-scrollbar {
 		display: none;
@@ -15,12 +19,14 @@
 
 	&.wrap {
 		flex-wrap: wrap;
+		overflow-x: visible;
 	}
 
 	&Button {
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		flex-shrink: 0;
 		padding: 14px 24px;
 		border: transparent;
 		border-radius: 8px;

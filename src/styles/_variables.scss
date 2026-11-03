@@ -166,6 +166,16 @@
 	--banner-description-size: 16px;
 	--banner-description-line-height: 20px;
 	--banner-description-weight: 400;
+
+	// Calculator Total Profit
+	--total-item-profit-size: 40px;
+	--total-item-profit-line-height: 1.1;
+	--total-item-profit-weight: 500;
+
+	// Calculator Total Item
+	--total-item-size: 32px;
+	--total-item-line-height: 1.25;
+	--total-item-weight: 500;
 }
 
 @include from(md) {
@@ -231,6 +241,15 @@
 
 		--banner-description-size: 16px;
 		--banner-description-line-height: 22px;
+
+		// Calculator Total Profit
+		--total-item-profit-size: 56px;
+		--total-item-line-profit-height: 1.07;
+
+
+		// Calculator Total Item
+		--total-item-size: 40px;
+		--total-item-line-height: 1.22;
 	}
 }
 

@@ -7,8 +7,7 @@
 	display: flex;
 	padding: 4px;
 
-
-	@include from(md) {
+	@include from(xl) {
 		height: 64px;
 	}
 

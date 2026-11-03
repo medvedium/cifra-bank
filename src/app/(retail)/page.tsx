@@ -4,6 +4,7 @@ import { Metadata } from 'next'
 import { buildPageMetadata } from '@/lib/seo/metadata'
 import Hero from '@/components/features/Hero'
 import CardLink from '@/components/features/CardLink'
+import DepositCalculator from '@/components/features/DepositCalculator'
 
 export async function generateMetadata(): Promise<Metadata> {
     const page = await getHomePage()
@@ -30,6 +31,13 @@ export default async function Home() {
                             />
                         ))}
                     </div>
+                </div>
+            </section>
+
+            <section className="section">
+                <div className="container">
+                    <h2 className="section__title">{page.calculator.title}</h2>
+                    <DepositCalculator content={page.calculator} />
                 </div>
             </section>
         </>
