@@ -54,7 +54,7 @@ export async function getNotFoundPage(): Promise<NotFoundPage> {
 }
 
 // 2. Corporate
-export async function getCorporateHomePage(): Promise<HomePage> {
+export async function getCorporateHomePage(): Promise<CorporateHomePage> {
     return readJson<CorporateHomePage>('pages/corporate/mainpage.json')
 }
 
