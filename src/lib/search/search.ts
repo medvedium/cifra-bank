@@ -1,5 +1,13 @@
 import { getCorporateHomePage, getFooter, getHomePage, getNavigation } from '@/lib/content/loader'
-import type { FooterNavGroup, HomePage, MainMenuItem, MenuItem, Navigation, SearchHit } from '@/lib/content/types'
+import type {
+    CorporateHomePage,
+    FooterNavGroup,
+    HomePage,
+    MainMenuItem,
+    MenuItem,
+    Navigation,
+    SearchHit
+} from '@/lib/content/types'
 import { filterSearchHits, type SearchIndexEntry } from '@/lib/search/helpers'
 
 export {
@@ -123,7 +131,11 @@ function collectLinks(index: SearchIndex, links: MenuItem[], audience: 'retail' 
     }
 }
 
-function collectHome(index: SearchIndex, page: HomePage, audience: 'retail' | 'corporate') {
+function collectHome(
+    index: SearchIndex,
+    page: HomePage | CorporateHomePage,
+    audience: 'retail' | 'corporate'
+) {
     const keywords = audience === 'corporate' ? CORPORATE_KEYWORDS : RETAIL_KEYWORDS
     const fallbackCategory = audience === 'corporate' ? 'Продукты для юридических лиц' : 'Частным лицам'
 

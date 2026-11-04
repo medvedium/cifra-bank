@@ -9,6 +9,8 @@ import SelectElement from '@/components/ui/Select'
 import RangeField from '@/components/features/RangeField'
 import { formatAmount, type AmountCurrency } from '@/lib/helpers/amountFormat'
 import Tooltip from '@/components/ui/Tooltip'
+import FormFlow, { useFormFlowContext } from '@/components/features/FormFlow'
+import Button from '@/components/ui/Button'
 
 const switchOptions = [
     { value: 'rub', label: 'Рубли' },
@@ -45,6 +47,38 @@ const rangeMarks = [
     { value: 730, label: '730 дней' },
     { value: 1095, label: '1095 дней' }
 ]
+
+function DemoFields() {
+    const { submitFields, isPending } = useFormFlowContext()
+    const [firstname, setFirstname] = useState('Тест')
+    const [tel, setTel] = useState('+7 900 000-00-00')
+
+    return (
+        <div style={{ display: 'grid', gap: 12, maxWidth: 420 }}>
+            <Field
+                label="ФИО"
+                value={firstname}
+                name="firstname"
+                onChange={setFirstname}
+            />
+            <Field
+                label="Телефон"
+                value={tel}
+                name="tel"
+                type="tel"
+                onChange={setTel}
+            />
+            <Button
+                type="button"
+                loading={isPending}
+                disabled={isPending}
+                onClick={() => submitFields({ firstname, tel })}
+            >
+                Продолжить
+            </Button>
+        </div>
+    )
+}
 
 export default function UiPage() {
     const [currency, setCurrency] = useState<AmountCurrency>('rub')
@@ -191,8 +225,7 @@ export default function UiPage() {
                         content={
                             <>
                                 <p>
-                                    Условия зависят от <strong>валюты</strong>, срока и статуса
-                                    клиента.
+                                    Условия зависят от <strong>валюты</strong>, срока и статуса клиента.
                                 </p>
                                 <p>Подробности — в договоре по вкладу.</p>
                             </>
@@ -234,6 +267,14 @@ export default function UiPage() {
                         />
                     </div>
                 </div>
+            </section>
+
+            <section className="section">
+                <h2 className="section__title">FormFlow (демо)</h2>
+                <p style={{ marginBottom: 16 }}>Успех: код 123456. Ошибка submit: открой /ui?mock=error</p>
+                <FormFlow formId="demo" phoneField="tel">
+                    <DemoFields />
+                </FormFlow>
             </section>
         </div>
     )

@@ -2,13 +2,13 @@
 
 > **Source of truth** для статуса работ. Любой новый чат: сначала прочитай этот файл (`@docs/roadmap.md`), бери задачу из **Next**, по завершении обнови статусы и **Changelog**.
 
-Обновлено: 2026-11-03
+Обновлено: 2026-11-04
 
 ## Next (что брать в работу)
 
-1. **Калькулятор курсов валют на главной** — блок с прода (`#rates` / секция курсов); контент + UI, сверка с cifra-bank.ru.
-2. **Главная — остальные секции с прода** (приложения, новости/актуальное и т.д.).
-3. **Hero — хвосты** / **Theme toggler** — по приоритету.
+1. **Курсы валют на главной** — UI по `bank_source` / `ind-homepage` (`#rates`); common JSON курсов; модалка брони на FormFlow (mock submit).
+2. **SMS UX вторым проходом** — таймер resend, лимит попыток (после курсов или параллельно).
+3. **Главная — остальные секции** / Hero-хвосты / Theme toggler — по приоритету.
 
 Порядок можно менять; в чате явно скажи, если берёшь не первый пункт.
 
@@ -31,6 +31,7 @@
 | Theme toggler | `wip` | TODO в `src/app/layout.tsx` |
 | UI-kit (Button, Tabs, TextLink, Logo, Icons…) | `done` | Button + калькуляторный набор принят: ChipRadio, Toggle, Field, Select (RAC), RangeSlider, RangeField, Tooltip, Switch. Стенд `/ui`. Helpers: `amountFormat`, `formatPeriod` |
 | Калькулятор вклада | `done` | `DepositCalculator` на главной; `content/common/depo.json` + тексты в `home.json`; расчёт LWD/ED; тогглер только `rub:cifra` |
+| Shared FormFlow / mock forms API | `done` | `FormFlow` + context; zod; stub SMS `123456`; `app/api/forms/*`; `?mock=error`; демо на `/ui` |
 | Cursor rules/skills | `done` | `.cursor/rules`, `.cursor/skills` |
 | Static export (`build:static`) | `done` | Скрипт в `package.json` |
 
@@ -43,7 +44,7 @@
 | Hero modal CTA / mobile images / pixel polish | `todo` | Дизайн + доработки |
 | Популярные продукты | `done` | `CardLink`, картинки в `public/assets/images/homepage/` |
 | Калькулятор вклада | `done` | `src/components/features/DepositCalculator/*`, секция на `(retail)/page.tsx` |
-| Калькулятор / блок курсов валют | `todo` | Якорь `#rates` в hero; сверка с продом |
+| Калькулятор / блок курсов валют | `todo` | Эталон: `bank_source` (не прод). FormFlow готов — можно блок + бронь |
 | Остальные секции как на cifra-bank.ru | `todo` | Apps, news… |
 
 ### Другие страницы
@@ -58,8 +59,15 @@
 
 ## Changelog (кратко, новые сверху)
 
+### 2026-11-04
+
+- FormFlow **принят**: `fields→sms→result`, context вместо function-props, zod, mock API, stub `123456`, демо `/ui`.
+- Следующее: блок курсов `#rates` + модалка брони на FormFlow.
+
 ### 2026-11-03
 
+- Курсы валют / бронь: эталон — `bank_source` (`ind-homepage`), не текущий прод; фазы: FormFlow+mock → блок `#rates` + модалка (без реального submit).
+- FormFlow MVP (старт): shared steps, zod, stub SMS, mock API + `?mock=error`.
 - Калькулятор вклада **принят**: фича `DepositCalculator`, UI-kit + `depo.json`, тексты из `home.json`.
 - Расчёт дохода по подходу calcDohod (LWD/ED); доходность из фактического income; дата старта с сервера (МСК).
 - Тогглер капитализации: whitelist `rub:cifra`; ChipRadio/Field для срока; overflow чипов на мобиле.
