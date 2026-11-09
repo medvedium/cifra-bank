@@ -1,4 +1,8 @@
+@use 'sass:list';
 @use 'sass:map';
+@use 'sass:math';
+@use 'sass:meta';
+@use 'sass:string';
 
 $breakpoints: (
     md: 768px,
@@ -34,4 +38,49 @@ $breakpoints: (
     @media (min-width: breakpoint($from)) and (max-width: #{breakpoint($until) - 0.02px}) {
         @content;
     }
+}
+
+// До md — первое значение, между md и wide — линейно, после wide — второе.
+// @include fluid(font-size, 16px, 24px);
+// margin: fluid(16px, 40px) fluid(12px, 24px);
+@function _fluid-value($min, $max, $min-bp, $max-bp) {
+    @if meta.type-of($min) == 'number' and meta.type-of($max) == 'number' and $min == $max {
+        @return $min;
+    }
+
+    $preferred: string.unquote("calc(#{$min} + (#{$max} - #{$min}) * ((100vw - #{$min-bp}) / (#{$max-bp} - #{$min-bp})))");
+    $lower: $min;
+    $upper: $max;
+
+    @if meta.type-of($min) == 'number' and meta.type-of($max) == 'number' and math.compatible($min, $max) and $min > $max {
+        $lower: $max;
+        $upper: $min;
+    }
+
+    @return string.unquote("clamp(#{$lower}, #{$preferred}, #{$upper})");
+}
+
+@function fluid($min, $max, $min-bp: breakpoint(md), $max-bp: breakpoint(wide)) {
+    $min-is-list: meta.type-of($min) == 'list';
+    $max-is-list: meta.type-of($max) == 'list';
+
+    @if $min-is-list or $max-is-list {
+        @if not $min-is-list or not $max-is-list or list.length($min) != list.length($max) {
+            @error "fluid(): оба аргумента должны быть списками одной длины, например 16px 12px и 32px 24px.";
+        }
+
+        $result: ();
+
+        @for $i from 1 through list.length($min) {
+            $result: list.append($result, _fluid-value(list.nth($min, $i), list.nth($max, $i), $min-bp, $max-bp), space);
+        }
+
+        @return $result;
+    }
+
+    @return _fluid-value($min, $max, $min-bp, $max-bp);
+}
+
+@mixin fluid($property, $min, $max, $min-bp: breakpoint(md), $max-bp: breakpoint(wide)) {
+    #{$property}: fluid($min, $max, $min-bp, $max-bp);
 }

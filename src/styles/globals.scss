@@ -116,6 +116,7 @@ body {
 .text-t1,
 .text-t2,
 .text-t3,
+.text-t4,
 .text-caption {
     font-family: var(--font-main), sans-serif;
 }
@@ -138,11 +139,12 @@ body {
     line-height: var(--t3-line-height);
 }
 
+.text-t4,
 .text-caption {
-    font-size: var(--caption-size);
-    font-weight: var(--caption-weight);
-    letter-spacing: var(--caption-letter-spacing);
-    line-height: var(--caption-line-height);
+    font-size: var(--t4-size);
+    font-weight: var(--t4-weight);
+    letter-spacing: var(--t4-letter-spacing);
+    line-height: var(--t4-line-height);
     text-transform: uppercase;
 }
 

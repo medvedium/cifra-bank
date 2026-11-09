@@ -81,9 +81,9 @@
     background: var(--background-secondary);
     color: var(--text-main);
     font-family: inherit;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 1.29;
+    font-size: var(--t1-size);
+    font-weight: var(--t1-weight);
+    line-height: var(--t1-line-height);
     appearance: none;
 
     &::placeholder {
@@ -179,9 +179,9 @@
     background: transparent;
     color: var(--text-secondary);
     font-family: inherit;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 1.2;
+    font-size: var(--button-small-size);
+    font-weight: var(--button-weight);
+    line-height: var(--button-small-line-height);
     cursor: pointer;
 }
 
@@ -195,9 +195,9 @@
     padding: 0;
     list-style: none;
     font-family: var(--font-heading), sans-serif;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 1.25;
+    font-size: var(--h4-size);
+    font-weight: var(--h4-weight);
+    line-height: var(--h4-line-height);
 }
 
 .nav > li {
@@ -238,9 +238,9 @@
     border-top: 1px solid var(--lines-grey);
     list-style: none;
     font-family: var(--font-main), sans-serif;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 1.25;
+    font-size: var(--t1-size);
+    font-weight: var(--t1-weight);
+    line-height: var(--t1-line-height);
 
     &[hidden] {
         display: none;
@@ -274,8 +274,8 @@
     gap: 8px;
     margin-bottom: 24px;
     color: var(--text-main);
-    font-size: 16px;
-    line-height: 1.25;
+    font-size: var(--t1-size);
+    line-height: var(--t1-line-height);
     text-decoration: none;
 
     svg {

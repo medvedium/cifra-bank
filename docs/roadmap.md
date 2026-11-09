@@ -2,13 +2,12 @@
 
 > **Source of truth** для статуса работ. Любой новый чат: сначала прочитай этот файл (`@docs/roadmap.md`), бери задачу из **Next**, по завершении обнови статусы и **Changelog**.
 
-Обновлено: 2026-11-04
+Обновлено: 2026-11-10
 
 ## Next (что брать в работу)
 
-1. **Курсы валют на главной** — UI по `bank_source` / `ind-homepage` (`#rates`); common JSON курсов; модалка брони на FormFlow (mock submit).
-2. **SMS UX вторым проходом** — таймер resend, лимит попыток (после курсов или параллельно).
-3. **Главная — остальные секции** / Hero-хвосты / Theme toggler — по приоритету.
+1. **Private Banking** — новый раздел в этом приложении (`/private-banking`). Отдельный чат, когда будет макет и список страниц.
+2. **Курсы валют на главной** — пауза. UI по `bank_source` / `ind-homepage` (`#rates`); common JSON; модалка брони на FormFlow (mock submit). Потом SMS UX (таймер resend, лимит попыток).
 
 Порядок можно менять; в чате явно скажи, если берёшь не первый пункт.
 
@@ -33,18 +32,19 @@
 | Калькулятор вклада | `done` | `DepositCalculator` на главной; `content/common/depo.json` + тексты в `home.json`; расчёт LWD/ED; тогглер только `rub:cifra` |
 | Shared FormFlow / mock forms API | `done` | `FormFlow` + context; zod; stub SMS `123456`; `app/api/forms/*`; `?mock=error`; демо на `/ui` |
 | Cursor rules/skills | `done` | `.cursor/rules`, `.cursor/skills` |
+| Типографика | `done` | `fluid` 768–1440 в `:root`; line-height `1.3`; Header 6 Bold; caption desktop 14. Hero: заголовок h1, текст t1, бейдж t4 |
 | Static export (`build:static`) | `done` | Скрипт в `package.json` |
 
 ### Главная `/`
 
 | Блок | Статус | Файлы / заметки |
 |------|--------|-----------------|
-| Hero (Banner / Slider / Inform, Swiper) | `done` | `src/components/features/Hero/*`, 11 слайдов в `content/pages/home.json` |
+| Hero (Banner / Slider / Inform, Swiper) | `done` | Шрифты на ролях, отступ Inform и точки слайдера на `fluid`. 11 слайдов в `content/pages/home.json` |
 | Hero content + desktop images | `done` | `public/assets/images/homepage/` |
 | Hero modal CTA / mobile images / pixel polish | `todo` | Дизайн + доработки |
 | Популярные продукты | `done` | `CardLink`, картинки в `public/assets/images/homepage/` |
 | Калькулятор вклада | `done` | `src/components/features/DepositCalculator/*`, секция на `(retail)/page.tsx` |
-| Калькулятор / блок курсов валют | `todo` | Эталон: `bank_source` (не прод). FormFlow готов — можно блок + бронь |
+| Калькулятор / блок курсов валют | `todo` | Пауза. Эталон: `bank_source` (не прод). FormFlow готов — блок + бронь |
 | Остальные секции как на cifra-bank.ru | `todo` | Apps, news… |
 
 ### Другие страницы
@@ -56,8 +56,20 @@
 | Offices `/offices-and-atms` | `wip` | Заготовка маршрута |
 | Corporate `/corporate`, SBP, RKO | `wip` | На главной ЮЛ продукты через `CardLink`. Остальные маршруты — каркас |
 | 404 | `done` | `NotFound` + `content/pages/not-found.json` |
+| Private Banking `/private-banking` | `todo` | Редизайн сразу здесь, после типографики. Ссылка уже в `content/footer.json` |
 
 ## Changelog (кратко, новые сверху)
+
+### 2026-11-10
+
+- Hero: бейдж на t4, заголовок карточки Inform берёт вес h5. Точки слайдера в ритме padding баннера, справа не ближе ширины стрелки. Токен `--banner-mark-border` убран.
+- Отступ блока под баннером — `fluid(32px, 64px)`.
+
+### 2026-11-09
+
+- Типографика: роли h1–h6, t1–t4 и кнопки берут размер из `fluid`/`clamp` между mobile и desktop (768–1440). Line-height ролей — `1.3`. Лесенка шрифтов `from(md)` убрана. Header 6 — Bold, caption (t4) на desktop — 14. Лесенка Hero title/mark/description не менялась.
+- Сырые `font-size: Npx` посажены на роли шкалы. Цифра 404 (100/140) вне шкалы, оставлена как есть.
+- Курсы валют на паузе. Следующий раздел — Private Banking.
 
 ### 2026-11-04
 

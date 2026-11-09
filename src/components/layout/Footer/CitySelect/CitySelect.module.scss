@@ -28,9 +28,9 @@
     border-radius: 8px;
     background: var(--footer-surface);
     color: var(--footer-text);
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 1.25;
+    font-size: var(--button-small-size);
+    font-weight: var(--button-weight);
+    line-height: var(--button-small-line-height);
     cursor: pointer;
     transition:
         color 0.25s,
@@ -88,9 +88,9 @@
     border: 0;
     background: transparent;
     color: var(--footer-panel-text);
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 1.25;
+    font-size: var(--t1-size);
+    font-weight: var(--t1-weight);
+    line-height: var(--t1-line-height);
 
     &:focus {
         outline: none;
@@ -116,8 +116,8 @@
     overflow-x: hidden;
     overflow-y: auto;
     list-style: none;
-    font-size: 16px;
-    line-height: 1.25;
+    font-size: var(--t1-size);
+    line-height: var(--t1-line-height);
 
     li + li {
         margin-top: 8px;
@@ -150,6 +150,5 @@
 
     .cityToggle {
         height: 48px;
-        font-size: 14px;
     }
 }

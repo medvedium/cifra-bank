@@ -1,23 +1,7 @@
 @use '@/styles/breakpoints' as *;
 
 .informWrapper {
-	margin-top: 32px;
-
-	@include from(md) {
-		margin-top: 32px;
-	}
-
-	@include from(tablet) {
-		margin-top: 48px;
-	}
-
-	@include from(xl) {
-		margin-top: 56px;
-	}
-
-	@include from(wide) {
-		margin-top: 64px;
-	}
+	margin-top: fluid(32px, 64px);
 }
 
 .informInner {
@@ -47,25 +31,15 @@
 
 .informTitle {
 	font-family: var(--font-heading), sans-serif;
-	font-size: 16px;
-	line-height: 1.25;
-	font-weight: 500;
+	font-size: var(--t1-size);
+	line-height: var(--t1-line-height);
+	font-weight: var(--h5-weight);
 	margin: 0;
-
-	@include from(xl) {
-		font-size: 18px;
-		line-height: 1.33;
-	}
 }
 
 .informDescription {
 	margin: 0;
-	font-size: 16px;
-	line-height: 1.25;
+	font-size: var(--t1-size);
+	line-height: var(--t1-line-height);
 	color: var(--text-secondary);
-
-	@include from(xl) {
-		font-size: 18px;
-		line-height: 1.33;
-	}
 }

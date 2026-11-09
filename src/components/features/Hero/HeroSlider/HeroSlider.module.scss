@@ -21,8 +21,8 @@
 		@include from(md) {
 			justify-content: flex-end;
 			position: absolute;
-			bottom: 80px;
-			right: 80px;
+			bottom: fluid(32px, 56px);
+			right: max(48px, #{fluid(40px, 70px)});
 			left: auto;
 			margin: 0;
 			width: fit-content;
