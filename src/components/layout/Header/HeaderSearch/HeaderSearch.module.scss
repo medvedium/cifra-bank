@@ -125,9 +125,9 @@
     background: none;
     color: var(--text-main);
     font-family: inherit;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 24px;
+    font-size: var(--t2-size);
+    font-weight: var(--t2-weight);
+    line-height: var(--t2-line-height);
     appearance: none;
 
     &:focus-visible {

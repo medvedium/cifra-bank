@@ -40,9 +40,9 @@
     color: #fff;
 
     font-family: var(--font-heading), sans-serif;
-    font-size: 26px;
-    font-weight: 500;
-    line-height: 32px;
+    font-size: var(--h3-size);
+    font-weight: var(--h3-weight);
+    line-height: var(--h3-line-height);
 }
 
 .description {
@@ -52,13 +52,9 @@
 
     color: #fff;
 
-    font-size: 16px;
-    line-height: normal;
-
-    @include from(md) {
-        font-size: 18px;
-        line-height: 24px;
-    }
+    font-size: var(--t1-size);
+    font-weight: var(--t1-weight);
+    line-height: var(--t1-line-height);
 }
 
 .link {
@@ -68,8 +64,9 @@
 
     margin-bottom: 32px;
 
-    font-size: 18px;
-    line-height: 24px;
+    font-size: var(--t1-size);
+    font-weight: var(--t1-weight);
+    line-height: var(--t1-line-height);
     text-decoration: none;
 }
 

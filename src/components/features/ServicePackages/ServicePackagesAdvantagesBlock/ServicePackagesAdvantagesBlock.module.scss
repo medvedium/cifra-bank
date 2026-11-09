@@ -7,7 +7,10 @@
 
 .title {
     margin-bottom: 40px;
-    font-size: 40px;
+    font-family: var(--font-heading), sans-serif;
+    font-size: var(--h2-size);
+    font-weight: var(--h2-weight);
+    line-height: var(--h2-line-height);
     text-align: center;
 }
 
