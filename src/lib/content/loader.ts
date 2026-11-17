@@ -6,6 +6,7 @@ import {
     Navigation,
     NotFoundPage,
     PrivatePage,
+    RatesConfig,
     SearchPage,
     ServicePackagesPage,
     SiteInfo
@@ -67,4 +68,8 @@ export async function getPrivateBankingPage(): Promise<PrivatePage> {
 // Получение настроек сайта
 export async function getDepo(): Promise<DepositsConfig> {
     return readJson<DepositsConfig>('common/depo.json')
+}
+
+export async function getRates(): Promise<RatesConfig> {
+    return readJson<RatesConfig>('common/rates.json')
 }

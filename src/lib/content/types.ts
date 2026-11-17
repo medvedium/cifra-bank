@@ -36,6 +36,44 @@ export interface DepositCalculatorContent {
     buttonHref: string
 }
 
+/** Id вкладки блока курсов (кроме служебного titles.calc). */
+export type ExchangeRatesTabId = 'office' | 'online' | 'cards'
+
+/** Тексты блока курсов на странице (цифры — в common/rates.json). */
+export interface ExchangeRatesContent {
+    title: string
+    subtitle: string
+    tabs: { id: ExchangeRatesTabId; value: string }[]
+    titles: {
+        office: string
+        online: string
+        cards: string
+        calc: string
+    }
+    labels: {
+        currency: string
+        buy: string
+        sell: string
+        sellCol: string
+        buyCol: string
+        amount: string
+        amountPlaceholder: string
+        youGet: string
+        buyAction: string
+        sellAction: string
+        officeSelect: string
+        updatedPrefix: string
+        documentsHint: string
+        documentsLink: string
+    }
+    ctas: {
+        online: { label: string; href: string }
+        officeReserve: { label: string }
+        cards: { label: string; href: string }
+    }
+    disclaimer: string
+}
+
 export interface HomePage {
     slug: string
     seo: Seo
@@ -44,6 +82,7 @@ export interface HomePage {
     }
     products: Products
     calculator: DepositCalculatorContent
+    rates?: ExchangeRatesContent
 }
 
 export interface CorporateHomePage {
@@ -376,3 +415,38 @@ export type DepoProduct = {
 }
 /** currency code → product id → настройки */
 export type DepositsConfig = Record<string, Record<string, DepoProduct>>
+
+/** Пара курсов: банк покупает / продаёт (с точки зрения клиента на проде: Купить / Продать). */
+export type ExchangeRatePair = {
+    buy: number
+    sell: number
+}
+
+export type ExchangeOfficeRates = {
+    code: string
+    label: string
+    cityId: string
+    cityName: string
+    /** Код валюты → buy/sell. Пусто, если для офиса нет данных в снимке. */
+    rates: Record<string, ExchangeRatePair>
+}
+
+/** Снимок курсов из common/rates.json (не live API). */
+export type RatesConfig = {
+    meta: {
+        source: string
+        city: string
+        capturedAt?: string
+        disclaimer?: string
+        note?: string
+    }
+    updated: {
+        online: string
+        office: string
+        cards: string
+    }
+    defaultOfficeCode: string
+    online: Record<string, ExchangeRatePair>
+    cards: Record<string, ExchangeRatePair>
+    offices: ExchangeOfficeRates[]
+}
