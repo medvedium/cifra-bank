@@ -2,11 +2,12 @@ import styles from './Breadcrumbs.module.scss'
 import { BreadcrumbItem } from '@/lib/content/types'
 import Link from 'next/link'
 
-type BreadcrumbsProps = {
+interface BreadcrumbsProps {
     items: BreadcrumbItem[]
+    wide?: boolean
 }
 
-export default function Breadcrumbs({ items }: BreadcrumbsProps) {
+export default function Breadcrumbs({ items, wide = true }: BreadcrumbsProps) {
     const home = items.find((item) => item.href)
 
     if (!home?.href) {
@@ -14,7 +15,7 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
     }
 
     return (
-        <div className="container container--wide">
+        <div className={wide ? 'container container--wide' : 'container'}>
             <nav className={styles.breadcrumbs} aria-label={'Хлебные крошки'}>
                 <Link
                     href={home.href}
