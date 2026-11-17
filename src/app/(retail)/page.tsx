@@ -5,7 +5,6 @@ import { buildPageMetadata } from '@/lib/seo/metadata'
 import Hero from '@/components/features/Hero'
 import CardLink from '@/components/features/CardLink'
 import DepositCalculator from '@/components/features/DepositCalculator'
-import ExchangeRates from '@/components/features/ExchangeRates'
 
 export async function generateMetadata(): Promise<Metadata> {
     const page = await getHomePage()
@@ -41,15 +40,6 @@ export default async function Home() {
                     <DepositCalculator content={page.calculator} />
                 </div>
             </section>
-
-            {page.rates ? (
-                <section className="section" id="rates">
-                    <div className="container">
-                        <h2 className="section__title">{page.rates.title}</h2>
-                        <ExchangeRates content={page.rates} />
-                    </div>
-                </section>
-            ) : null}
         </>
     )
 }
