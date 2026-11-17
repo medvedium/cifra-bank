@@ -5,7 +5,7 @@ import React from 'react'
 import Link from 'next/link'
 
 type ButtonColor = 'primary' | 'secondary' | 'white' | 'dark' | 'error'
-type ButtonVariant = 'contained' | 'text'
+type ButtonVariant = 'contained' | 'text' | 'outline'
 type ButtonSize = 'large' | 'medium' | 'small'
 
 interface ButtonProps {
