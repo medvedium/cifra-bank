@@ -55,6 +55,24 @@ export interface CorporateHomePage {
     products: Products
 }
 
+export interface PrivateAnchor {
+    id: string
+    label: string
+}
+
+export interface PrivatePartner {
+    slug: string
+    title: string
+    partnerName: string
+}
+
+export interface PrivatePage {
+    slug: string
+    seo: Seo
+    anchors: PrivateAnchor[]
+    partners: PrivatePartner[]
+}
+
 export interface Products {
     title: string
     items: HomeProduct[]

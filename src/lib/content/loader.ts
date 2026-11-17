@@ -5,6 +5,7 @@ import {
     HomePage,
     Navigation,
     NotFoundPage,
+    PrivatePage,
     SearchPage,
     ServicePackagesPage,
     SiteInfo
@@ -56,6 +57,11 @@ export async function getNotFoundPage(): Promise<NotFoundPage> {
 // 2. Corporate
 export async function getCorporateHomePage(): Promise<CorporateHomePage> {
     return readJson<CorporateHomePage>('pages/corporate/mainpage.json')
+}
+
+// 3. Private Banking
+export async function getPrivateBankingPage(): Promise<PrivatePage> {
+    return readJson<PrivatePage>('pages/private/mainpage.json')
 }
 
 // Получение настроек сайта
