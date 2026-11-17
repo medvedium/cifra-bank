@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from 'next'
 import localFont from 'next/font/local'
 
 import '@/styles/globals.scss'
-import ThemeToggler from '@/components/features/ThemeToggler'
 import ThemeInitScript from '@/components/features/ThemeToggler/ThemeInitScript'
 
 const gtAmerica = localFont({
@@ -111,7 +110,6 @@ export default function RootLayout({
             <body>
                 <ThemeInitScript />
                 {children}
-                <ThemeToggler />
             </body>
         </html>
     )
