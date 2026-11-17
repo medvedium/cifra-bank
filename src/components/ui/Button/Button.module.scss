@@ -111,6 +111,49 @@
     }
 }
 
+.button.outline {
+    background: transparent;
+    border: 1px solid currentColor;
+    color: var(--text-main);
+}
+
+.outline.primary {
+    color: var(--icons-dark-green);
+}
+
+.outline.secondary {
+    color: var(--text-secondary);
+}
+
+.outline.white {
+    color: var(--text-light);
+
+    &::before {
+        background: rgba(255, 255, 255, 0.15);
+    }
+}
+
+.outline.dark {
+    color: var(--text-dark);
+}
+
+.outline.error {
+    color: var(--text-red);
+}
+
+.outline.medium {
+    height: 44px;
+    padding: 10px 32px;
+    font-size: 14px;
+    line-height: 18px;
+
+    @include from(md) {
+        gap: 12px;
+        height: 44px;
+        padding: 10px 32px;
+    }
+}
+
 .button.text {
     background: transparent;
     color: var(--text-main);

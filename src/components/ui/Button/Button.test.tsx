@@ -38,6 +38,22 @@ describe('Button', () => {
         expect(screen.getByRole('button', { name: 'Оформить' })).toBeDisabled()
     })
 
+    it('outline white добавляет классы варианта', () => {
+        render(
+            <Button
+                variant="outline"
+                color="white"
+                size="medium"
+            >
+                Получить консультацию
+            </Button>
+        )
+        const button = screen.getByRole('button', { name: 'Получить консультацию' })
+        expect(button.className).toMatch(/outline/)
+        expect(button.className).toMatch(/white/)
+        expect(button.className).toMatch(/medium/)
+    })
+
     it('loading оставляет имя и не вызывает onClick', () => {
         const onClick = vi.fn()
         render(

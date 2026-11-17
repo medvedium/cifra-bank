@@ -1,0 +1,40 @@
+{
+    "slug": "/private-banking",
+    "seo": {
+        "title": "Private Banking | «Цифра банк»",
+        "description": "Private Banking в «Цифра банк» ✔\uFE0F первоклассное частное банковское обслуживание для физических и юридических лиц — малого и среднего бизнеса: пакет услуг prime private banking ⭐"
+    },
+    "anchors": [
+        { "id": "vozmozhnosti", "label": "Возможности" },
+        { "id": "vklady", "label": "Вклады" },
+        { "id": "nakopitelny-schet", "label": "Накопительный счёт" },
+        { "id": "partnery", "label": "Партнеры Lifestyle" }
+    ],
+    "partners": [
+        {
+            "slug": "yuridicheskie-uslugi-i-nalogovyy-konsalting",
+            "title": "Юридические услуги и налоговый консалтинг",
+            "partnerName": "Emet Law Firm"
+        },
+        {
+            "slug": "chastnaya-aviatsiya",
+            "title": "Частная авиация",
+            "partnerName": "GetJet"
+        },
+        {
+            "slug": "auto",
+            "title": "Авто",
+            "partnerName": "G-PRIVATE"
+        },
+        {
+            "slug": "nedvizhimost-v-rossii-i-zarubezhom-vnzh-pmzh",
+            "title": "Недвижимость в России и за рубежом, ВНЖ, ПМЖ",
+            "partnerName": "Whitewill"
+        },
+        {
+            "slug": "premialnye-zastroyshchiki",
+            "title": "Премиальные застройщики",
+            "partnerName": "Capital Group"
+        }
+    ]
+}

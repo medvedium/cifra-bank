@@ -2,6 +2,7 @@ import type { ReactNode } from 'react'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import { getNavigation, getSiteInfo } from '@/lib/content/loader'
+import ThemeToggler from '@/components/features/ThemeToggler'
 
 interface SiteShellProps {
     children: ReactNode
@@ -29,6 +30,7 @@ export default async function SiteShell({ audience, children }: SiteShellProps) 
                 site={site}
                 audience={audience}
             />
+            <ThemeToggler />
         </>
     )
 }
