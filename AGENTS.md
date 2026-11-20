@@ -11,6 +11,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 ## Cursor agent guidance
 
 - **Roadmap (SOT):** `docs/roadmap.md` — статус и следующие шаги. Новый чат: `@docs/roadmap.md`. По завершении задачи — обновить файл.
+- **Ветка:** новый этап не в `main` — в начале работы назвать ветку и переключиться (`feature/…` / `fix/…` / `chore/…`; skills `site-roadmap`, `git-pr-prep`).
 - Rules: `.cursor/rules/*.mdc` (workflow, roadmap, content JSON, components).
 - Skills: `.cursor/skills/*/SKILL.md`:
   - `site-roadmap` — читать/обновлять `docs/roadmap.md`
