@@ -2,11 +2,11 @@
 
 > **Source of truth** для статуса работ. Любой новый чат: сначала прочитай этот файл (`@docs/roadmap.md`), бери задачу из **Next**, по завершении обнови статусы и **Changelog**.
 
-Обновлено: 2026-11-10
+Обновлено: 2026-11-20
 
 ## Next (что брать в работу)
 
-1. **Private Banking** — новый раздел в этом приложении (`/private-banking`). Отдельный чат, когда будет макет и список страниц.
+1. **Private Banking — блок «Для тех, кто хочет большего»** на `/private-banking` по макету (desktop/mobile), контент в `content/pages/private/mainpage.json`. Hero уже принят (`HeroPrivate`, glass CTA, overlay-шапка).
 2. **Курсы валют на главной** — пауза. UI по `bank_source` / `ind-homepage` (`#rates`); common JSON; модалка брони на FormFlow (mock submit). Потом SMS UX (таймер resend, лимит попыток).
 
 Порядок можно менять; в чате явно скажи, если берёшь не первый пункт.
@@ -28,7 +28,7 @@
 | Header / MobileMenu / Search в шапке | `done` | `src/components/layout/Header` |
 | Footer + city select | `done` | `src/components/layout/Footer` |
 | Theme toggler | `wip` | TODO в `src/app/layout.tsx` |
-| UI-kit (Button, Tabs, TextLink, Logo, Icons…) | `done` | Button + калькуляторный набор принят: ChipRadio, Toggle, Field, Select (RAC), RangeSlider, RangeField, Tooltip, Switch. Стенд `/ui`. Helpers: `amountFormat`, `formatPeriod` |
+| UI-kit (Button, Tabs, TextLink, Logo, Icons…) | `done` | Button (+ `glass`), ArrowRightLongIcon; калькуляторный набор: ChipRadio, Toggle, Field, Select (RAC), RangeSlider, RangeField, Tooltip, Switch. Стенд `/ui`. Helpers: `amountFormat`, `formatPeriod` |
 | Калькулятор вклада | `done` | `DepositCalculator` на главной; `content/common/depo.json` + тексты в `home.json`; расчёт LWD/ED; тогглер только `rub:cifra` |
 | Shared FormFlow / mock forms API | `done` | `FormFlow` + context; zod; stub SMS `123456`; `app/api/forms/*`; `?mock=error`; демо на `/ui` |
 | Cursor rules/skills | `done` | `.cursor/rules`, `.cursor/skills` |
@@ -56,9 +56,19 @@
 | Offices `/offices-and-atms` | `wip` | Заготовка маршрута |
 | Corporate `/corporate`, SBP, RKO | `wip` | На главной ЮЛ продукты через `CardLink`. Остальные маршруты — каркас |
 | 404 | `done` | `NotFound` + `content/pages/not-found.json` |
-| Private Banking `/private-banking` | `todo` | Редизайн сразу здесь, после типографики. Ссылка уже в `content/footer.json` |
+| Private Banking `/private-banking` | `wip` | Hero `done` (`HeroPrivate`). Дальше: «Для тех, кто хочет большего», затем секции по якорям |
 
 ## Changelog (кратко, новые сверху)
+
+### 2026-11-20
+
+- Private Banking: hero «Возможности без границ» принят (`HeroPrivate`, JSON, overlay-шапка, glass CTA).
+- UI: вариант Button `glass`, `ArrowRightLongIcon`; browserslist для `backdrop-filter` в CSS Modules.
+- Next: блок «Для тех, кто хочет большего» на `/private-banking`.
+
+### 2026-11-17
+
+- Private Banking: каркас в main; старт лендинга — hero по макету (ментор-чат). Roadmap: Private → `wip`, Next уточнён.
 
 ### 2026-11-10
 

@@ -2,6 +2,7 @@
 
 .button {
     position: relative;
+    box-sizing: border-box;
     isolation: isolate;
     display: inline-flex;
     align-items: center;
@@ -151,6 +152,93 @@
         gap: 12px;
         height: 44px;
         padding: 10px 32px;
+    }
+}
+
+.button.glass {
+    // Figma Glass: fill #ffffff1f, lightAngle −45° → блик сверху/слева
+    isolation: auto;
+    background: var(--button-glass-bg, #ffffff1f);
+    color: var(--text-white, #fff);
+    border: 0;
+    // кромка через inset (strokes в макете пустые, край даёт эффект Glass)
+    box-shadow:
+        inset 0 1px 0 rgb(255 255 255 / 42%),
+        inset 1px 0 0 rgb(255 255 255 / 28%),
+        inset 0 -1px 0 rgb(255 255 255 / 10%),
+        inset -1px 0 0 rgb(255 255 255 / 12%);
+    // литералы: var()/saturate() внутри filter Turbopack может выкинуть
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+    transition:
+        background-color 0.3s,
+        color 0.3s,
+        box-shadow 0.3s;
+
+    &::before {
+        content: none;
+    }
+
+    &:hover:not(:disabled) {
+        background: var(--button-glass-bg-hover, #ffffff33);
+        box-shadow:
+            inset 0 1px 0 rgb(255 255 255 / 50%),
+            inset 1px 0 0 rgb(255 255 255 / 34%),
+            inset 0 -1px 0 rgb(255 255 255 / 12%),
+            inset -1px 0 0 rgb(255 255 255 / 14%);
+    }
+}
+
+.glass.white {
+    color: var(--text-white, #fff);
+}
+
+.glass.primary {
+    color: var(--text-dark);
+    background: color-mix(in srgb, var(--background-primary) 88%, transparent);
+
+    &:hover:not(:disabled) {
+        background: color-mix(in srgb, var(--background-primary) 96%, transparent);
+    }
+}
+
+.glass.secondary {
+    color: var(--text-main);
+    background: color-mix(in srgb, var(--background-secondary) 88%, transparent);
+
+    &:hover:not(:disabled) {
+        background: color-mix(in srgb, var(--background-secondary) 96%, transparent);
+    }
+}
+
+.glass.dark {
+    color: var(--text-light);
+    background: rgb(0 0 0 / 28%);
+
+    &:hover:not(:disabled) {
+        background: rgb(0 0 0 / 40%);
+    }
+}
+
+.glass.error {
+    color: var(--text-red);
+    background: color-mix(in srgb, var(--background-light-red) 88%, transparent);
+
+    &:hover:not(:disabled) {
+        background: color-mix(in srgb, var(--background-light-red) 96%, transparent);
+    }
+}
+
+.glass.large {
+    gap: 16px;
+    height: 64px;
+    padding: 20px 32px;
+    font-size: 18px;
+    line-height: 24px;
+
+    @include from(md) {
+        height: 64px;
+        padding: 20px 32px;
     }
 }
 

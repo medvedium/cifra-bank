@@ -13,12 +13,22 @@ description: >-
 
 User wants to ship work but first needs a **plan** (or an executed commit/PR). Default: **propose the plan, do not commit/push** until they say «коммить», «пуш», «создай PR».
 
+Also used when **starting a stage**: if still on `main`, name the branch and switch before feature edits (see `site-roadmap` / `project-workflow`).
+
 ## Workflow
 
 1. Inspect (read-only): `git status`, `git diff` / `git diff --stat`, `git log -8 --oneline`, current branch vs `main`.
 2. **Split unrelated changes** into separate branches/PRs (Hero ≠ Footer spacing ≠ Cursor skills, unless user wants one dump).
 3. Output a fixed template (Russian is fine for messages — match recent `git log` style).
 4. Only after explicit approval: create branch if needed, `git add` listed files only, commit via HEREDOC, push, `gh pr create`.
+
+## Start of a stage (before coding)
+
+If `git branch --show-current` is `main`/`master` (or work belongs on a new branch):
+
+1. Propose one name from the Naming table below (e.g. `feature/private-banking-hero`).
+2. Create/switch (`git checkout -b …`) unless the user forbids it.
+3. Tell the user the branch name in the same reply as the first assignment.
 
 ## Output template (always)
 

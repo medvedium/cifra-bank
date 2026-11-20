@@ -6,6 +6,7 @@ export {
     VkIcon,
     TelegramIcon,
     ArrowRightIcon,
+    ArrowRightLongIcon,
     BioIcon,
     FeedbackIcon,
     OnlineCallIcon,

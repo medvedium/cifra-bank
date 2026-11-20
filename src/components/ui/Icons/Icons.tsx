@@ -168,6 +168,23 @@ export function ArrowRightIcon({ className }: IconProps) {
     )
 }
 
+/** Длинная стрелка из Private Banking (icon_x24_arrow-right). */
+export function ArrowRightLongIcon({ className }: IconProps) {
+    return (
+        <Icon
+            className={className}
+            viewBox="0 0 24.061 24"
+            width={24}
+            height={24}
+        >
+            <path
+                d="M14.1211 5.25589C14.5648 6.54605 15.9701 7.96847 17.9023 9.13382C19.809 10.2838 22.0806 11.0921 24.0605 11.252V12.7481C22.0806 12.908 19.809 13.7163 17.9023 14.8662C15.9701 16.0316 14.5648 17.454 14.1211 18.7442L12.7021 18.2559C13.3173 16.4672 15.0887 14.8104 17.127 13.5811C17.6223 13.2823 18.1431 13.0041 18.6787 12.75H0V11.25H18.6787C18.1431 10.996 17.6223 10.7178 17.127 10.419C15.0887 9.18963 13.3173 7.53289 12.7021 5.74417L14.1211 5.25589Z"
+                fill="currentColor"
+            />
+        </Icon>
+    )
+}
+
 export function BioIcon({ className }: IconProps) {
     return (
         <Icon

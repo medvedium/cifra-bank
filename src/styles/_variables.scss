@@ -8,6 +8,7 @@
 	--text-secondary: #6b7782;
 	--text-third: #9798a0;
 	--text-light: #fafbfc;
+	--text-white: #ffffff;
 	--text-green: #0ae15f;
 	--text-red: #e97070;
 	--text-disabled: #b2b7ba;
@@ -252,6 +253,8 @@ html:has([data-palette='private']) {
 	--header-cta-color: var(--accent);
 	--header-divider: rgb(25 25 25 / 12%);
 	--button-radius: 16px;
+	--button-glass-bg: #ffffff1f;
+	--button-glass-bg-hover: #ffffff33;
 }
 
 html:has([data-header='overlay']) {

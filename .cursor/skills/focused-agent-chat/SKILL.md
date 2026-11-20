@@ -20,7 +20,7 @@ description: >-
   (или явно: <одна цель>)
 Файлы: @docs/roadmap.md @path1 @path2
 Режим: ментор. Код пишет пользователь. Агент проверяет решения и даёт следующее задание. Код агент пишет только если пользователь явно попросил.
-Ограничения: не коммитить / не трогать X / pnpm
+Ограничения: pnpm; не коммитить без просьбы; не работать в main — в начале этапа новая ветка
 По завершении: обновить @docs/roadmap.md (статусы, Next, Changelog)
 Критерий готовности: <как проверить>
 ```
@@ -28,7 +28,8 @@ description: >-
 ## Agent behavior in the new chat
 
 1. Read `@docs/roadmap.md` first, then only the named feature files.
-2. Follow `.cursor/rules` and project skills; don’t re-ask settled conventions.
-3. Don’t summarize old mega-threads — work from roadmap + code.
-4. Mentor mode from the brief: review the user’s code and give the next assignment. Write code only when the user explicitly asks.
-5. When the task is accepted/done, update the roadmap (skill `site-roadmap`).
+2. **Branch at start of the stage:** if on `main`/`master` (or unrelated branch), propose a name (`feature/…` / `fix/…` / `chore/…`) and create/switch before code changes. Tell the user the branch name.
+3. Follow `.cursor/rules` and project skills; don’t re-ask settled conventions.
+4. Don’t summarize old mega-threads — work from roadmap + code.
+5. Mentor mode from the brief: review the user’s code and give the next assignment. Write code only when the user explicitly asks.
+6. When the task is accepted/done, update the roadmap (skill `site-roadmap`).
