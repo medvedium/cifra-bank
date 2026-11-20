@@ -1,0 +1,111 @@
+@use '@/styles/breakpoints' as *;
+
+.hero {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	// overflow:hidden ломает backdrop-filter у glass-кнопки
+	// компенсируем padding-block: 16px у .main
+	margin-top: -16px;
+	min-height: 452px;
+	color: var(--text-white);
+
+	@include from(lg) {
+		min-height: 916px;
+	}
+}
+
+.media {
+	position: absolute;
+	inset: 0;
+	overflow: hidden;
+	// без z-index: иначе stacking context у .inner режет backdrop-filter у glass
+}
+
+.image {
+	object-fit: cover;
+	// mobile: катер ближе к центру баннера
+	object-position: center center;
+
+	@include from(lg) {
+		object-position: center bottom;
+	}
+}
+
+.inner {
+	position: relative;
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	justify-content: space-between;
+	gap: 24px;
+	padding-top: 180px;
+	padding-bottom: 64px;
+
+	@include from(lg) {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 1fr auto;
+		align-items: stretch;
+		gap: 32px;
+		padding-top: 200px;
+		padding-bottom: 80px;
+	}
+}
+
+.copy {
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+
+	@include from(lg) {
+		display: contents;
+	}
+}
+
+.title {
+	margin: 0;
+	color: var(--text-white);
+	font-size: fluid(32px, 72px);
+	line-height: var(--h1-line-height);
+	font-weight: var(--h1-weight);
+	font-family: var(--font-heading), sans-serif;
+
+	@include from(lg) {
+		grid-column: 1;
+		grid-row: 2;
+		align-self: end;
+	}
+}
+
+.description {
+	margin: 0;
+	color: var(--text-white);
+
+	@include from(lg) {
+		grid-column: 2;
+		grid-row: 1;
+		justify-self: end;
+		max-width: 36rem;
+		text-align: right;
+	}
+}
+
+.actions {
+	@include until(lg) {
+		width: 100%;
+	}
+
+	@include from(lg) {
+		grid-column: 2;
+		grid-row: 2;
+		justify-self: end;
+		align-self: end;
+	}
+}
+
+.button {
+	@include until(lg) {
+		width: 100%;
+	}
+}

@@ -4,6 +4,27 @@
         "title": "Private Banking | «Цифра банк»",
         "description": "Private Banking в «Цифра банк» ✔\uFE0F первоклассное частное банковское обслуживание для физических и юридических лиц — малого и среднего бизнеса: пакет услуг prime private banking ⭐"
     },
+    "hero": {
+        "title": "Возможности <br /> без границ",
+        "description": "Интеллектуальные решения, персональное сопровождение и технологии будущего — для тех, кто ценит время, контроль и приватность",
+        "cta": [
+            {
+                "label": "Получить консультацию",
+                "href": "#request",
+                "action": "scroll",
+                "color": "white",
+                "variant": "glass"
+            }
+        ],
+        "image": {
+            "alt": "",
+            "desktop": {
+                "src": "/assets/images/private/img-private-hero-bg.jpg",
+                "width": 1920,
+                "height": 906
+            }
+        }
+    },
     "anchors": [
         { "id": "vozmozhnosti", "label": "Возможности" },
         { "id": "vklady", "label": "Вклады" },

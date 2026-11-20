@@ -2,11 +2,11 @@
 
 > **Source of truth** для статуса работ. Любой новый чат: сначала прочитай этот файл (`@docs/roadmap.md`), бери задачу из **Next**, по завершении обнови статусы и **Changelog**.
 
-Обновлено: 2026-11-10
+Обновлено: 2026-11-17
 
 ## Next (что брать в работу)
 
-1. **Private Banking** — новый раздел в этом приложении (`/private-banking`). Отдельный чат, когда будет макет и список страниц.
+1. **Private Banking — hero лендинга** `/private-banking`: секция «Возможности без границ» по макету (desktop/mobile), контент из `content/pages/private/mainpage.json`. Каркас (layout, Header/FooterPrivate, палитра, partners) уже в main.
 2. **Курсы валют на главной** — пауза. UI по `bank_source` / `ind-homepage` (`#rates`); common JSON; модалка брони на FormFlow (mock submit). Потом SMS UX (таймер resend, лимит попыток).
 
 Порядок можно менять; в чате явно скажи, если берёшь не первый пункт.
@@ -56,9 +56,13 @@
 | Offices `/offices-and-atms` | `wip` | Заготовка маршрута |
 | Corporate `/corporate`, SBP, RKO | `wip` | На главной ЮЛ продукты через `CardLink`. Остальные маршруты — каркас |
 | 404 | `done` | `NotFound` + `content/pages/not-found.json` |
-| Private Banking `/private-banking` | `todo` | Редизайн сразу здесь, после типографики. Ссылка уже в `content/footer.json` |
+| Private Banking `/private-banking` | `wip` | Каркас в main. В работе: hero «Возможности без границ». Дальше — секции по якорям |
 
 ## Changelog (кратко, новые сверху)
+
+### 2026-11-17
+
+- Private Banking: каркас в main; старт лендинга — hero по макету (ментор-чат). Roadmap: Private → `wip`, Next уточнён.
 
 ### 2026-11-10
 

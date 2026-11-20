@@ -4,6 +4,12 @@
 	position: relative;
 	z-index: 1000;
 	color: var(--header-color);
+
+	:global(html:has([data-header='overlay'])) & {
+		position: absolute;
+		inset-inline: 0;
+		top: 0;
+	}
 }
 
 .topbar {
@@ -110,9 +116,8 @@
 		margin: -1px 0 0 -9px;
 		border-radius: 2px;
 		background: currentColor;
-		transition:
-			transform 0.25s,
-			opacity 0.25s;
+		transition: transform 0.25s,
+		opacity 0.25s;
 
 		&:nth-of-type(1) {
 			transform: translateY(-5px);

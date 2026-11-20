@@ -108,8 +108,23 @@ export interface PrivatePartner {
 export interface PrivatePage {
     slug: string
     seo: Seo
+    hero: PrivateHero
     anchors: PrivateAnchor[]
     partners: PrivatePartner[]
+}
+
+export interface PrivateHero {
+    title: string
+    description: string
+    cta: HeroCta[]
+    image: {
+        alt: string
+        desktop: {
+            src: string
+            width: number
+            height: number
+        }
+    }
 }
 
 export interface Products {
@@ -125,7 +140,7 @@ export interface HeroCta {
     /** Устаревший стиль из CMS. Если нет color/variant, HeroBanner читает primary, secondary, white, dark, error и text. */
     className?: string
     color?: 'primary' | 'secondary' | 'white' | 'dark' | 'error'
-    variant?: 'contained' | 'text'
+    variant?: 'contained' | 'text' | 'outline' | 'glass'
     action?: HeroCtaAction
     /** URL для link/blank/modal или CSS-селектор / #id для scroll. */
     href?: string
