@@ -54,6 +54,21 @@ describe('Button', () => {
         expect(button.className).toMatch(/medium/)
     })
 
+    it('glass white добавляет классы варианта', () => {
+        render(
+            <Button
+                variant="glass"
+                color="white"
+            >
+                Получить консультацию
+            </Button>
+        )
+        const button = screen.getByRole('button', { name: 'Получить консультацию' })
+        expect(button.className).toMatch(/glass/)
+        expect(button.className).toMatch(/white/)
+        expect(button.className).toMatch(/large/)
+    })
+
     it('loading оставляет имя и не вызывает onClick', () => {
         const onClick = vi.fn()
         render(
