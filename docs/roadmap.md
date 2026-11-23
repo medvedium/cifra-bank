@@ -2,7 +2,7 @@
 
 > **Source of truth** для статуса работ. Любой новый чат: сначала прочитай этот файл (`@docs/roadmap.md`), бери задачу из **Next**, по завершении обнови статусы и **Changelog**.
 
-Обновлено: 2026-11-20
+Обновлено: 2026-11-23
 
 ## Next (что брать в работу)
 
@@ -24,7 +24,7 @@
 
 | Область | Статус | Заметки |
 |---------|--------|---------|
-| Каркас Next (app router, layout, SEO helpers) | `done` | См. `src/app`, `src/lib` |
+| Каркас Next (app router, layout, SEO helpers) | `done` | `next` / `eslint-config-next` 16.4.6. См. `src/app`, `src/lib` |
 | Header / MobileMenu / Search в шапке | `done` | `src/components/layout/Header` |
 | Footer + city select | `done` | `src/components/layout/Footer` |
 | Theme toggler | `wip` | TODO в `src/app/layout.tsx` |
@@ -59,6 +59,10 @@
 | Private Banking `/private-banking` | `wip` | Hero `done` (`HeroPrivate`). Дальше: «Для тех, кто хочет большего», затем секции по якорям |
 
 ## Changelog (кратко, новые сверху)
+
+### 2026-11-23
+
+- `next` и `eslint-config-next`: 16.4.3 → 16.4.6 (включает фиксы 16.4.5 + backport Turbopack GC / compression).
 
 ### 2026-11-20
 
